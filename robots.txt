@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /htdocs/ 
+Allow: /htdocs/staging/
