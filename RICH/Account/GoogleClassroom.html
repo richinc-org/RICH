@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<script>
+
+var userInfo;
+getUserInfo();
+if (userInfo == ""){
+  //window.location.href = "../notLogin.html";
+}
+
+function getUserInfo(){
+  mode = "getInfo";
+
+  var xhttp = new XMLHttpRequest();
+  var url = "../php/UsersRICH.php";
+  var params = "mode=" + mode;
+
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200){
+      userInfo = this.responseText;
+    }
+  };
+
+  xhttp.open("POST", url, false);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send(params);
+}
+
+</script>
+
+<head>
+  <title>RICH &mdash; Reach Into Cultural Heights</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico" />
+
+  <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Work+Sans:300,400,700" rel="stylesheet">
+  <link rel="stylesheet" href="../fonts/icomoon/style.css">
+
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/magnific-popup.css">
+  <link rel="stylesheet" href="../css/jquery-ui.css">
+  <link rel="stylesheet" href="../css/owl.carousel.min.css">
+  <link rel="stylesheet" href="../css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="../css/bootstrap-datepicker.css">
+  <link rel="stylesheet" href="../css/animate.css">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/mediaelementplayer.min.css">
+
+  <link rel="stylesheet" href="../fonts/flaticon/font/flaticon.css">
+
+  <link rel="stylesheet" href="../css/aos.css">
+
+  <link rel="stylesheet" href="../css/style.css">
+
+</head>
+<body>
+
+  <div class="site-wrap">
+
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div> <!-- .site-mobile-menu -->
+
+    <div id = "myLogo" style = "padding: 0;" class="site-navbar-wrap js-site-navbar bg-white">
+
+      <div class="container-fluid">
+
+        <div class="text-center">
+          <a href = "../index.html"><img class = "img-fluid" src="../images/LOGO-Larger.png"  href="../index.html" alt="..."></a>
+        </div>
+
+        <div class="site-navbar bg-light">
+          <div class="py-1">
+            <div class="row align-items-left">
+
+              <div class="col-12">
+                <nav class="site-navigation text-right" role="navigation">
+                  <div class="container-fluid">
+                    <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+
+                    <ul class="site-menu js-clone-nav d-none d-lg-block">
+
+                      <li style="float:left;">
+                        <div style="font-size: 27px;" id="userInfo">
+
+                        </div>
+                      </li>
+                      <li><a style="font-size: 16px;"
+                          href="https://www.richinc.org/RICH/Account/portal-home.html">Home</a></li>
+                      <li class="has-children">
+                        <a style="font-size: 16px;" href="https://www.richinc.org/RICH/Account/weekly-writings.php">RICH
+                          Reflective Writing</a>
+                        <ul class="dropdown arrow-top">
+                          <li><a href="https://www.richinc.org/RICH/Account/weekly-writings.php">Weekly-Writings</a></li>
+                          <li><a href="https://www.richinc.org/RICH/Account/mywritings.php">My Writings</a></li>
+                          <li><a href="https://www.richinc.org/RICH/Account/group-discussion.html">Group Discussion</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="activelink" style="font-size: 16px;" href="https://www.richinc.org/RICH/Account/redirect.html">Google
+                          Classroom</a></li>
+                      <li><a style="font-size: 16px;"
+                          href="https://www.richinc.org/RICH/Account/profile.html">Personal-Profile</a></li>
+                      <li><a style="font-size: 16px;"
+                          href="https://www.richinc.org/RICH/Account/projects.html">Projects</a></li>
+                      <li><a style="font-size: 16px;"
+                          href="https://www.richinc.org/RICH/Account/SafeSpace.html">Safe-Space</a></li>
+                      <li> <a href="logout.php"><button style="font-size: 16px;" class="portalbutton"> LOGOUT </button></a></li>
+
+
+                    </ul>
+                  </div>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id = "logoHeight" style="height: 400px;"></div>
+
+
+    <!--<div id "logoHeight" style="height: 250px;"></div>-->
+
+    <div style="padding-bottom: 100px;" class="text-center">
+      <div id = "piaContainer" class="container">
+        <div class = "col-md-10 mx-auto no-sidebar" >
+          <div id = "assignmentContainer" class="shapely-content">
+
+            <div class = "row">
+              <div class = "col-lg-6 col-md-6 col-sm-6 text-left"> <h4> My Classes </h4> </div>
+              <div class = "col-lg-6 col-md-6 col-sm-6 text-right"> <button class = "btn btn-primary" onclick = "refresh()"> Refresh </button></div>
+            </div>
+            <br><br>
+
+            <div class= "card-groups" id = "classes"> </div>
+
+            <h4 class = "text-center">If you want to improve on strengthening your core skills for academic success check out <a href = "https://www.comfit.com/login/default.asp" class = "imbeddedlink">Comfit Learning</a></h4>
+            <!--<button onclick = "showModal()" type="button" class="btn btn-info btn-lg">Open Modal</button>-->
+            <div class = "container">
+              <div class="modal fade" id="badgeModal" role="dialog">
+                <div style = "width: 96%;" class="modal-dialog modal-lg" style = "max-height: 100%; overflow-y: hidden;">
+
+                  <!-- Modal content-->
+                  <div class="modal-content" style = "max-height: 100vh; overflow-y: auto;">
+                    <h2 style = "margin: 0 auto;">Congratulations</h2><br><br>
+                    <div id = "badgeModalBody" style = "padding-left: 25px; padding-right: 25px;">
+                      <h3 id = "badgeHeader" class = "text-center"></h3><br>
+                      <div id = "badgesRow" class = "row"> </div><br><br>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <div class = "container">
+              <div class="modal fade" id="survey" role="dialog">
+                <div  style = "width: 96%;" class="modal-dialog modal-lg">
+
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                    <h1 class = "text-center"> Quick Survey </h1>
+                    <img style = "width: 30%; margin: 0 auto;" src="../images/LOGO.png"><br>
+                    <div id = "modalContent"> </div>
+                    <!--
+                    <div class="modal-header">
+                    <h4 id = "assignmentTitle" style = "margin: 0 auto;" class="modal-title"> </h4>
+                  </div>
+                  <div class="modal-body">
+                  <p class = "text-center" id = "surveryQuestion"> </p>
+                  <textarea style = "width: 100%;" id = "surveyAnswer"> </textarea>
+                </div>
+              -->
+              <div style = "display: none" id = "emptyAnswer" class = "container">
+                <div class="alert alert-danger" role="alert">
+                  You must provide an answer.
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button onclick = "handleAnswer()" type="button" id = "submitButton" class="btn btn-default">Submit</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <br><br><br><br><br><br><br><br><br>
+
+    </div>
+  </div>
+</div>
+</div>
+
+
+<footer class="site-footer">
+  <div class="container">
+
+    <div class="row">
+      <div class="col">
+        <p class="text-center">
+            Email: rich@att.net
+            <br>
+            Phone: (929) 242-9036
+            <br>
+            Address: Tech Incubator at Queens College, 65-30 Kissena Blvd, Flushing, NY 11367
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+         <br>
+          Copyright &copy;
+          <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+          <script>document.write(new Date().getFullYear());</script> All Rights Reserved | This template is made by <a
+            href="https://colorlib.com" target="_blank">Colorlib</a>
+          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+        </p>
+      </div>
+
+    </div>
+  </div>
+</footer>
+</div>
+
+<script src="../js/jquery-3.3.1.min.js"></script>
+<script src="../js/jquery-migrate-3.0.1.min.js"></script>
+<script src="../js/jquery-ui.js"></script>
+<script src="../js/popper.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/owl.carousel.min.js"></script>
+<script src="../js/jquery.stellar.min.js"></script>
+<script src="../js/jquery.countdown.min.js"></script>
+<script src="../js/jquery.magnific-popup.min.js"></script>
+<script src="../js/bootstrap-datepicker.min.js"></script>
+<script src="../js/aos.js"></script>
+
+
+<script src="../js/mediaelement-and-player.min.js"></script>
+
+<script src="../js/main.js"></script>
+
+<script>
+
+window.onscroll = function() {
+
+  if (window.pageYOffset > 20) {
+    document.getElementById("myLogo").style.top = "-260px";
+    document.getElementById("logoHeight").style.height = "220px";
+  } else {
+    document.getElementById("myLogo").style.top = "0px";
+    document.getElementById("logoHeight").style.height = "400px";
+  }
+}
+
+var profileData = [];
+getProfileData();
+if (profileData[0].FirstName == ""){
+  window.location.href = "../notLogin.html";
+}
+var lastName = profileData[0].LastName;
+document.getElementById("userInfo").innerHTML = "Hi " + profileData[0].FirstName + " " + lastName.substring(0,1) + ".";
+
+var principle;
+var checkTurned = 0;
+
+var Classes = [];
+getStudentClasses();
+
+//var CourseWork = [];
+//getCourseWork();
+
+var Status = [];
+var turnedIN = [];
+//getStudentAnnouncements();
+
+displayData(Classes);
+
+var turnedINValue = 1;
+checkTurnedIn(Status, turnedIN);
+
+function displayData(Classes){
+  var ac = document.getElementById("classes");
+  //var br = document.createElement("BR");
+
+  // We divide the say of the array by 3 since every class has 3 values in the array: Name, ID and Link
+  var i = 0;
+  while (i != Classes.length){
+    var card = document.createElement("div");
+    card.className = "card";
+
+    var centeredImage = document.createElement("div");
+    centeredImage.className = "text-center";
+
+    var cardImage = document.createElement("img");
+    cardImage.className = "card-img-top";
+    cardImage.style.width = "60%";
+    cardImage.src = "../images/Classroom.png";
+
+    centeredImage.append(cardImage);
+
+    card.appendChild(centeredImage);
+
+    var cardBody = document.createElement("div");
+    cardBody.className = "card-body mx-auto";
+    cardBody.style.width = "80%";
+
+    var className = document.createElement("h5");
+    className.className = "card-title";
+    className.style.font = "italic bold 30px arial,serif";
+    var classNameText = document.createTextNode(Classes[i]);
+    className.appendChild(classNameText);
+    i++;
+
+    cardBody.appendChild(className);
+    cardBody.appendChild(document.createElement("br"));
+    cardBody.appendChild(document.createElement("br"));
+    cardBody.appendChild(document.createElement("br"));
+
+    var courseID = Classes[i];
+    CourseWork = [];
+    getCourseWork(CourseWork, courseID);
+    i++;
+
+    getAssignmentStatus(courseID);
+
+    if (CourseWork.length != 0){
+      var assignmentHeader = document.createElement("h3");
+      var AssignmentSection = document.createTextNode("Assignments");
+      assignmentHeader.appendChild(AssignmentSection);
+      assignmentHeader.style.textDecoration = "underline";
+      assignmentHeader.style.textAlign = "center";
+      cardBody.appendChild(assignmentHeader);
+      cardBody.appendChild(document.createElement("br"));
+      cardBody.appendChild(document.createElement("br"));
+
+      var j = 0;
+
+      var assignmentDIV = document.createElement("div");
+      assignmentDIV.className = "text-center";
+
+      while (j != CourseWork.length){
+        if (checkStatus(CourseWork, Status, j)) j++;
+
+        else {
+          var assignmentID = CourseWork[j][0];
+          //j++;
+
+          var assignmentROW = document.createElement("div");
+          assignmentROW.className = "text-center assignmentROW";
+          //assignmentROW.style.width = "80%";
+
+          assignmentROW.onmouseover = function(){
+            this.style.transform = "scale(1.1,1.0)";
+          }
+
+          assignmentROW.onmouseout = function(){
+            this.style.transform = "scale(1.0,1.0)";
+          }
+
+          var assignment = document.createElement("a");
+          var title = CourseWork[j][1];
+          var assignmentTitle = document.createTextNode(CourseWork[j][1]);
+          assignment.appendChild(assignmentTitle);
+          //j++;
+          assignment.href = CourseWork[j][2];
+          //alert(CourseWork[j][2]);
+          assignment.target = "_blank";
+          assignment.style.fontSize = "18px";
+          j++;
+          assignmentROW.appendChild(assignment);
+          assignmentDIV.appendChild(assignmentROW);
+          //getAssignmentStatus(title, courseID, assignmentID);
+
+          //cardBody.append(assignmentDIV);
+          //cardBody.append(document.createElement("br"));
+        }
+      }
+      cardBody.append(assignmentDIV);
+    }
+
+    //if (numberC == 4) showModal();
+
+    var a = document.createElement('a');
+    a.className = "btn btn-primary";
+    var linkText = document.createTextNode("Go To Classroom");
+    a.appendChild(linkText);
+    a.href = Classes[i];
+    a.target = "_blank";
+    i++;
+
+    cardBody.appendChild(document.createElement("br"));
+    cardBody.appendChild(document.createElement("br"));
+    cardBody.appendChild(a);
+
+    card.appendChild(cardBody);
+
+    ac.appendChild(card);
+    ac.appendChild(document.createElement("br"));
+    ac.appendChild(document.createElement("br"));
+  }
+}
+
+function checkStatus(CourseWork, Status, j){
+  var check = false;
+  for (var i = 0; i < Status.length; i++){
+    if (Status[i][1] == CourseWork[j][0]){
+      check = true;
+      break;
+    }
+  }
+  return check;
+}
+
+function checkTurnedIn(Status, turnedIN){
+  var i = 0;
+  while(i < Status.length){
+    getTurnedIN(Status[i][1]);
+    if ((Status[i][2] == "TURNED_IN") && (checkTurned != 1)){
+      populateSurvey(Status[i][0], Status[i][1]);
+      turnedIN.push(Status[i]);
+    }
+    i++;
+  }
+  if (turnedIN.length != 0) $('#survey').modal('show');
+}
+
+function getTurnedIN(AssignmentID){
+  mode = "getTurnedIN";
+
+  var xhttp = new XMLHttpRequest();
+  var url = "../php/SurveyAnswers.php";
+  var params = "mode=" + mode + "&AssignmentID=" + AssignmentID;
+
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200){
+      checkTurned = this.responseText;
+    }
+  };
+
+  xhttp.open("POST", url, false);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send(params);
+}
+
+function populateSurvey(title, id){
+
+  var modalContent = document.getElementById("modalContent");
+  modalContent.style.paddingLeft = "25px";
+  modalContent.style.paddingRight = "25px";
+
+  var titleHolder = document.createElement("h4");
+  titleHolder.style.margin = "0 auto";
+
+  var select = document.createElement("select");
+  select.style.width = "100%";
+  select.id = "principles" + id;
+  select.onchange = function(){
+    checkPrinciple(this.id);
+  }
+
+  var option1 = document.createElement("option");
+  option1.value = "matter";
+  option1.defaultSelected = true;
+  var option1Text = document.createTextNode("matter");
+  option1.appendChild(option1Text);
+
+  var option2 = document.createElement("option");
+  option2.value = "considerate";
+  var option2Text = document.createTextNode("considerate");
+  option2.appendChild(option2Text);
+
+  var option3 = document.createElement("option");
+  option3.value = "responsible";
+  var option3Text = document.createTextNode("responsible");
+  option3.appendChild(option3Text);
+
+  var option4 = document.createElement("option");
+  option4.value = "strategies";
+  var option4Text = document.createTextNode("strategies");
+  option4.appendChild(option4Text);
+
+  select.appendChild(option1);
+  select.appendChild(option2);
+  select.appendChild(option3);
+  select.appendChild(option4);
+
+  var titleText = document.createTextNode("You recently turned in " + title);
+  titleHolder.appendChild(titleText);
+
+  var modalHeader = document.createElement("div");
+  modalHeader.className = "text-center";
+  modalHeader.appendChild(titleHolder);
+  modalHeader.appendChild(document.createElement("br"));
+
+  var modalBody = document.createElement("div");
+  var surveyQuestionDIV = document.createElement("p");
+
+  var surveyQuestion = document.createTextNode("Which principle did you learn the most after this session?");
+  surveyQuestionDIV.appendChild(surveyQuestion);
+
+  var answerDIV = document.createElement("textarea");
+  answerDIV.id = "answer" + id;
+  answerDIV.style.width = "100%";
+
+  modalBody.appendChild(surveyQuestionDIV);
+  modalBody.appendChild(select);
+  modalBody.appendChild(answerDIV);
+  modalBody.appendChild(document.createElement("br"));
+
+  modalContent.appendChild(modalHeader);
+  modalContent.appendChild(modalBody);
+  modalContent.appendChild(document.createElement("hr"));
+
+  /*
+  <div class="modal-header">
+  <h4 id = "assignmentTitle" style = "margin: 0 auto;" class="modal-title"> </h4>
+  </div>
+  <div class="modal-body">
+  <p class = "text-center" id = "surveyQuestion"> </p>
+  <textarea style = "width: 100%;" id = "surveyAnswer"> </textarea>
+  </div>
+  */
+}
+
+function checkPrinciple(id){
+  principle = document.getElementById(id).value;
+}
+
+function getCourseWork(CourseWork, courseID){
+  mode = "getCourseWork";
+
+  var xhttp = new XMLHttpRequest();
+  var url = "https://www.richinc.org/RICH/GoogleClassroom/classAPI.php";
+  var params = "mode=" + mode + "&course=" + courseID;
+
+  xhttp.open("POST", url, false);
+
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200){
+      var myArray = JSON.parse(this.responseText);
+      if (myArray.length != 0){
+        for (var i = 0; i < myArray.length; i++){
+          CourseWork.push(myArray[i]);
+        }
+      }
+    }
+  };
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send(params);
+}
+
+function getStudentClasses(){
+  mode = "getClasses";
+
+  var xhttp = new XMLHttpRequest();
+  var url = "https://www.richinc.org/RICH/GoogleClassroom/classAPI.php";
+  var params = "mode=" + mode;
+
+  xhttp.open("POST", url, false);
+
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200){
+      myArray = JSON.parse(this.responseText);
+      if (myArray.length != 0){
+        for (var i = 0; i < myArray.length; i++){
+          Classes.push(myArray[i]);
+        }
+      }
+    }
+  };
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send(params);
+}
+
+function getAssignmentStatus(courseID){
+  mode = "getAssignmentStatus";
+
+  var xhttp = new XMLHttpRequest();
+  var url = "https://www.richinc.org/RICH/GoogleClassroom/classAPI.php?mode=" + mode + "&course=" + courseID;
+  //var params = "mode=" + mode + "&course=" + courseID;
+
+  xhttp.open("GET", url, false);
+
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200){
+      var myArray = JSON.parse(this.responseText);
+      if (myArray.length != 0){
+        for (var i = 0; i < myArray.length; i++){
+          Status.push(myArray[i]);
+        }
+      }
+    }
+  };
+  xhttp.send();
+}
+
+function getUserInfo(){
+  mode = "getInfo";
+
+  var xhttp = new XMLHttpRequest();
+  var url = "../php/UsersRICH.php";
+  var params = "mode=" + mode;
+
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200){
+      userInfo = this.responseText;
+    }
+  };
+
+  xhttp.open("POST", url, false);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send(params);
+}
+
+function handleAnswer(){
+  for (var i = 0; i < turnedIN.length; i++){
+    var Answer = document.getElementById("answer" + turnedIN[i][1]).value;
+    var selValue = document.getElementById("principles" + turnedIN[i][1]).value;
+
+    if (Answer != ""){
+      earnBadge(selValue);
+      addAnswer(turnedIN[i][1], turnedIN[i][0], Answer, selValue, turnedINValue);
+
+      $('#survey').modal('hide');
+
+      $('#badgeModal').modal('show');
+
+      setTimeout(function(){
+        $('#badgeModal').modal('toggle');
+      }, 3000);
+
+    }
+    else {
+      displayError();
+    }
+  }
+}
+
+function displayError(){
+  document.getElementById("emptyAnswer").style.display = "block";
+}
+
+function earnBadge(principleChosen){
+  var badgeModalBody = document.getElementById("badgeModalBody");
+  var badgesRow = document.getElementById("badgesRow");
+
+  var badgeHeader = document.getElementById("badgeHeader");
+  if (badgeHeader.innerHTML == ""){
+    var headerText;
+    if (turnedIN.length == 1) headerText = document.createTextNode("You Have Won a Badge");
+    else headerText = document.createTextNode("You Have Won These Badges");
+
+    badgeHeader.appendChild(headerText);
+  }
+
+  var img = document.createElement("img");
+  img.className = "col-md-4 col-lg-4";
+  img.style.margin = "0 auto";
+  img.id = "phoneBadge";
+  img.style.height = "50%";
+  img.style.width = "50%";
+  img.src =  "../images/" + principleChosen + "Badge.png";
+
+  badgesRow.appendChild(img);
+}
+
+function addAnswer(AssignmentID, AssignmentName, Answer, topic, turnedINValue){
+  mode = "addSurveyResponse";
+
+  var xhttp = new XMLHttpRequest();
+  var url = "../php/SurveyAnswers.php";
+  var params = "mode=" + mode + "&AssignmentID=" + AssignmentID + "&AssignmentName=" + AssignmentName + "&Answer=" + Answer + "&topic=" + topic + "&turnedIN=" + turnedINValue;
+
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200){
+
+    }
+  };
+
+  xhttp.open("POST", url, false);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send(params);
+}
+
+function getProfileData(){
+  mode = "getProfileData";
+
+  var xhttp = new XMLHttpRequest();
+  var url = "../php/UsersRICH.php";
+  var params = "mode=" + mode;
+
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200){
+      profileData = JSON.parse(this.responseText);
+    }
+  };
+
+  xhttp.open("POST", url, false);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send(params);
+}
+
+function refresh(){
+  refreshSessions();
+  location.reload();
+}
+
+function refreshSessions(){
+  mode = "refresh";
+
+  var xhttp = new XMLHttpRequest();
+  var url = "../php/UsersRICH.php";
+  var params = "mode=" + mode;
+
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200){
+
+    }
+  };
+
+  xhttp.open("POST", url, false);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send(params);
+}
+
+function Logout(){
+  mode = "Logout";
+
+  var xhttp = new XMLHttpRequest();
+  var url = "../php/UsersRICH.php";
+  var params = "mode=" + mode;
+
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200){
+
+    }
+  };
+
+  xhttp.open("POST", url, false);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send(params);
+
+  window.location.href = "../index.html";
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,577 @@
+.
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>RICH &mdash; Reach Into Cultural Heights</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
+
+  <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Work+Sans:300,400,700" rel="stylesheet">
+  <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/magnific-popup.css">
+  <link rel="stylesheet" href="css/jquery-ui.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+  <link rel="stylesheet" href="css/animate.css">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/mediaelementplayer.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+  <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+
+  <link rel="stylesheet" href="css/aos.css">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .buttoncontainer {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      left: 0;
+    }
+
+    .buttoncontainer button {
+      border-bottom-right-radius: 18px;
+      border-bottom-left-radius: 18px;
+      border: none;
+      width: 100%;
+      padding: 12px 0px;
+      background: transparent;
+      color: white;
+      font-size: 15pt;
+      transition: all 250ms linear;
+    }
+
+    .buttoncontainer button:hover {
+      background: rgba(47, 66, 121, 1);
+      transition: all 250ms linear;
+    }
+
+    #contact-beginning {
+      display: inline-block;
+      margin: 0 auto;
+    }
+
+    #contact-links {
+      display: inline-block;
+      margin: 0 auto;
+      list-style: none;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    #contact-links li {
+      display: inline-block;
+      margin: 5px 10px;
+      font-size: 20px;
+    }
+
+    #contact-links li a {
+      text-decoration: none;
+      padding: 5px;
+    }
+
+    #LoginForm {
+      margin-left: -15px;
+    }
+
+
+    @media(max-width: 1080px) {
+
+      #contact-beginning,
+      #contact-links,
+      #LoginForm {
+        width: 100%;
+      }
+
+      #contact-links {
+        text-align: center;
+      }
+
+      #contact-links li {
+        font-size: 17px;
+        margin: 5px 2px;
+      }
+
+      #LoginForm {
+        margin-left: 15px;
+        width: 600px;
+      }
+    }
+
+    @media(max-width: 987px) {
+
+      #contact-beginning,
+      #contact-links,
+      #LoginForm {
+        width: 120%;
+      }
+
+      #contact-links li {
+        font-size: 17px;
+        margin: 5px 2px;
+      }
+
+      #LoginForm {
+        margin-left: 15px;
+        width: 500px;
+      }
+    }
+
+    @media(max-width: 875px) {
+
+      #contact-beginning,
+      #contact-links,
+      #LoginForm {
+        width: 110%;
+      }
+
+      #contact-links li {
+        font-size: 17px;
+        margin: 5px 2px;
+      }
+
+      #LoginForm {
+        margin-left: 15px;
+      }
+    }
+
+    @media screen and (max-width: 700px) {
+
+      #contact-beginning,
+      #contact-links,
+      #LoginForm {
+        width: 100%;
+      }
+
+      #contact-links li {
+        font-size: 17px;
+        margin: 5px 2px;
+      }
+
+      #LoginForm {
+        margin-left: 15px;
+      }
+    }
+
+    @media screen and (max-width: 521px) {
+
+      #contact-beginning,
+      #contact-links,
+      #LoginForm {
+        width: 100%;
+      }
+
+      #contact-links li {
+        font-size: 15px;
+        margin: 5px 2px;
+      }
+
+      #LoginForm {
+        margin-left: 15px;
+      }
+    }
+
+    @media screen and (max-width: 415px) {
+
+      #contact-beginning,
+      #contact-links,
+      #LoginForm {
+        width: 100%;
+      }
+
+      #contact-links li {
+        font-size: 15px;
+        margin: 5px 2px;
+        display: block;
+      }
+
+      #contact-links li a {
+        padding: 0px;
+      }
+
+      #LoginForm {
+        margin-left: 15px;
+      }
+    }
+
+    @media screen and (orientation:portrait) {
+      #contact-beginning {
+        text-align: left;
+      }
+
+      #contact-beginning,
+      #contact-links,
+      #LoginForm {
+        width: 100%;
+      }
+
+      #contact-links li {
+        margin: 5px 2px;
+      }
+
+      #contact-links li a {
+        padding: 0px;
+      }
+
+      #LoginForm {
+        margin-left: 15px;
+      }
+    }
+
+    @media screen and (orientation:landscape) {
+      #contact-beginning {
+        text-align: left;
+      }
+
+      #contact-beginning,
+      #contact-links,
+      #LoginForm {
+        width: 100%;
+      }
+
+      #contact-links li {
+        margin: 5px 2px;
+      }
+
+      #LoginForm {
+        margin-left: 15px;
+      }
+    }
+
+    .icon-links {
+      text-align: center;
+      font-size: 24px;
+      width: 100%;
+    }
+
+    .icon-links-center {
+      padding-left: 10%;
+    }
+
+    @media only screen and (min-width: 1400px) {
+      .icon-links {
+        padding-right: 55px;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="site-wrap">
+
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div> <!-- .site-mobile-menu -->
+
+
+    <div id="myLogo" class="site-navbar-wrap js-site-navbar bg-white">
+
+      <div class="container-fluid">
+
+        <div class="text-center pics_in_a_row">
+          <a href="https://www.instagram.com/p/CqocMt_PwZ3/?utm_source=ig_web_button_share_sheet">
+            <img class="img-fluid top" src="3decade.png"
+              href="https://www.instagram.com/p/CqocMt_PwZ3/?utm_source=ig_web_button_share_sheet" alt="..." width="200"
+              height="200"></a>
+
+
+          <a href="index.html"><img class="img-fluid top" src="images/LOGO.png" href="index.html" alt="..."></a>
+
+          <a href="https://www.richinc.org/RICH/rich_new_vision/rich_new_vision.html">
+            <img class="img-fluid top" src="NewAdult.png" alt="..." width="200" height="187">
+          </a>
+        </div>
+
+        <div class="icon-links">
+          <a href="https://www.instagram.com/richincstudents/" target="_blank"><i class="fa fa-instagram"></i></a>
+          <a href="https://www.facebook.com/richincstudents/?modal=admin_todo_tour" target="_blank"><i
+              class="fa fa-facebook-square"></i></a>
+          <a href="https://www.linkedin.com/company/reach-into-cultural-heights/" target="_blank"><i
+              class="fa fa-linkedin-square"></i></a>
+          <a href="https://twitter.com/richincstudents" target="_blank"><i class="fa fa-twitter-square"></i></a>
+          <a href="https://www.youtube.com/channel/UCqAvWoYXzpvOtIstzJ8LBBg?view_as=subscriber" target="_blank"><i
+              class="fa fa-youtube-square"></i></a>
+        </div>
+
+        <div class="site-navbar bg-light">
+          <div class="py-1">
+            <div class="row align-items-left">
+
+              <div class="col-12">
+                <nav class="site-navigation text-center" role="navigation">
+                  <div class="container-fluid">
+                    <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3" style="float:right;"><a href="#"
+                        class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+
+                    <ul class="site-menu js-clone-nav d-none d-lg-block">
+
+                      <li><a class="activelink" href="index.html">Home</a></li>
+
+                      <li class="has-children">
+                        <a href="mission.html" style="color:#c51f1f;">About Us</a>
+                        <!-- <ul class="dropdown arrow-top">-->
+                        <ul class="dropdown menu1">
+                          <li><a href="mission.html">About Reach Into Cultural Heights</a></li>
+                          <li><a href="board-directors.html">Board of Directors</a></li>
+                          <li><a href="interns.html">CUNY Interns</a></li>
+                          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        </ul>
+                      </li>
+
+
+
+                      <li class="has-children">
+                        <a href="overview.html" style="color:#c5721f;">Our Work</a>
+                        <!-- <ul class="dropdown arrow-top"> -->
+                        <ul class="dropdown menu2">
+                          <li><a href="overview.html">Program Overview</a></li>
+                          <li><a href="rich-learning-system.html">RICH Learning System</a></li>
+                          <li><a href="sdlp.html">Self-Directed Learning Projects</a></li>
+                          <li><a href="nvlpessay1.html">RICH Student Essays to NVLP Elders</a></li>
+                          <li><a href="projectsnack.html">RICH Snacking for Smartness</a></li>
+                          <li><a href="reach-for-success.html">RICH Towards The Future</a></li>
+                        </ul>
+                      </li>
+
+                      <li class="has-children">
+                        <a href="graduate-testimonials.html" style="color:#2f7939;">Success Stories</a>
+                        <!-- <ul class="dropdown arrow-top"> -->
+                        <ul class="dropdown menu3">
+                          <li><a href="graduate-testimonials.html">Graduate Testimonials</a></li>
+                          <li><a href="first-graduates.html">First Graduates</a></li>
+                          <li><a href="campaign1.html">Then & Now</a></li>
+                        </ul>
+                      </li>
+
+                      <li><a href="parents-investment-alliance.html">Parents Investment Alliance</a></li>
+                      <!--
+                  <li><a href="gsuite-classroom.html">G Suite Classroom</a></li>-->
+
+                      <li class="has-children">
+                        <a href="podcasts.html" style="color:#c51f1f;">Podcasts</a>
+                        <!-- <ul class="dropdown arrow-top"> -->
+                        <ul class="dropdown menu4">
+                          <li><a href="podcasts.html">Reach For Success Program</a></li>
+                        </ul>
+                      </li>
+
+                      <li class="has-children">
+                        <a href="annual-reports.html" style="color:#c5721f;">Contact Us</a>
+                        <!-- <ul class="dropdown arrow-top"> -->
+                        <ul class="dropdown menu5">
+                          <li><a href="annual-reports.html">Annual Reports</a></li>
+                          <li><a href="partnership-opportunities.html">Partnership Opportunities</a></li>
+                          <li><a href="contact-us.html">Contact Us</a></li>
+                        </ul>
+                      </li>
+
+                      <li class="has-children">
+                        <a onclick="checkLogin()"style="color:#2f7939;">RICH PORTAL</a>
+                        <!-- <ul class="dropdown arrow-top"> -->
+                        <ul class="dropdown menu6">
+                          <li><a onclick="checkLogin()">Portal Login</a></li>
+                          <li><a href="gsuite-classroom.html">G Suite Classroom</a></li>
+                        </ul>
+                      </li>
+                      <!--
+                  <li>
+                    <button class="portalbutton" onclick="checkLogin()"> RICH PORTAL </button>
+                  </li>
+                -->
+
+
+                    </ul>
+
+                  </div>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div id="logoHeight" style="height: 350px;"></div>
+
+    <div id="piaContainer" class="container">
+
+      <div class="col-md-8 mx-auto no-sidebar">
+        <div class="shapely-content">
+
+          <div id="reachForSuccessProgram" style="margin-top: 40px; text-align: center;">
+            <h1> Contact Us</h1>
+            <br> 
+            <h2>Interested in the RICH Reach for Success Online Program?</h2>
+            <p>Get a taste for FREE!<br>
+            <a href="https://classroom.google.com/c/NzA5NDAxOTM3MjY2?cjc=3vfpigb" target="_blank">Join our free intro on Google Classroom</a></p>
+            <p>Join us. Learn more (link to the subscription/membership poster coming soon)</p>
+            <p>Contact: <a href="mailto:Contact@richinc.org">Contact@richinc.org</a><br>
+            +1 (929) 242-9036</p>
+          </div>
+        
+          <ul id="contact-links">
+            <li><a class="imbeddedlink" href="https://www.instagram.com/richincstudents/">Instagram</a></li>
+            <li><a class="imbeddedlink" href="https://www.linkedin.com/company/reach-into-cultural-heights/">LinkedIn</a></li>
+            <li><a class="imbeddedlink" href="https://twitter.com/richincstudents">Twitter</a></li>
+            <li><a class="imbeddedlink" href="https://www.facebook.com/richincstudents/?modal=admin_todo_tour">Facebook</a></li>
+            <li><a class="imbeddedlink" href="https://www.youtube.com/channel/UCqAvWoYXzpvOtIstzJ8LBBg?view_as=subscriber">YouTube</a></li>
+          </ul>
+        
+          <!-- Social Media Icons -->
+          <div class="icon-links icon-links-center">
+            <a href="https://www.instagram.com/richincstudents/" target="_blank"><i class="fa fa-instagram"></i></a>
+            <a href="https://www.facebook.com/richincstudents/?modal=admin_todo_tour" target="_blank"><i class="fa fa-facebook-square"></i></a>
+            <a href="https://www.linkedin.com/company/reach-into-cultural-heights/" target="_blank"><i class="fa fa-linkedin-square"></i></a>
+            <a href="https://twitter.com/richincstudents" target="_blank"><i class="fa fa-twitter-square"></i></a>
+            <a href="https://www.youtube.com/channel/UCqAvWoYXzpvOtIstzJ8LBBg?view_as=subscriber" target="_blank"><i class="fa fa-youtube-square"></i></a>
+          </div>
+        <br>
+          <!-- Contact Form -->
+          <div class="col-md-12">
+            <div class="text-center" id="LoginForm">
+              <h2>Contact Us</h2>
+              <p>Program available for middle school students. School/Program Administrators or Parent/Guardian must complete this form.</p>
+              <form method="POST" action="contact-email.php">
+                <div class="form-group">
+                  <label for="name">Your Name (required):</label>
+                  <input type="text" class="form-control" name="yname" id="senderName" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">Your Email (required):</label>
+                  <input type="text" class="form-control" name="yemail" id="senderEmail" required>
+                </div>
+                <div class="form-group">
+                  <label for="subject">The best number to contact you:</label>
+                  <input type="text" class="form-control" name="aoi" id="subject" required>
+                </div>
+                <div class="form-group">
+                  <label for="message">How can we help your middle schooler?:</label>
+                  <textarea class="form-control" rows="5" name="skillstalents" id="message" required></textarea>
+                </div><br>
+                <div class="buttoncontainer">
+                  <button type="submit" value="Submit" name="btn-submit">Submit</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        
+          <!-- Footer -->
+          <footer class="site-footer">
+            <div class="container">
+              <div class="row">
+                <div class="col">
+                  <p class="text-center">
+                    <a href="contact-us.html">Join Us!</a><br>
+                    Email: <a href="mailto:rich@att.net">rich@att.net</a><br>
+                    Phone: (929) 242-9036<br>
+                    Address: Tech Incubator at Queens College, 65-30 Kissena Blvd, Flushing, NY 11367
+                    <br>Copyright &copy; <script>document.write(new Date().getFullYear());</script> All Rights Reserved | This template is made by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                  </p>
+                </div>
+      </div>
+    </div>
+  </footer>
+  </div>
+
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/jquery.countdown.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/bootstrap-datepicker.min.js"></script>
+  <script src="js/aos.js"></script>
+
+
+  <script src="js/mediaelement-and-player.min.js"></script>
+
+  <script src="js/main.js"></script>
+
+
+  <script>
+    //-----------------------------------------------------------------------------
+    window.onscroll = function () {
+
+      if (window.pageYOffset > 20) {
+        document.getElementById("myLogo").style.top = "-250px";
+        document.getElementById("logoHeight").style.height = "200px";
+      } else {
+        document.getElementById("myLogo").style.top = "0px";
+        document.getElementById("logoHeight").style.height = "375px";
+      }
+    }
+
+    var userInfo;
+    getUserInfo();
+
+    function getUserInfo() {
+      mode = "getInfo";
+
+      var xhttp = new XMLHttpRequest();
+      var url = "php/UsersRICH.php";
+      var params = "mode=" + mode;
+
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          userInfo = this.responseText;
+        }
+      };
+
+      xhttp.open("POST", url, false);
+      xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xhttp.send(params);
+    }
+
+    function checkLogin() {
+
+      if (userInfo == "" || userInfo == "undefined") {
+        window.location.href = "login.php";
+      }
+      else {
+        window.location.href = "Account/portal-home.html";
+      }
+      //window.location.href = "login.php";
+    }
+    //---------------------------------------------------------------------------------
+
+    document.addEventListener('DOMContentLoaded', function () {
+      var mediaElements = document.querySelectorAll('video, audio'), total = mediaElements.length;
+
+      for (var i = 0; i < total; i++) {
+        new MediaElementPlayer(mediaElements[i], {
+          pluginPath: 'https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/',
+          shimScriptAccess: 'always',
+          success: function () {
+            var target = document.body.querySelectorAll('.player'), targetTotal = target.length;
+            for (var j = 0; j < targetTotal; j++) {
+              target[j].style.visibility = 'visible';
+            }
+          }
+        });
+      }
+    });
+  </script>
+
+</body>
+
+</html>

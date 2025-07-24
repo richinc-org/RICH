@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<script>
+
+  var profileData = [];
+  getProfileData();
+  if (profileData.length == 0) {
+    //window.location.href = "../notLogin.html";
+  }
+
+  function getProfileData() {
+    mode = "getProfileData";
+
+    var xhttp = new XMLHttpRequest();
+    var url = "../php/UsersRICH.php";
+    var params = "mode=" + mode;
+
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        if (this.responseText != "[null]") profileData = JSON.parse(this.responseText);
+      }
+    };
+
+    xhttp.open("POST", url, false);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send(params);
+  }
+
+</script>
+
+<head>
+  <title>RICH &mdash; Reach Into Cultural Heights</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico" />
+
+  <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Work+Sans:300,400,700" rel="stylesheet">
+  <link rel="stylesheet" href="../fonts/icomoon/style.css">
+
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/magnific-popup.css">
+  <link rel="stylesheet" href="../css/jquery-ui.css">
+  <link rel="stylesheet" href="../css/owl.carousel.min.css">
+  <link rel="stylesheet" href="../css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="../css/bootstrap-datepicker.css">
+  <link rel="stylesheet" href="../css/animate.css">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/mediaelementplayer.min.css">
+
+
+
+  <link rel="stylesheet" href="../fonts/flaticon/font/flaticon.css">
+
+  <link rel="stylesheet" href="../css/aos.css">
+
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .tabButton {
+      margin: 5px;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      transition: 150ms ease-out;
+    }
+
+    .tabButton:hover {
+      padding: 10px 40px
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="site-wrap">
+
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div> <!-- .site-mobile-menu -->
+
+    <div id="myLogo" style="padding: 0;" class="site-navbar-wrap js-site-navbar bg-white">
+
+      <div class="container-fluid">
+
+        <div class="text-center">
+          <a href="../index.html"><img class="img-fluid" src="../images/LOGO-Larger.png" href="../index.html"
+              alt="..."></a>
+        </div>
+
+        <div class="site-navbar bg-light">
+          <div class="py-1">
+            <div class="row align-items-left">
+
+              <div class="col-12">
+                <nav class="site-navigation text-right" role="navigation">
+                  <div class="container-fluid">
+                    <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3"><a href="#"
+                        class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+
+                    <ul class="site-menu js-clone-nav d-none d-lg-block">
+
+                      <li style="float:left;">
+                        <div style="font-size: 27px;" id="userInfo">
+
+                        </div>
+                      </li>
+                      <li><a style="font-size: 16px;"
+                          href="https://www.richinc.org/RICH/Account/portal-home.html">Home</a></li>
+                      <li class="has-children">
+                        <a style="font-size: 16px;" href="https://www.richinc.org/RICH/Account/weekly-writings.php">RICH
+                          Reflective Writing</a>
+                        <ul class="dropdown arrow-top">
+                          <li><a href="https://www.richinc.org/RICH/Account/weekly-writings.php">Weekly-Writings</a></li>
+                          <li><a href="https://www.richinc.org/RICH/Account/mywritings.php">My Writings</a></li>
+                          <li><a href="https://www.richinc.org/RICH/Account/group-discussion.html">Group Discussion</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a style="font-size: 16px;" href="https://www.richinc.org/RICH/Account/redirect.html">Google
+                          Classroom</a></li>
+                      <li><a class="activelink" style="font-size: 16px;"
+                          href="https://www.richinc.org/RICH/Account/profile.html">Personal-Profile</a></li>
+                      <li><a style="font-size: 16px;"
+                          href="https://www.richinc.org/RICH/Account/projects.html">Projects</a></li>
+                      <li><a style="font-size: 16px;"
+                          href="https://www.richinc.org/RICH/Account/SafeSpace.html">Safe-Space</a></li>
+                      <li> <a href="logout.php"><button style="font-size: 16px;" class="portalbutton"> LOGOUT </button></a></li>
+
+
+                    </ul>
+                  </div>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="logoHeight" style="height: 400px;"></div>
+
+
+    <!--<div id "logoHeight" style="height: 250px;"></div>-->
+
+    <div style="padding-bottom: 150px;" class="text-center">
+      <div id="piaContainer" class="container">
+        <div class="col-md-12 mx-auto no-sidebar">
+          <div id="assignmentContainer" class="shapely-content">
+
+            <div class="container-fluid" style="padding-left: 10px; padding-right: 10px" id="profileContainer">
+
+            </div>
+
+            <div class="container">
+              <div class="modal fade" id="avatar" role="dialog">
+                <div style="width: 96%;" class="modal-dialog modal-lg">
+
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                    <h1 id="avatarTitle" class="text-center"> Choose Your Avatar </h1><br>
+                    <div class="container-fluid" style="padding-left: 15px;" id="avatarContent"></div>
+
+                    <div id="modalFooter" class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="container">
+              <div class="modal fade" id="project" role="dialog">
+                <div style="width: 96%;" class="modal-dialog modal-lg">
+
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                    <h1 id="projectTitle" class="text-center"> </h1>
+                    <img style="width: 30%; margin: 0 auto;" src="../images/LOGO.png"><br>
+                    <div id="modalContent"> </div>
+
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <footer class="site-footer">
+      <div class="container">
+
+        <div class="row">
+          <div class="col">
+            <p class="text-center">
+              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+              Copyright &copy;
+              <script data-cfasync="false" src=""></script>
+              <script>document.write(new Date().getFullYear());</script> All Rights Reserved | This template is made by
+              <a href="https://colorlib.com" target="_blank">Colorlib</a>
+              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../js/jquery-3.3.1.min.js"></script>
+  <script src="../js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="../js/jquery-ui.js"></script>
+  <script src="../js/popper.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/owl.carousel.min.js"></script>
+  <script src="../js/jquery.stellar.min.js"></script>
+  <script src="../js/jquery.countdown.min.js"></script>
+  <script src="../js/jquery.magnific-popup.min.js"></script>
+  <script src="../js/bootstrap-datepicker.min.js"></script>
+  <script src="../js/aos.js"></script>
+
+
+  <script src="../js/mediaelement-and-player.min.js"></script>
+
+  <script src="../js/main.js"></script>
+
+  <script>
+
+    window.onscroll = function () {
+
+      if (window.pageYOffset > 20) {
+        document.getElementById("myLogo").style.top = "-260px";
+        document.getElementById("logoHeight").style.height = "220px";
+      } else {
+        document.getElementById("myLogo").style.top = "0px";
+        document.getElementById("logoHeight").style.height = "400px";
+      }
+    }
+
+    var Badges = [];
+    var Projects = [];
+    //getBadges();
+
+    var profileData = [];
+    getProfileData();
+
+    var lastName = profileData[0].LastName;
+
+    document.getElementById("userInfo").innerHTML = "Hi " + profileData[0].FirstName + " " + lastName.substring(0, 1) + ".";
+
+    displayProfileData();
+    if (profileData[0].Avatar == null) displayGenders();
+    //displayGenders();
+
+    function getUserInfo() {
+      mode = "getInfo";
+
+      var xhttp = new XMLHttpRequest();
+      var url = "../php/UsersRICH.php";
+      var params = "mode=" + mode;
+
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          userInfo = this.responseText;
+        }
+      };
+
+      xhttp.open("POST", url, false);
+      xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xhttp.send(params);
+    }
+
+    function Logout() {
+      mode = "Logout";
+
+      var xhttp = new XMLHttpRequest();
+      var url = "../php/UsersRICH.php";
+      var params = "mode=" + mode;
+
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+
+        }
+      };
+
+      xhttp.open("POST", url, false);
+      xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xhttp.send(params);
+
+      window.location.href = "../index.html";
+    }
+
+    function displayProfileData() {
+      var profileContainer = document.getElementById("profileContainer");
+      profileContainer.className = "text-left";
+
+      if (document.getElementById("img") != null) document.getElementById("img").innerHTML = "";
+      if (document.getElementById("name") != null) document.getElementById("name").innerHTML = "";
+      if (document.getElementById("tabs") != null) document.getElementById("tabs").innerHTML = "";
+      if (document.getElementById("tabData") != null) document.getElementById("tabData").innerHTML = "";
+
+      var imgDIV = document.createElement("div");
+      imgDIV.className = "text-center";
+      imgDIV.id = "img";
+
+      var img = document.createElement("img");
+      img.className = "img-fluid";
+      img.src = "https://www.richinc.org/RICH" + profileData[0].Avatar + ".png";
+      img.style.borderRadius = "50%";
+      img.style.border = "3px solid";
+      imgDIV.appendChild(img);
+
+      var nameDIV = document.createElement("div");
+      nameDIV.className = "text-center";
+      nameDIV.style.fontSize = "20px";
+      nameDIV.id = "name";
+
+      var Name = document.createTextNode(profileData[0].FirstName + " " + profileData[0].LastName);
+      //var dateOfBirth = document.createTextNode("Date of Birth:    " + profileData[0].DOB);
+      nameDIV.appendChild(Name);
+      //var gradeLevel = document.createTextNode("Grade Level:    " + profileData[0].GradeLevel + "th Grade");
+
+      profileContainer.appendChild(imgDIV);
+      profileContainer.appendChild(document.createElement("br"));
+      profileContainer.appendChild(nameDIV);
+      profileContainer.appendChild(document.createElement("br"));
+      //profileContainer.appendChild(dateOfBirth);
+      profileContainer.appendChild(document.createElement("br"));
+      //profileContainer.appendChild(gradeLevel);
+
+      var tabsDIV = document.createElement("div");
+      tabsDIV.className = "text-center";
+      tabsDIV.id = "tabs";
+
+      var tab1 = document.createElement("button");
+      tab1.innerHTML = "Portfolio";
+      tab1.className = "tabButton";
+      tab1.onclick = function () {
+        showPortfolio();
+        location.href = "#";
+        location.href = "#name";
+      }
+
+      var tab2 = document.createElement("button");
+      tab2.innerHTML = "Badges";
+      tab2.className = "tabButton";
+      tab2.onclick = function () {
+        showBadges();
+        location.href = "#";
+        location.href = "#name";
+      }
+
+      var tab3 = document.createElement("button");
+      tab3.innerHTML = "Settings";
+      tab3.className = "tabButton";
+      tab3.onclick = function () {
+        showSettings();
+        location.href = "#";
+        location.href = "#name";
+      }
+
+      tabsDIV.appendChild(tab1);
+      tabsDIV.appendChild(tab2);
+      tabsDIV.appendChild(tab3);
+
+      var tabData = document.createElement("div");
+      tabData.id = "tabData";
+
+      profileContainer.appendChild(tabsDIV);
+      profileContainer.appendChild(document.createElement("br"));
+      profileContainer.appendChild(tabData);
+    }
+
+    function showPortfolio() {
+      var profileContainer = document.getElementById("profileContainer");
+
+      var tabData = document.getElementById("tabData");
+      tabData.innerHTML = "";
+      tabData.className = "container-fluid";
+      tabData.style.paddingRight = "0px";
+      /*
+      int i = 0;
+      while (i < 6)
+      var imgROW = document.createElement("row");
+      for (var j = 0; j < 3; j++){
+      var img = document.createElement("img");
+      img.src = "images/portfolio-image.png";
+      img.className = "col";
+      imgROW.appendChild(img);
+    }
+    */
+
+      if (Projects.length == 0) getProjects();
+
+      var imgROW = document.createElement("row");
+      for (var i = 0; i < Projects.length; i++) {
+        var img = document.createElement("img");
+        img.id = i;
+        img.onclick = function () {
+          //window.location.href = "https://www.google.com/";
+          showProject(this.id);
+        }
+        //img.style.width = "33%";
+        img.src = "../images/" + Projects[i].ProjectName + ".png";
+        img.className = "col-md-4 col-sm-6";
+
+        imgROW.appendChild(img);
+
+        tabData.appendChild(imgROW);
+      }
+
+    }
+
+    function showProject(id) {
+      var projectTitle = document.getElementById("projectTitle");
+      projectTitle.innerHTML = "";
+      var projectTitleText = document.createTextNode(Projects[id].ProjectName);
+      projectTitle.appendChild(projectTitleText);
+
+      var modalContent = document.getElementById("modalContent");
+      modalContent.innerHTML = "";
+
+      var essayHolder = document.createElement("p");
+      essayHolder.style.paddingLeft = "10px";
+      essayHolder.style.paddingRight = "10px";
+
+      essayHolder.style.textAlign = "justify";
+      var essayText = document.createTextNode(Projects[id].Essay);
+      essayHolder.appendChild(essayText);
+
+      modalContent.appendChild(essayHolder);
+
+      $('#project').modal('show');
+    }
+
+    function showBadges() {
+      var profileContainer = document.getElementById("profileContainer");
+      var tabData = document.getElementById("tabData");
+      tabData.innerHTML = "";
+      //tabData.style.border = "2px solid";
+      tabData.className = "row";
+      //tabData.style.backgroundColor = "white";
+      tabData.style.marginLeft = "0px";
+      tabData.style.marginRight = "0px";
+
+      var imageContainer = document.createElement("div");
+      imageContainer.className = "container-fluid text-center";
+      imageContainer.style.paddingRight = "0px";
+
+      if (Badges.length == 0) getBadges();
+
+      var row1 = document.createElement("div");
+      row1.className = "row";
+      var row2 = document.createElement("div");
+      row2.className = "row";
+      var row3 = document.createElement("div");
+      row3.className = "row";
+      var row4 = document.createElement("div");
+      row4.className = "row";
+
+      var img1 = document.createElement("img");
+      img1.src = "../images/matterBadge.png";
+      img1.className = "col-md-3 col-lg-3 col-sm-6";
+      img1.style.width = "50%";
+      img1.style.height = "50%";
+
+      var img2 = document.createElement("img");
+      img2.src = "../images/responsibleBadge.png";
+      img2.className = "col-md-3 col-lg-3 col-sm-6";
+      img2.style.width = "50%";
+      img2.style.height = "50%";
+
+      var img3 = document.createElement("img");
+      img3.src = "../images/considerateBadge.png";
+      img3.className = "col-md-3 col-lg-3 col-sm-6";
+      img3.style.width = "50%";
+      img3.style.height = "50%";
+
+      var img4 = document.createElement("img");
+      img4.src = "../images/strategiesBadge.png";
+      img4.className = "col-md-3 col-lg-3 col-sm-6";
+      img4.style.width = "50%";
+      img4.style.height = "50%";
+
+      for (var i = 0; i < Badges.length; i++) {
+        if (Badges[i].AnswerTopic == "matter") row1.appendChild(img1.cloneNode(true));
+        if (Badges[i].AnswerTopic == "considerate") row1.appendChild(img2.cloneNode(true));
+        if (Badges[i].AnswerTopic == "responsible") row1.appendChild(img3.cloneNode(true));
+        if (Badges[i].AnswerTopic == "strategies") row1.appendChild(img4.cloneNode(true));
+      }
+
+      imageContainer.appendChild(row1);
+      if (row1.innerHTML != "") imageContainer.appendChild(document.createElement("br"));
+      imageContainer.appendChild(row2);
+      if (row2.innerHTML != "") imageContainer.appendChild(document.createElement("br"));
+      imageContainer.appendChild(row3);
+      if (row3.innerHTML != "") imageContainer.appendChild(document.createElement("br"));
+      imageContainer.appendChild(row4);
+
+      tabData.appendChild(imageContainer);
+
+    }
+
+    function getBadges() {
+      mode = "getBadges";
+
+      var xhttp = new XMLHttpRequest();
+      var url = "../php/SurveyAnswers.php";
+      var params = "mode=" + mode;
+
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          var myArray = JSON.parse(this.responseText);
+          if (myArray.length != 0) {
+            for (var i = 0; i < myArray.length; i++) {
+              Badges.push(myArray[i]);
+            }
+          }
+        }
+      };
+
+      xhttp.open("POST", url, false);
+      xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xhttp.send(params);
+    }
+
+    function showSettings() {
+      var profileContainer = document.getElementById("profileContainer");
+      var tabData = document.getElementById("tabData");
+      tabData.innerHTML = "";
+      tabData.className = "container-fluid";
+      tabData.style.paddingRight = "0px";
+
+      var myInformation = document.createElement("h3");
+      myInformation.className = "text-center";
+      var informationTitle = document.createTextNode("My Information");
+      myInformation.appendChild(informationTitle);
+
+      var emailHolder = document.createElement("h5");
+      var emailText = document.createTextNode("Email Address:");
+      emailHolder.appendChild(emailText);
+      var email = document.createTextNode(profileData[0].EmailAddress);
+
+      var dobHolder = document.createElement("h5");
+      var dobText = document.createTextNode("Date Of Birth:");
+      dobHolder.appendChild(dobText);
+      var dateOfBirth = document.createTextNode(profileData[0].DOB);
+
+      var gradeHolder = document.createElement("h5");
+      var gradeText = document.createTextNode("Grade Level:");
+      gradeHolder.appendChild(gradeText);
+      var gradeLevel = document.createTextNode("Grade " + profileData[0].GradeLevel);
+
+      var avatarButton = document.createElement("BUTTON");
+      avatarButton.innerHTML = "Change Avatar";
+      avatarButton.className = "tabButton";
+      avatarButton.onclick = function () {
+        displayGenders();
+      }
+
+
+      tabData.appendChild(myInformation);
+      tabData.appendChild(document.createElement("br"));
+      tabData.appendChild(document.createElement("br"));
+      tabData.appendChild(emailHolder);
+      //tabData.appendChild(document.createElement("br"));
+      tabData.appendChild(email);
+      tabData.appendChild(document.createElement("br"));
+      tabData.appendChild(document.createElement("br"));
+      tabData.appendChild(dobHolder);
+      //tabData.appendChild(document.createElement("br"));
+      tabData.appendChild(dateOfBirth);
+      tabData.appendChild(document.createElement("br"));
+      tabData.appendChild(document.createElement("br"));
+      tabData.appendChild(gradeHolder);
+      //tabData.appendChild(document.createElement("br"));
+      tabData.appendChild(gradeLevel);
+      tabData.appendChild(document.createElement("br"));
+      tabData.appendChild(document.createElement("br"));
+      tabData.appendChild(avatarButton);
+
+    }
+
+    function getProjects() {
+      mode = "getProjects";
+
+      var xhttp = new XMLHttpRequest();
+      var url = "../php/RICHProjects.php";
+      var params = "mode=" + mode;
+
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          var myArray = JSON.parse(this.responseText);
+          if (myArray.length != 0) {
+            for (var i = 0; i < myArray.length; i++) {
+              Projects.push(myArray[i]);
+            }
+          }
+        }
+      };
+
+      xhttp.open("POST", url, false);
+      xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xhttp.send(params);
+    }
+
+    function getProfileData() {
+      mode = "getProfileData";
+
+      var xhttp = new XMLHttpRequest();
+      var url = "../php/UsersRICH.php";
+      var params = "mode=" + mode;
+
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          profileData = JSON.parse(this.responseText);
+        }
+      };
+
+      xhttp.open("POST", url, false);
+      xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xhttp.send(params);
+    }
+
+    function addAvatar(avatar) {
+      mode = "addAvatar";
+      //var str = avatar.substring(44, 77);
+
+      var xhttp = new XMLHttpRequest();
+      var url = "../php/UsersRICH.php";
+      var params = "mode=" + mode + "&avatar=" + avatar;
+
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+
+        }
+      };
+
+      xhttp.open("POST", url, false);
+      xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xhttp.send(params);
+    }
+
+    function displayGenders() {
+      var content = document.getElementById("avatarContent");
+      var footer = document.getElementById("modalFooter");
+      content.innerHTML = "";
+      content.className = "text-center";
+      content.style.paddingBottom = "40px";
+      content.style.paddingRight = "15px";
+
+      if (document.getElementById("back") != null) footer.removeChild(document.getElementById("back"));
+
+      var genderROW = document.createElement("div");
+      genderROW.className = "row";
+      genderROW.style.paddingLeft = "60px";
+      genderROW.style.paddingRight = "60px";
+      //genderROW.style.marginLeft = "2.5em";
+
+      var maleTab = document.createElement("BUTTON");
+      maleTab.className = "btn text-center col-lg-5 col-md-5 col-sm-2";
+      maleTab.innerHTML = "Male";
+      maleTab.id = "Male";
+      maleTab.style.fontSize = "20px";
+      maleTab.style.padding = "40px 52px";
+      //maleTab.style.marginRight = "1em";
+      maleTab.style.backgroundColor = "#d9f1f9";
+      maleTab.onclick = function () {
+        displayAvatars(this.id);
+      }
+
+      var emptyDIV = document.createElement("div");
+      emptyDIV.className = "col-lg-2 col-md-2 col-sm-1"
+      emptyDIV.style.padding = "10px";
+      emptyDIV.style.backgroundColor = "white";
+
+      var femaleTab = document.createElement("BUTTON");
+      femaleTab.className = "btn text-center col-lg-5 col-md-5 col-sm-2";
+      femaleTab.innerHTML = "Female";
+      femaleTab.id = "Female";
+      femaleTab.style.fontSize = "20px";
+      //femaleTab.style.marginLeft = "1em";
+      femaleTab.style.padding = "40px";
+      femaleTab.style.backgroundColor = "#d9f1f9";
+      femaleTab.onclick = function () {
+        displayAvatars(this.id);
+      }
+
+      genderROW.appendChild(maleTab);
+      genderROW.appendChild(emptyDIV);
+      genderROW.appendChild(femaleTab);
+
+      //content.appendChild(maleTab);
+      //content.appendChild(emptyDIV);
+      content.appendChild(genderROW);
+
+      $('#avatar').modal('show');
+    }
+
+    function displayAvatars(id) {
+      var content = document.getElementById("avatarContent");
+      var footer = document.getElementById("modalFooter");
+      content.innerHTML = "";
+
+      var backButton = document.createElement("BUTTON");
+      backButton.innerHTML = "Back";
+      backButton.id = "back";
+      backButton.className = "btn btn-default";
+      backButton.onclick = function () {
+        displayGenders();
+      }
+
+      var imgROW = document.createElement("div");
+      imgROW.className = "row";
+      for (var i = 0; i < 16; i++) {
+        var img = document.createElement("img");
+        img.id = i + 1;
+        img.src = "https://www.richinc.org/RICH/images/avatars/myAvatar" + id + "(" + (i + 1) + ").png";
+        img.className = "col-lg-3 col-md-3 col-sm-6";
+        img.style.borderRadius = "50%";
+        img.style.width = "50%";
+        img.style.height = "50%";
+        img.style.paddingBottom = "15px";
+        img.style.cursor = "pointer";
+        img.onmouseover = function () {
+          this.style.transform = "scale(1.1,1.1)";
+        }
+        img.onmouseout = function () {
+          this.style.transform = "scale(1.0,1.0)";
+        }
+        if (id == "Male") {
+          img.onclick = function () {
+            var src = this.src;
+            //In the code below, src.substring() is grabbing a part of the string (the string being the file name of the avatar image). Initially, this functions wasn't grabbing the correct part of the string, which is why there were errors and the avatar image wasn't showing up. All I did to fix this is adjust the numbers inside src.substring. Now, the correct part of the image file name is being stored, so there are no more errors ocurring in the code.
+            if (this.id < 10) var string = src.substring(28, 59);
+            else var string = src.substring(28, 60);
+            console.log(string);
+            addAvatar(string);
+            profileData = [];
+            getProfileData();
+            $('#avatar').modal('hide');
+            document.getElementById("profileContainer").innerHTML = "";
+            displayProfileData();
+
+          }
+        }
+        if (id == "Female") {
+          img.onclick = function () {
+            var src = this.src;
+            //In the code below, src.substring() is grabbing a part of the string (the string being the file name of the avatar image). Initially, this functions wasn't grabbing the correct part of the string, which is why there were errors and the avatar image wasn't showing up. All I did to fix this is adjust the numbers inside src.substring. Now, the correct part of the image file name is being stored, so there are no more errors ocurring in the code.
+            if (this.id < 10) var string = src.substring(28, 61);
+            else var string = src.substring(28, 62);
+            console.log(string);
+            addAvatar(string);
+            profileData = [];
+            getProfileData();
+            $('#avatar').modal('hide');
+            document.getElementById("profileContainer").innerHTML = "";
+            displayProfileData();
+          }
+        }
+
+        imgROW.appendChild(img);
+        footer.prepend(backButton);
+        content.appendChild(imgROW);
+      }
+    }
+
+  </script>
+
+</body>
+
+</html>

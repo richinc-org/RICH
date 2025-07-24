@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>RICH &mdash; Reach Into Cultural Heights</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
+
+  <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Work+Sans:300,400,700" rel="stylesheet">
+  <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/magnific-popup.css">
+  <link rel="stylesheet" href="css/jquery-ui.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+  <link rel="stylesheet" href="css/animate.css">
+  <link rel="stylesheet" href="css/bot.css">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/mediaelementplayer.min.css">
+
+  <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+
+  <link rel="stylesheet" href="css/aos.css">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <style>
+    .site-wrap {
+      max-height: 100%;
+      max-width: 100%;
+      min-height: 100%;
+      min-width: 100%;
+    }
+
+    .carousel {
+      height: 100vh;
+      width: 100%;
+      margin: 0 auto;
+      position: relative;
+
+    }
+
+    .carousel__image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .carousel__track-container {
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+      background: white;
+      object-fit: cover;
+    }
+
+    .carousel__track {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      position: relative;
+      height: 100%;
+      transition: transform 1s linear;
+    }
+
+    .carousel__slide {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+    }
+
+    .carousel__button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: #e9e7e77a;
+      border: none;
+      z-index: 2;
+      transition: 250ms;
+      text-align: center;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .carousel__button:hover {
+      background-color: #fff9f986;
+    }
+
+    .button__left {
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
+      padding: 25px 15px 25px 12px;
+    }
+
+    .button__right {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      border: none;
+      border-top-left-radius: 20px;
+      border-bottom-left-radius: 20px;
+      padding: 25px 12px 25px 15px;
+    }
+
+
+    .carousel__button img {
+      height: 20px;
+    }
+
+    .carousel__nav {
+      display: grid;
+      width: 100%;
+      align-items: center;
+      justify-items: center;
+      position: absolute;
+      bottom: 0;
+      z-index: 2;
+    }
+
+    .carousel__indicator {
+      border: none;
+      border-radius: 50%;
+      width: 15px;
+      height: 15px;
+      background-color: #dfd9d979;
+      margin: 10px 20px;
+      outline: none;
+      transition: all 500ms;
+    }
+
+    .currentPic {
+      background-color: rgba(39, 39, 39, 0.664);
+    }
+
+    .sectiontwo {
+      display: block;
+      height: 100vh;
+      background-color: #ffffff;
+    }
+
+    .overlay-container {
+      position: relative;
+      display: inline-block;
+    }
+
+    .overlay-container .text {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: grid;
+      place-items: center;
+    }
+  </style>
+
+  <style>
+    .review__carousel {
+      height: 600px;
+      width: 100%;
+      margin: 0 auto;
+      position: relative;
+
+    }
+
+    .review__carousel__div {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      place-items: center;
+    }
+
+    .reviewbox {
+      height: 80%;
+      width: 60%;
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      -webkit-box-shadow: 0px 0px 26px 0px rgba(0, 0, 0, 0.75);
+      -moz-box-shadow: 0px 0px 26px 0px rgba(0, 0, 0, 0.75);
+      box-shadow: 0px 0px 26px 0px rgba(0, 0, 0, 0.75);
+    }
+
+    .review__carousel__track-container {
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+      background: white;
+      object-fit: cover;
+    }
+
+    .review__carousel__track {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      position: relative;
+      height: 100%;
+      transition: transform 500ms linear;
+    }
+
+    .review__carousel__slide {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+    }
+
+    .review__carousel__button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: #e9e7e77a;
+      border: none;
+      z-index: 99;
+      transition: 250ms;
+      text-align: center;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .review__carousel__button:hover {
+      background-color: #fff9f986;
+    }
+
+    .review__button__left {
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
+      padding: 25px 15px 25px 12px;
+    }
+
+    .review__button__right {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      border: none;
+      border-top-left-radius: 20px;
+      border-bottom-left-radius: 20px;
+      padding: 25px 12px 25px 15px;
+    }
+
+
+    .review__carousel__button img {
+      height: 20px;
+    }
+
+    .review__carousel__nav {
+      display: grid;
+      width: 100%;
+      align-items: center;
+      justify-items: center;
+      position: absolute;
+      bottom: 0;
+      z-index: 200;
+    }
+
+    .review__carousel__indicator {
+      border: none;
+      border-radius: 50%;
+      width: 15px;
+      height: 15px;
+      background-color: #dfd9d979;
+      margin: 10px 20px;
+      outline: none;
+      transition: all 500ms;
+    }
+
+    .currentReview {
+      background-color: rgba(39, 39, 39, 0.664);
+    }
+
+    .profileImage {
+      height: 125px;
+      width: 125px;
+      border-radius: 50%;
+    }
+
+    #sherman-img {
+      width: 100px;
+    }
+
+    .profileName {
+      padding-top: 10px;
+    }
+
+    .reviewheading {
+      text-align: center;
+      padding-bottom: 20px;
+    }
+
+    .review {
+      overflow-y: scroll;
+      height: 200px;
+      -ms-overflow-style: none;
+      /* IE and Edge */
+      scrollbar-width: none;
+      /* Firefox */
+    }
+
+    .review::-webkit-scrollbar {
+      display: none;
+    }
+
+    .sourcecontainer {
+      padding-top: 20px;
+    }
+
+    .navigation {
+      visibility: visible;
+    }
+
+    #topHeading {
+      font-size: 32px;
+      color: white;
+      text-align: center;
+      margin-top: 15px;
+      margin-bottom: 10px;
+    }
+
+    #newA a:hover {
+      background-color: red;
+    }
+
+    #newA {
+      background: linear-gradient(0deg, rgba(62, 87, 158, 0.83) 0%, rgba(47, 66, 121, 1) 98%);
+      width: 100%;
+      margin: 0px 0px 5px 0px;
+      padding: 7px 0px;
+    }
+
+    /* #spec{
+      color : grey;
+      font-size: 20px;
+      margin-left: ;
+    } */
+
+    .pod {
+      width: 100%;
+      border: 2px solid black;
+      padding: 5px;
+    }
+
+    .pod h2,
+    .pod-controls {
+      width: 33%;
+      display: inline-block;
+    }
+
+    .titlep {
+      color: #2f4279;
+
+    }
+
+    #matter-pod {
+      background-color: #0f8de0;
+    }
+
+    #responsible-pod {
+      background-color: red;
+    }
+
+    #considerate-pod {
+      background-color: orange;
+    }
+
+    #strategies-pod {
+      background-color: green;
+    }
+
+
+    .allpods {
+      border: 2px solid black;
+      margin-top: 10px;
+      padding: 5px;
+    }
+
+    .allpods h1 {
+      text-align: center;
+      color: #00008B;
+      font-size: 2em;
+
+    }
+
+    .allpods h1 a {
+      text-decoration: underline;
+      color: purple;
+    }
+
+    .rich {
+      color: #00008B;
+    }
+
+    @media only screen and (max-width: 1250px) {
+
+
+      .pod-controls {
+        display: flex;
+        flex-shrink: 2;
+      }
+
+      .navigation {
+        visibility: hidden;
+      }
+
+      .pod h2 {
+        font-size: 20px;
+      }
+
+      .pod-controls {
+        font-size: 15px;
+      }
+    }
+
+    .icon-links {
+      text-align: center;
+      font-size: 24px;
+      width: 100%;
+    }
+
+
+    @media only screen and (min-width: 1000px) and (max-width: 1400px) {
+
+      /* 在1000到1400分辨率范围内应用样式 */
+      .allpods {
+        margin-top: 60px;
+      }
+    }
+
+
+
+    @media only screen and (min-width: 1400px) {
+      .icon-links {
+        padding-right: 55px;
+      }
+
+
+    }
+  </style>
+</head>
+
+<body onload="hidePopup()">
+
+
+  <div class="site-wrap">
+
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div> <!-- .site-mobile-menu -->
+
+
+    <div style="top: 0px;" id="myLogo" class="site-navbar-wrap js-site-navbar bg-white">
+
+
+
+
+      <div class="container-fluid">
+
+        <div class="text-center pics_in_a_row">
+          <a href="https://www.instagram.com/p/CqocMt_PwZ3/?utm_source=ig_web_button_share_sheet">
+            <img class="img-fluid top" src="3decade.png"
+              href="https://www.instagram.com/p/CqocMt_PwZ3/?utm_source=ig_web_button_share_sheet" alt="..." width="200"
+              height="200"></a>
+
+
+          <a href="index.html"><img class="img-fluid top" src="images/LOGO.png" href="index.html" alt="..."></a>
+
+          <a href="https://www.richinc.org/RICH/rich_new_vision/rich_new_vision.html">
+            <img class="img-fluid top" src="nvl.png" alt="..." width="200" height="187">
+          </a>
+        </div>
+        <div class="icon-links">
+          <a href="https://www.instagram.com/richincstudents/" target="_blank"><i class="fa fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/company/reach-into-cultural-heights/" target="_blank"><i
+              class="fa fa-linkedin-square"></i></a>
+          <a href="https://www.youtube.com/channel/UCqAvWoYXzpvOtIstzJ8LBBg?view_as=subscriber" target="_blank"><i
+              class="fa fa-youtube-square"></i></a>
+        </div>
+
+
+        <div class="site-navbar bg-light">
+          <div class="py-1">
+            <div class="row align-items-left">
+
+              <div class="col-12">
+                <nav class="site-navigation text-center" role="navigation">
+                  <div class="container-fluid">
+                    <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3" style="float:right;"><a href="#"
+                        class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+
+                    <ul class="site-menu js-clone-nav d-none d-lg-block">
+
+                      <li><a class="activelink" href="index.html">Home</a></li>
+
+                      <li class="has-children">
+                        <a href="mission.html" style="color:#c51f1f;">About Us</a>
+                        <!-- <ul class="dropdown arrow-top">-->
+                        <ul class="dropdown menu1">
+                          <li><a href="mission.html">About Reach Into Cultural Heights</a></li>
+                          <li><a href="board-directors.html">Board of Directors</a></li>
+                          <li><a href="interns.html">CUNY Interns</a></li>
+                          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        </ul>
+                      </li>
+
+
+
+                      <li class="has-children">
+                        <a href="overview.html" style="color:#c5721f;">Our Work</a>
+                        <!-- <ul class="dropdown arrow-top"> -->
+                        <ul class="dropdown menu2">
+                          <li><a href="overview.html">Program Overview</a></li>
+                          <li><a href="rich-learning-system.html">RICH Learning System</a></li>
+                          <li><a href="sdlp.html">Self-Directed Learning Projects</a></li>
+                          <li><a href="nvlpessay1.html">RICH Student Essays to NVLP Elders</a></li>
+                          <li><a href="projectsnack.html">RICH Snacking for Smartness</a></li>
+                          <li><a href="reach-for-success.html">RICH Towards The Future</a></li>
+                        </ul>
+                      </li>
+
+                      <li class="has-children">
+                        <a href="graduate-testimonials.html" style="color:#2f7939;">Success Stories</a>
+                        <!-- <ul class="dropdown arrow-top"> -->
+                        <ul class="dropdown menu3">
+                          <li><a href="graduate-testimonials.html">Graduate Testimonials</a></li>
+                          <li><a href="first-graduates.html">First Graduates</a></li>
+                          <li><a href="campaign1.html">Then & Now</a></li>
+                        </ul>
+                      </li>
+
+                      <li><a href="parents-investment-alliance.html">Parents Investment Alliance</a></li>
+                      <!--
+                      <li><a href="gsuite-classroom.html">G Suite Classroom</a></li>-->
+
+                      <li class="has-children">
+                        <a href="podcasts.html" style="color:#c51f1f;">Podcasts</a>
+                        <!-- <ul class="dropdown arrow-top"> -->
+                        <ul class="dropdown menu4">
+                          <li><a href="podcasts.html">Reach For Success Program</a></li>
+                        </ul>
+                      </li>
+
+                      <li class="has-children">
+                        <a href="annual-reports.html" style="color:#c5721f;">Contact Us</a>
+                        <!-- <ul class="dropdown arrow-top"> -->
+                        <ul class="dropdown menu5">
+                          <li><a href="annual-reports.html">Annual Reports</a></li>
+                          <li><a href="partnership-opportunities.html">Partnership Opportunities</a></li>
+                          <li><a href="contact-us.html">Contact Us</a></li>
+                        </ul>
+                      </li>
+
+                      <li class="has-children">
+                        <a onclick="checkLogin()">RICH PORTAL</a>
+                        <!-- <ul class="dropdown arrow-top"> -->
+                        <ul class="dropdown menu6">
+                          <li><a onclick="checkLogin()">Portal Login</a></li>
+                          <li><a href="gsuite-classroom.html">G Suite Classroom</a></li>
+                        </ul>
+                      </li>
+                      <!--
+                      <li>
+                        <button class="portalbutton" onclick="checkLogin()"> RICH PORTAL </button>
+                      </li>
+                    -->
+
+
+                    </ul>
+
+                  </div>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="logoHeight" style="height: 350px;"></div>
+
+    <div class="allpods">
+      <h1>Podcast Series on Understanding <a href="overview.html">RICH's 4 Guiding Principles</a> </h1>
+
+
+      <div id="wel-pod" class="pod">
+        <h2 class="rich">RICH</h2>
+        <h2 class="titlep">Welcome</h2>
+        <div class="pod-controls">
+          <audio id="audio" controls>
+            <source src="audio/RICH_Welcome.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+      </div>
+      <div id="matter-pod" class="pod">
+        <h2 class="rich">RICH</h2>
+        <h2 class="titlep">I Matter</h2>
+        <div class="pod-controls">
+          <audio id="audio" controls>
+            <source src="audio/RICH_I_Matter.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+      </div>
+
+      <div id="responsible-pod" class="pod">
+        <h2 class="rich">RICH</h2>
+        <h2 class="titlep">Responsible</h2>
+        <div class="pod-controls">
+          <audio id="audioPlayerOne" controls>
+            <source src="audio/RICH_Responsible.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+      </div>
+
+      <div id="considerate-pod" class="pod">
+        <h2 class="rich">RICH</h2>
+        <h2 class="titlep">Considerate</h2>
+        <div class="pod-controls">
+          <audio id="audio" controls>
+            <source src="audio/RICH_Considerate.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+      </div>
+      <div id="strategies-pod" class="pod">
+        <h2 class="rich">RICH</h2>
+        <h2 class="titlep">Strategies</h2>
+        <div class="pod-controls">
+          <audio id="audio" controls>
+            <source src="audio/RICH_Strategies.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+      </div>
+    </div>
+
+    <br><br>
+
+    <footer class="site-footer">
+      <div class="container">
+
+        <div class="row">
+          <div class="col">
+            <p class="text-center">
+              <a href="contact-us.html">Join Us!</a><br>
+              Email: rich@att.net
+              <br>
+              Phone: (929) 242-9036
+              <br>
+              Address: Tech Incubator at Queens College, 65-30 Kissena Blvd, Flushing, NY 11367
+              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+              <br>
+              Copyright &copy;
+              <script data-cfasync="false"
+                src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+              <script>document.write(new Date().getFullYear());</script> All Rights Reserved | This template is made by
+              <a href="https://colorlib.com" target="_blank">Colorlib</a>
+              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/jquery.countdown.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/bootstrap-datepicker.min.js"></script>
+  <script src="js/aos.js"></script>
+
+
+  <script src="js/mediaelement-and-player.min.js"></script>
+
+  <script src="js/main.js"></script>
+  <script>
+
+    const reviewtotalImages = 4;
+
+    const reviewtrack = document.querySelector('.review__carousel__track');
+    const reviewslides = Array.from(reviewtrack.children);
+    const reviewnextButton = document.querySelector('.review__button__right');
+    const reviewprevButton = document.querySelector('.review__button__left');
+    const reviewdotsNav = document.querySelector('.review__nav__container');
+    const reviewdots = Array.from(reviewdotsNav.children);
+
+    var reviewslideWidth = reviewslides[0].getBoundingClientRect().width;
+
+    const setReviewSlidePosition = (slide, index) => {
+      reviewslides[index].style.left = (index * reviewslideWidth) + 'px';
+    }
+
+    reviewslides.forEach(setReviewSlidePosition);
+
+    window.onresize = function () {
+      reviewslideWidth = reviewslides[0].getBoundingClientRect().width;
+      reviewslides.forEach(setReviewSlidePosition);
+    }
+
+    var currentReviewSlide;
+    var currentReviewDot;
+
+    const goReviewNext = () => {
+      currentReviewSlide = reviewtrack.querySelector('.currentReviewSlide');
+      currentReviewDot = reviewdotsNav.querySelector('.currentReview');
+
+      var nextSlide;
+      var nextDot;
+      var amountToMove;
+      if (currentReviewSlide === reviewslides[reviewtotalImages - 1]) {
+        nextSlide = reviewslides[0];
+        nextDot = reviewdots[0];
+        amountToMove = '0px';
+      } else {
+        nextSlide = currentReviewSlide.nextElementSibling;
+        nextDot = currentReviewDot.nextElementSibling;
+        amountToMove = nextSlide.style.left;
+      }
+
+      reviewtrack.style.transform = 'translateX(-' + amountToMove + ')';
+      currentReviewSlide.classList.remove('currentReviewSlide');
+      nextSlide.classList.add('currentReviewSlide');
+
+      currentReviewDot.classList.remove('currentReview');
+      nextDot.classList.add('currentReview');
+
+    }
+
+    const goReviewBack = () => {
+      currentReviewSlide = reviewtrack.querySelector('.currentReviewSlide');
+      currentReviewDot = reviewdotsNav.querySelector('.currentReview');
+      var prevDot;
+      var prevSlide;
+      var amountToMove;
+      if (currentReviewSlide === reviewslides[0]) {
+        prevSlide = reviewslides[reviewtotalImages - 1];
+        prevDot = reviewdots[reviewtotalImages - 1];
+        amountToMove = ((reviewtotalImages - 1) * reviewslideWidth) + 'px';
+      } else {
+        prevSlide = currentReviewSlide.previousElementSibling;
+        prevDot = currentReviewDot.previousElementSibling;
+        amountToMove = prevSlide.style.left;
+      }
+
+      reviewtrack.style.transform = 'translateX(-' + amountToMove + ')';
+      currentReviewSlide.classList.remove('currentReviewSlide');
+      prevSlide.classList.add('currentReviewSlide');
+
+      currentReviewDot.classList.remove('currentReview');
+      prevDot.classList.add('currentReview');
+
+    }
+
+    reviewnextButton.addEventListener('click', goReviewNext)
+
+    reviewprevButton.addEventListener('click', goReviewBack)
+
+    function adjustReview(num) {
+      currentReviewSlide = reviewtrack.querySelector('.currentReviewSlide');
+      currentReviewDot = reviewdotsNav.querySelector('.currentReview');
+
+      var nextSlide = reviewslides[num];
+      var nextDot = reviewdots[num];
+
+      var amountToMove = (num * reviewslideWidth) + 'px';
+      reviewtrack.style.transform = 'translateX(-' + amountToMove + ')'
+
+      currentReviewSlide.classList.remove('currentReviewSlide');
+      nextSlide.classList.add('currentReviewSlide');
+
+      currentReviewDot.classList.remove('currentReview');
+      nextDot.classList.add('currentReview');
+
+    }
+
+    //setInterval(goNext, 4000);
+  </script>
+  <script>
+
+    const totalImages = 6;
+
+    const track = document.querySelector('.carousel__track');
+    const slides = Array.from(track.children);
+    const nextButton = document.querySelector('.button__right');
+    const prevButton = document.querySelector('.button__left');
+    const dotsNav = document.querySelector('.nav__container');
+    const dots = Array.from(dotsNav.children);
+
+    var slideWidth = slides[0].getBoundingClientRect().width;
+
+    const setSlidePosition = (slide, index) => {
+      slides[index].style.left = (index * slideWidth) + 'px';
+    }
+
+    slides.forEach(setSlidePosition);
+
+    window.onresize = function () {
+      slideWidth = slides[0].getBoundingClientRect().width;
+      slides.forEach(setSlidePosition);
+    }
+
+    var currentSlide;
+    var currentDot;
+
+    const goNext = () => {
+      currentSlide = track.querySelector('.currentSlide');
+      currentDot = dotsNav.querySelector('.currentPic');
+
+      var nextSlide;
+      var nextDot;
+      var amountToMove;
+      if (currentSlide === slides[totalImages - 1]) {
+        nextSlide = slides[0];
+        nextDot = dots[0];
+        amountToMove = '0px';
+      } else {
+        nextSlide = currentSlide.nextElementSibling;
+        nextDot = currentDot.nextElementSibling;
+        amountToMove = nextSlide.style.left;
+      }
+
+      track.style.transform = 'translateX(-' + amountToMove + ')';
+      currentSlide.classList.remove('currentSlide');
+      nextSlide.classList.add('currentSlide');
+
+      currentDot.classList.remove('currentPic');
+      nextDot.classList.add('currentPic');
+
+    }
+
+    const goBack = () => {
+      currentSlide = track.querySelector('.currentSlide');
+      currentDot = dotsNav.querySelector('.currentPic');
+      var prevDot;
+      var prevSlide;
+      var amountToMove;
+      if (currentSlide === slides[0]) {
+        prevSlide = slides[totalImages - 1];
+        prevDot = dots[totalImages - 1];
+        amountToMove = ((totalImages - 1) * slideWidth) + 'px';
+      } else {
+        prevSlide = currentSlide.previousElementSibling;
+        prevDot = currentDot.previousElementSibling;
+        amountToMove = prevSlide.style.left;
+      }
+
+      track.style.transform = 'translateX(-' + amountToMove + ')';
+      currentSlide.classList.remove('currentSlide');
+      prevSlide.classList.add('currentSlide');
+
+      currentDot.classList.remove('currentPic');
+      prevDot.classList.add('currentPic');
+
+    }
+
+    nextButton.addEventListener('click', goNext)
+
+    prevButton.addEventListener('click', goBack)
+
+    function adjustImage(num) {
+      currentSlide = track.querySelector('.currentSlide');
+      currentDot = dotsNav.querySelector('.currentPic');
+
+      var nextSlide = slides[num];
+      var nextDot = dots[num];
+
+      var amountToMove = (num * slideWidth) + 'px';
+      track.style.transform = 'translateX(-' + amountToMove + ')'
+
+      currentSlide.classList.remove('currentSlide');
+      nextSlide.classList.add('currentSlide');
+
+      currentDot.classList.remove('currentPic');
+      nextDot.classList.add('currentPic');
+
+    }
+
+    //setInterval(goNext, 6000);
+  </script>
+
+  <script>
+
+    var questionCounter = 0;
+
+    var mCount = 0;
+    var rCount = 0;
+    var cCount = 0;
+    var sCount = 0;
+
+    var Questions = [
+      "I believe my special purpose can be used to help others because...",
+      "My special goal requires that I understand...",
+      "I'm always happy to work with people who think about...",
+      "If I were asked to paint a picture I would most likely choose the theme...",
+      "My approach to maintaing a postitive attitude is to know that...",
+      "You feel good about yourself because you believe...",
+      "When I am working hard to accomplish my goals, I think about the fact that...",
+      "Whenever I help others I feel like...",
+      "Whenever I work in the spirit of teamwork, I believe that...",
+      "Finally when you feel you are doing the right thing, you know..."
+    ];
+
+    var gameAnswers = [
+      { A1: "images/gameAnswers/matter-1.png", A2: "images/gameAnswers/responsible-2.png", A3: "images/gameAnswers/considerate-3.png", A4: "images/gameAnswers/strategies-4.png" },
+      { A1: "images/gameAnswers/strategies-5.png", A2: "images/gameAnswers/responsible-2.png", A3: "images/gameAnswers/considerate-6.png", A4: "images/gameAnswers/matter-1.png" },
+      { A1: "images/gameAnswers/matter-8.png", A2: "images/gameAnswers/considerate-10.png", A3: "images/gameAnswers/responsible-9.png", A4: "images/gameAnswers/strategies-11.png" },
+      { A1: "images/gameAnswers/matter-1.png", A2: "images/gameAnswers/responsible-2.png", A3: "images/gameAnswers/considerate-3.png", A4: "images/gameAnswers/strategies-11.png" },
+      { A1: "images/gameAnswers/responsible-12.png", A2: "images/gameAnswers/matter-1.png", A3: "images/gameAnswers/strategies-13.png", A4: "images/gameAnswers/considerate-6.png" },
+      { A1: "images/gameAnswers/matter-14.png", A2: "images/gameAnswers/responsible-15.png", A3: "images/gameAnswers/considerate-16.png", A4: "images/gameAnswers/strategies-17.png" },
+      { A1: "images/gameAnswers/considerate-6.png", A2: "images/gameAnswers/responsible-2.png", A3: "images/gameAnswers/strategies-18.png", A4: "images/gameAnswers/matter-1.png" },
+      { A1: "images/gameAnswers/matter-1.png", A2: "images/gameAnswers/responsible-2.png", A3: "images/gameAnswers/considerate-3.png", A4: "images/gameAnswers/strategies-20.png" },
+      { A1: "images/gameAnswers/responsible-2.png", A2: "images/gameAnswers/matter-1.png", A3: "images/gameAnswers/strategies-21.png", A4: "images/gameAnswers/considerate-19.png" },
+      { A1: "images/gameAnswers/matter-14.png", A2: "images/gameAnswers/responsible-15.png", A3: "images/gameAnswers/considerate-16.png", A4: "images/gameAnswers/strategies-17.png" }
+    ];
+
+    function getResults(mCount, rCount, cCount, sCount) {
+      let maxObject = {
+        'I Matter': mCount,
+        'Responsible': rCount,
+        'Considerate': cCount,
+        'Strategies': sCount
+      }
+      let max;
+      for (let i in maxObject) {
+        if (!max || (maxObject[i] > maxObject[max])) {
+          max = i;
+        }
+      }
+      return max;
+    }
+
+    var results = {
+      'I Matter': "You know positive behavior is important",
+      Strategies: "You know setting realistic goals are important",
+      Responsible: "You know putting forth more effort is important",
+      Considerate: "You are about positive team work"
+    };
+
+    //alert(Questions[1]);
+
+    function playGame() {
+      var playScreen = document.getElementById("playScreen");
+      var triviaGame = document.getElementById("trivia");
+
+      playScreen.style.display = "none";
+      triviaGame.style.display = "block";
+
+      incrementGame();
+
+      getQuestion();
+    }
+
+    function handleAnswer(src) {
+
+      var str = src.split("/");
+      var cleanStr = str[str.length - 1];
+      var finalStr = cleanStr.substring(0, cleanStr.indexOf("-"));
+
+      if (finalStr === "matter") mCount++;
+      if (finalStr === "responsible") rCount++;
+      if (finalStr === "considerate") cCount++;
+      if (finalStr === "strategies") sCount++;
+
+      getQuestion();
+    }
+
+    function displayResults() {
+
+      document.getElementById("endGame").style.display = "none";
+      document.getElementById("resultsPage").style.display = "block";
+
+
+      var result = getResults(mCount, rCount, cCount, sCount);
+      incrementResult(result);
+      var colors = { 'I Matter': "images/blue.jpg", Responsible: "images/red.gif", Considerate: "images/yellow.jpg", Strategies: "images/green.jpeg" };
+
+      //results page
+      document.getElementById("gameContainer").style.backgroundImage = `url(${colors[result]}`;
+      document.getElementById("result").innerHTML = result;
+      document.getElementById("result").style.color = "white";
+      document.getElementById("sentence").innerHTML = results[result];
+      document.getElementById("sentence").style.color = "white";
+    }
+
+    function getQuestion() {
+      var questionT = document.getElementById("QuestionT");
+      var arr = Object.keys(gameAnswers[0]);
+      var questionNumber = document.getElementById("questionNumber");
+
+      if (questionCounter < 10) {
+        questionT.innerHTML = Questions[questionCounter];
+        for (let i = 0; i < 4; i++) {
+          //let An = "A" + (i + 1);
+          document.getElementById("A" + (i + 1)).src = gameAnswers[questionCounter][arr[i]];
+        }
+        questionNumber.innerHTML = (questionCounter + 1) + "/10";
+        questionCounter++;
+      }
+      else {
+        document.getElementById("endGame").style.display = "block";
+        document.getElementById("trivia").style.display = "none";
+        document.getElementById("gameContainer").style.backgroundColor = "red";
+
+        //document.getElementById("")
+        //console.log(mCount);
+      }
+    }
+
+    function replayGame() {
+      document.getElementById("gameContainer").style.backgroundImage = "";
+      document.getElementById("gameContainer").style.backgroundColor = "white";
+      document.getElementById("endGame").style.display = "none";
+      document.getElementById("resultsPage").style.display = "none";
+      document.getElementById("playScreen").style.display = "block";
+
+      questionCounter = 0;
+      mCount = 0;
+      rCount = 0;
+      cCount = 0;
+      sCount = 0;
+    }
+
+    function incrementGame() {
+      mode = "incrementGame";
+
+      var xhttp = new XMLHttpRequest();
+      var url = "php/AdminsRICH.php";
+      var params = "mode=" + mode;
+
+      xhttp.open("POST", url, false);
+      xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xhttp.send(params);
+    }
+
+    function incrementResult(gameResult) {
+      mode = "incrementResult";
+
+      var xhttp = new XMLHttpRequest();
+      var url = "php/AdminsRICH.php";
+      var params = "mode=" + mode + "&gameResult=" + gameResult;
+
+      xhttp.open("POST", url, false);
+      xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xhttp.send(params);
+    }
+
+    function sendMail() {
+      mode = "sendMail";
+
+      var senderName = document.getElementById("senderName").value;
+      var senderEmail = document.getElementById("senderEmail").value;
+      var senderSubject = document.getElementById("subject").value;
+      var senderMessage = document.getElementById("message").value;
+
+      var xhttp = new XMLHttpRequest();
+      var url = "php/UsersRICH.php";
+      var params = "mode=" + mode + "&name=" + senderName + "&mail=" + senderEmail + "&subject=" + senderSubject + "&message=" + senderMessage;
+
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+
+        }
+      };
+
+      xhttp.open("POST", url, true);
+      xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xhttp.send(params);
+
+      document.getElementById("senderName").value = "";
+      document.getElementById("senderEmail").value = "";
+      document.getElementById("subject").value = "";
+      document.getElementById("message").value = "";
+    }
+
+    window.onscroll = function () {
+
+      if (window.pageYOffset > 20) {
+        document.getElementById("myLogo").style.top = "-250px";
+        document.getElementById("logoHeight").style.height = "200px";
+      } else {
+        document.getElementById("myLogo").style.top = "0px";
+        document.getElementById("logoHeight").style.height = "375px";
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      var mediaElements = document.querySelectorAll('video, audio'), total = mediaElements.length;
+
+      for (var i = 0; i < total; i++) {
+        new MediaElementPlayer(mediaElements[i], {
+          pluginPath: 'https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/',
+          shimScriptAccess: 'always',
+          success: function () {
+            var target = document.body.querySelectorAll('.player'), targetTotal = target.length;
+            for (var j = 0; j < targetTotal; j++) {
+              target[j].style.visibility = 'visible';
+            }
+          }
+        });
+      }
+    });
+
+    var userInfo;
+    getUserInfo();
+
+    var Answers = [];
+
+    function checkLogin() {
+
+      if (userInfo == "" || userInfo == "undefined") {
+        window.location.href = "login.php";
+      }
+      else {
+        window.location.href = "Account/portal-home.html";
+      }
+      //window.location.href = "login.php";
+    }
+
+    function addQuestion() {
+      var chatArea = document.getElementById("chatArea");
+      var question = document.getElementById("question").value;
+
+      var row = document.createElement("div");
+      row.className = "row";
+
+      var imgCol = document.createElement("div");
+      imgCol.className = "col-lg-2 col-md-2 text-center";
+      imgCol.style.padding = "0px";
+
+      var img = document.createElement("img");
+      img.className = "img-fluid";
+      img.src = "images/favicon.ico";
+
+      imgCol.appendChild(img);
+
+      var colQuestion = document.createElement("div");
+      colQuestion.className = "col-lg-10 col-md-10";
+
+      var colText = document.createTextNode(question);
+      var colP = document.createElement("p");
+      colP.style.fontSize = "14px";
+
+      colP.appendChild(colText);
+      colQuestion.appendChild(colP);
+
+      row.appendChild(imgCol);
+      row.appendChild(colQuestion);
+
+      chatArea.appendChild(row);
+
+      if (question != "") {
+        askQuestion(question);
+        handleResponse(Answers);
+
+        Answers = [];
+      }
+
+      document.getElementById("question").value = "";
+      //chatArea.scrollTo(0, chatArea.offsetHeight);
+      chatArea.scrollTop = chatArea.scrollHeight;
+
+    }
+
+    function askQuestion(question) {
+      var xhttp = new XMLHttpRequest();
+      var url = "php/Bot.php";
+      var params = "userString=" + question;
+
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          var myArray = JSON.parse(this.responseText);
+          if (myArray.length != 0) {
+            for (var i = 0; i < myArray.length; i++) {
+              Answers.push(myArray[i]);
+            }
+          }
+        }
+      };
+
+      xhttp.open("POST", url, false);
+      xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xhttp.send(params);
+    }
+
+    function handleResponse(Answers) {
+      var chatArea = document.getElementById("chatArea");
+
+      var row = document.createElement("div");
+      row.className = "row";
+
+      var imgCol = document.createElement("div");
+      imgCol.className = "col-lg-2 col-md-2 text-center";
+      imgCol.style.padding = "0px";
+
+      var img = document.createElement("img");
+      img.className = "img-fluid";
+      img.src = "images/botimage.png";
+
+      imgCol.appendChild(img);
+
+      var colAnswer = document.createElement("div");
+      colAnswer.className = "col-lg-10 col-md-10";
+
+      var uniqueAnswers = Answers.filter(function (item, index) {
+        return Answers.indexOf(item) >= index;
+      });
+
+      var answerText = "";
+      if (uniqueAnswers.length != 0) {
+        //alert(uniqueAnswers.length);
+        for (var i = 0; i < uniqueAnswers.length; i++) {
+          //alert(Answers[i]);
+          //alert(Answers.length);
+          answerText += (uniqueAnswers[i] + " ");
+        }
+      }
+      else {
+        answerText = "Sorry, I can't help you. Contact an Adminstrator if you have more specific questions.";
+      }
+      var colText = document.createTextNode(answerText);
+
+      var colP = document.createElement("p");
+      colP.style.fontSize = "14px";
+
+      colP.appendChild(colText);
+      colAnswer.appendChild(colP);
+
+      row.appendChild(imgCol);
+      row.appendChild(colAnswer);
+
+      chatArea.appendChild(row);
+
+    }
+
+    function openForm() {
+      document.getElementById("myForm").style.display = "block";
+      document.getElementById("botButton").style.display = "none";
+    }
+
+    function closeForm() {
+      document.getElementById("myForm").style.display = "none";
+      document.getElementById("botButton").style.display = "block";
+    }
+
+    function getUserInfo() {
+      mode = "getInfo";
+
+      var xhttp = new XMLHttpRequest();
+      var url = "php/UsersRICH.php";
+      var params = "mode=" + mode;
+
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          userInfo = this.responseText;
+        }
+      };
+
+      xhttp.open("POST", url, false);
+      xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xhttp.send(params);
+    }
+
+
+
+
+  </script>
+
+</body>
+
+</html>

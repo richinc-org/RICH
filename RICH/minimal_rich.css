@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+@font-face {
+    font-family: 'Agrandir';
+    src: url(/HTML/fonts/Agrandir-Regular.otf);
+}
+@font-face {
+    font-family: 'Agrandir_Bold';
+    src: url(/HTML/fonts/Agrandir-TextBold.otf);
+}
+
+@font-face {
+    font-family: "Flaticon";
+    src: url("./Flaticon.eot");
+    src: url("./Flaticon.eot?#iefix") format("embedded-opentype"),
+         url("./Flaticon.woff") format("woff"),
+         url("./Flaticon.ttf") format("truetype"),
+         url("./Flaticon.svg#Flaticon") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+  
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Josefin Sans', 'Agrandir', sans-serif;
+}
+
+
+.rich_logo {
+    cursor: pointer;
+    height: 110px;
+    width: auto;
+}
+
+
+header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 80px;
+    width: 100%;
+    border-bottom: 3px solid black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); 
+    position: fixed;
+    background-color: #E7DFD8;
+    z-index: 9999;
+}
+
+nav {
+    width: 100%
+}
+
+
+.navbar {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+}
+
+.navbar li {
+    margin-left: 20px;   
+}
+
+.navbar li:not(:first-child) {
+    flex-grow: 1;
+    justify-content: flex-end;
+}
+
+.navbar li:first-child {
+    margin-right: 50px;
+}
+
+
+.navbar li a {
+    transition: all 0.3s ease 0s;
+}
+
+.navbar li a:hover {
+    color: #0088a9;
+}
+
+nav li a{
+    font-size: 19px;;
+}
+
+
+h1 {
+    color: blue;
+    letter-spacing: 4px;
+    font-weight: bolder;
+    font-size: 55px;
+}
+
+h2 {
+    letter-spacing: 4px;
+    font-weight: bolder;
+    font-size: 45px;
+}
+
+body { 
+    background-color: #E7DFD8; 
+    background-color: linear-gradient(90deg, #020024 0%, #090979 35%, #00d4ff 100%);
+}
+
+main {
+    padding-top: 200px;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+p {
+    /* text-align: center; */
+    line-height: 2;
+    font-size: 20px;
+}
+
+#welcome { 
+    font-size: 30px;
+}
+
+.four_rich_principles p {
+    font-family: 'Agrandir', sans-serif;
+}
+
+button{
+    padding: 10px 25px;
+    font-size: 25px;
+    letter-spacing: 1px;
+    background-color: rgba(0, 136, 169, 1);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+
+
+}
+
+button:hover{
+    background-color: rgba(0, 136, 169, 0.8);
+}
+
+span{
+   color: blue;
+   text-decoration: underline; 
+}
+
+footer{
+    text-align: left;
+    color: white;
+    border-top: 3px solid black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+    background-color: #212121;
+}
+
+.revealable {
+    position: relative;
+    transform: translateY(150px);
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+    .active {
+    transform: translateY(0px);
+    opacity: 1;
+    }
+
+@media only screen and (max-width: 600px) {
+    .header {
+          visibility: hidden;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,642 @@
+<?php 
+  require ("classes/connect.php");
+  require ("classes/uid.php");
+
+  function checkPasswordLength($password){
+    $result;
+    if (strlen($password) < 8) {
+      $result = "true";
+    }
+    else{
+      $result = "false";
+    }
+
+    return $result;
+  }
+
+  function checkMatch($password, $password_match){
+    $result;
+    if(strcmp($password, $password_match) != 0){
+      $result = "true";
+    }
+    else{
+      $result = "false";
+    }
+
+    return $result;
+  }
+
+  function userExists($conn, $username, $email){
+    $result;
+    $sql = "SELECT * FROM SchoolAdmins WHERE EmailAddress = '$username' OR EmailAddress = '$email';";
+    $DB = new Database;
+
+    $DB ->read($sql);
+    if ($result) {
+      $queryData = mysqli_num_rows($result);
+      if ($queryData > 0){
+        $result = "true";
+      }
+      else{
+        $result = "false";
+      }
+    }
+    else{
+      $result = "false";
+    }
+
+    return $result;
+  }
+
+  function evaluate($safirst, $salast, $saemail, $sapassword, $sapassword_match, $sascid, $conn){
+    if(userExists($conn, $saemail, $saemail) == "true"){
+      return "User Already Exists.";
+    }
+    else{
+      if(checkPasswordLength($sapassword) == "true"){
+        return "Password must be at least 8 characters";
+      }
+      else{
+        if (checkMatch($sapassword, $sapassword_match) == "true") {
+          return "Passwords don't match";
+        }
+        else{
+          createuser($safirst, $salast, $saemail, $sapassword, $sascid, $conn);
+        }
+      }
+    }
+  }
+
+  function createuser($safirst, $salast, $saemail, $sapassword, $sascid, $conn){
+    $status = "active";
+    $userid = createuid();
+    $DB = new Database;
+    $Check = new Uid();
+
+    $goodid = $Check -> checkUid($userid);
+    while ($goodid == "b") {
+      $userid = createuid();
+      $goodid = $Check -> checkUid($userid);
+    }
+    $hashedPwd = password_hash($sapassword, PASSWORD_DEFAULT);
+
+
+    $sql = "INSERT INTO SchoolAdmins (Uid, SchoolUid, FirstName, LastName, EmailAddress, Pass, Status) VALUES ('$userid', '$sascid', '$safirst', '$salast', '$saemail', '$hashedPwd', '$status');";
+
+    
+    $DB ->save($sql);
+
+    header("location: registerSA.php?s=t");
+    die();
+  }
+
+  function createuid(){
+    $length = rand(4, 10);
+    $number = "";
+    for ($i=0; $i < $length; $i++) { 
+      $new_rand = rand(0, 9);
+      $number = $number . $new_rand;
+    }
+    return $number;
+  }
+  if (isset($_POST)) {
+    if (isset($_POST['sabtnsubmit'])) {
+      $DB = new Database;
+      $conn = $DB->connect();
+      $sascid = addslashes($_POST['scid']);
+      $safirst = addslashes($_POST['safname']);
+      $salast = addslashes($_POST['salname']);
+      $saemail = addslashes($_POST['saemail']);
+      $sapassword = addslashes($_POST['sapassword']);
+      $sapassword_match = addslashes($_POST['sacpassword']);
+
+      evaluate($safirst, $salast, $saemail, $sapassword, $sapassword_match, $sascid, $conn);
+    }   
+  }
+
+  else{
+    echo "No";
+  }
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>RICH &mdash; Reach Into Cultural Heights</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
+
+  <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Work+Sans:300,400,700" rel="stylesheet">
+  <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/magnific-popup.css">
+  <link rel="stylesheet" href="css/jquery-ui.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+  <link rel="stylesheet" href="css/animate.css">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/mediaelementplayer.min.css">
+
+
+
+  <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+
+  <link rel="stylesheet" href="css/aos.css">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <style type="text/css">
+    #successlog{
+      background-color: lightgreen;
+      color: green;
+      padding: 15px;
+      font-size: 18px;
+      margin: 0 auto;
+    }
+  </style>
+
+</head>
+<body>
+
+  <div class="site-wrap">
+
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div> <!-- .site-mobile-menu -->
+
+    <!--
+    <div id = "myLogo" class="site-navbar-wrap js-site-navbar bg-white">
+
+    <div class="container-fluid">
+
+    <div class="text-center">
+    <a href = "index.html"><img src="images/RICH-LOGO.png"  href="index.html" alt="..."></a>
+  </div>
+
+  <div class="site-navbar bg-light">
+  <div class="py-1">
+  <div class="row align-items-left">
+
+  <div class="col-12">
+  <nav class="site-navigation text-center" role="navigation">
+  <div class="container-fluid">
+  <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+
+  <ul class="site-menu js-clone-nav d-none d-lg-block">
+  <li class="has-children">
+  <a href="overview.html">Our Work</a>
+  <ul class="dropdown arrow-top">
+  <li><a href="overview.html">Program Overview</a></li>
+  <li><a href="rich-learning-system.html">RICH Learning System</a></li>
+  <li><a href="sdlp.html">Self-Directed Learning Projects</a></li>
+  <li><a href="">RICH Student Essays to NVLP Elders</a></li>
+</ul>
+</li>
+
+<li class="has-children">
+<a href="graduate-testimonials.html">Testimonials</a>
+<ul class="dropdown arrow-top">
+<li><a href="graduate-testimonials.html">Graduate Testimonials</a></li>
+<li><a href="first-graduates.html">First Graduates</a></li>
+</ul>
+</li>
+
+<li><a href="parents-investment-alliance.html">Parents Investment Allicance</a></li>
+<li><a href="gsuite-classroom.html">G Suite Classroom</a></li>
+
+<li class="has-children">
+<a href="mission.html">About Us</a>
+<ul class="dropdown arrow-top">
+<li><a href="mission.html">About Reach Into Cultural Heights</a></li>
+<li><a href="board-directors.html">Board of Directors</a></li>
+<li><a href="privacy-policy.html">Privacy Policy</a></li>
+</ul>
+</li>
+
+<li class="has-children">
+<a href="annual-reports.html">Contact Us </a>
+<ul class="dropdown arrow-top">
+<li><a href="annual-reports.html">Annual Reports</a></li>
+<li><a href="partnership-opportunities.html">Partnership Opportunities</a></li>
+</ul>
+</li>
+
+</ul>
+</div>
+</nav>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+-->
+<!--
+<div style="height: 250px;"></div>
+
+<div id = "piaContainer" class="container">
+
+<div class = "col-md-8 mx-auto no-sidebar" >
+<div class="shapely-content">
+
+<h1 style ="font-size:60px"> G Suite Classroom </h1>
+<p>
+Using Google Suite Classroom Platform – RICH vision is supported with a pioneering
+tool designed for the urban student to practice writing their personal story in
+overcoming obstacles and gaining academic success using the Reach for Success 4
+guiding principles as a means to affirm that they matter.
+</p>
+
+<h5 style= "padding-bottom:12px;"> For Students Only </h5>
+<div style= "padding-bottom:300px;"> <a href "https://docs.google.com/a/richinc.org/document/d/1j3HYTzkPZpZ2VBr-UykXHS1Z24bsAkPb80IIFucCW50/edit?usp=sharing"> Google Classroom Sessions </a> </div>
+
+</div>
+</div>
+</div>
+
+-->
+<div style="padding-bottom: 50px;" class="text-center">
+    <a href = "index.html"><img class = "img-fluid" src="images/LOGO.png"  href="index.html" alt="..."></a>
+
+
+  <div id = "piaContainer" class="container">
+
+    <div class = "col-md-8 mx-auto no-sidebar" >
+      <div class="shapely-content">
+        <br><br>
+
+        <!--
+        <form>
+        <div class="form-group">
+        <label for="optionSelect">Select Parent or Student</label>
+        <select class="form-control" id="registerOptions">
+        <option> Choose </option>
+        <option value = "parent">Parent</option>
+        <option value = "student">Student</option>
+      </select>
+    </div>
+  </form>
+-->
+<form action="" method="POST">
+  <h1 class= "text-center"> School Administration Registration </h1><br>
+
+    <div id = "studentForm">
+
+      <?php 
+        if (isset($_GET)) {
+          if (isset($_GET['s']) == 't') {
+      ?>
+            <p id="successlog">School Admin Account Created Successfully!</p>
+      <?php
+            die();
+          }
+          if (isset($_GET['sid'])) {
+          }
+          else{
+      ?>
+            <script type="text/javascript">
+              window.location.href = "beforeregister.php";
+            </script>
+      <?php
+          }
+        }
+      ?>
+      <div class="form-group">
+        <p><strong>School:</strong> <?php $DB = new Database;
+          $conn = $DB->connect();
+          $scid = htmlspecialchars($_GET['sid']);
+          $sql = "SELECT * FROM Schools WHERE Uid = '$scid';";
+          $resl = $DB->read($sql);
+          if ($resl) {
+            $queryDataI = mysqli_num_rows($resl);
+            if ($queryDataI > 0){
+              while ($row = mysqli_fetch_assoc($resl)) {
+                echo htmlspecialchars($row['SchoolName']);
+              }
+            }
+          }
+        ?></p>
+        <input type="text" name="scid" value="<?php echo $scid ?>" hidden>
+      </div>
+
+      <div class="form-group">
+        <label style="float:left;" for="firstName">First Name (required):</label>
+        <input type = "text" name="safname" class="form-control" id="firstName" required></input>
+      </div>
+
+      <div class="form-group">
+        <label style="float:left;" for="lastName"> Last Name (required):</label>
+        <input type = "text" name="salname" class="form-control" id="lastName" required></input>
+      </div>
+
+      <div class="form-group">
+        <label style="float:left;" for="email"> Email Address:</label>
+        <input type = "email" name="saemail" class="form-control" id="email" required></input>
+      </div>
+
+      <div class="form-group">
+        <label style="float:left;" for="password">Password:</label>
+        <input type = "password" name="sapassword" class="form-control" id="pass" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" oninvalid="this.setCustomValidity('Password Must Contain At Least One of Each: Uppercase, Lowercase and a Number')" required></input>
+      </div>
+
+      <div class="form-group">
+        <label style="float:left;" for="passwordC">Confirm Password:</label>
+        <input type = "password" name="sacpassword" class="form-control" id="passC" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" oninvalid="this.setCustomValidity('Password Must Contain At Least One of Each: Uppercase, Lowercase and a Number')" required></input>
+      </div>
+
+      <div>
+        <button type="submit" name="sabtnsubmit" value="submit" style="width:100%;"> Create Account </button>
+      </div>
+    </div>
+</form>
+
+
+<!--
+<div id = "parentForm" style="display:none;">
+  <form>
+
+    <div class="form-group">
+    <label for"profileImage"> Profile Image:</label>
+    <input type="file" name="pic" accept="image/*">
+  </div>
+
+<div class="form-group">
+  <label style="float:left;" for="firstName">First Name (required):</label>
+  <input type = "text" class="form-control" id="firstNameP" required></input>
+</div>
+<div class="form-group">
+  <label style="float:left;" for="lastName"> Last Name (required):</label>
+  <input type = "text" class="form-control" id="lastNameP" required></input>
+</div>
+<div class="form-group">
+  <label style="float:left;" for="dateOfBirth">Date of Birth:</label>
+  <input type = "text" class="form-control" id="dobP" placeholder="YYYY-MM-DD" required></input>
+</div>
+<div class="form-group">
+  <label style="float:left;" for="purpose">Purpose of Registration</label>
+  <div class="form-group">
+    <select onchange = "checkPurpose()" class="form-control" id="purpose">
+      <option disabled selected> Choose One of the Following </option>
+      <option>Be part of the program</option>
+      <option>Tracking progress on child</option>
+      <option>Other</option>
+    </select>
+  </div>
+</div>
+<div class="form-group">
+  <label style="float:left;" for="email"> Email Address:</label>
+  <input type = "email" class="form-control" id="emailP" required></input>
+</div>
+<div class="form-group">
+  <label style="float:left;"for="password">Password:</label>
+  <input type = "password" class="form-control" id="passP" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required></input>
+</div>
+<div class="form-group">
+  <label style="float:left;" for="passwordC">Confirm Password:</label>
+  <input type = "password" class="form-control" id="passCP" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required></input>
+</div>
+<div>
+  <button style="width:100%;" onclick="handleParentData()"> Create Account </button>
+</div>
+</form>
+</div>
+-->
+</div>
+</div>
+</div>
+</div>
+
+<footer class="site-footer">
+    <div class="container">
+
+      <div class="row">
+        <div class="col">
+          <p class="text-center">
+              Email: rich@att.net
+              <br>
+              Phone: (929) 242-9036
+              <br>
+              Address: Tech Incubator at Queens College, 65-30 Kissena Blvd, Flushing, NY 11367
+              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+              <br>
+              Copyright &copy;
+              <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+              <script>document.write(new Date().getFullYear());</script> All Rights Reserved | This template is made by <a
+                href="https://colorlib.com" target="_blank">Colorlib</a>
+              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+          </div>
+  
+        </div>
+      </div>
+    </footer>
+    </div>
+
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/jquery-migrate-3.0.1.min.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/jquery.stellar.min.js"></script>
+<script src="js/jquery.countdown.min.js"></script>
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/bootstrap-datepicker.min.js"></script>
+<script src="js/aos.js"></script>
+
+
+<script src="js/mediaelement-and-player.min.js"></script>
+
+<script src="js/main.js"></script>
+
+
+<script>
+
+//addStudentAccount("test", "user", "1996-09-11", "Twelve", "Matter", "heo@mail.com", "Test1234", "Test1234");
+//checkEmailUniqueness("essam@test.com");
+var principle;
+var purpose;
+var gender;
+var type;
+var check;
+var mode;
+var isUserUnique;
+var isEmailUnique;
+
+function checkPrinciple(){
+  principle = document.getElementById("principles").value;
+}
+
+function checkGender(){
+  gender = document.getElementById("gender").value;
+  //alert(gender);
+}
+
+function checkPurpose(){
+  purpose = document.getElementById("purpose").value;
+}
+
+function displayParentForm(){
+  document.getElementById("parentForm").style.display = "block";
+  document.getElementById("studentForm").style.display = "none";
+  //document.getElementById("studentForm").classList.add('d-none');
+}
+
+function displayStudentForm(){
+  //document.getElementById("studentForm").classList.remove('d-none');
+  document.getElementById("studentForm").style.display = "block";
+  document.getElementById("parentForm").style.display = "none";
+}
+
+/*function createStudentAccount(){
+  check = true;
+
+  var firstName = document.getElementById("firstName").value;
+  var lastName = document.getElementById("lastName").value;
+  var dob = document.getElementById("dob").value;
+  var level = document.getElementById("gradeLevel").value;
+  var princip = principle;
+  var email = document.getElementById("email").value;
+  var pass = document.getElementById("pass").value;
+  var passC = document.getElementById("passC").value;
+
+  checkEmailUniqueness(email);
+
+  if (pass != passC){
+    check = false;
+    emptyPasswords();
+    alert("Passwords Don't Match");
+  }
+
+  if (isEmailUnique == false){
+    check = false;
+    emptyPasswords();
+    emptyEmailField();
+    alert("User Already Exists");
+  }
+
+  if (check == true){
+    alert("Account Created Sucessfully!");
+    addStudentAccount(firstName, lastName, dob, level, princip, email, pass, passC);
+  }
+  return check;
+}*/
+
+function emptyPasswords(){
+  document.getElementById("pass").value = "";
+  document.getElementById("passC").value = "";
+}
+
+function emptyEmailField(){
+  document.getElementById("email").value = "";
+}
+
+function Check(){
+  return check;
+}
+
+function addStudentAccount(firstName, lastName, dob, level, princip, email, pass, passC){
+  mode = "Register";
+  type = "Student";
+  
+  var xhttp = new XMLHttpRequest();
+  var url = "php/UsersRICH.php";
+  var params = "mode=" + mode + "&type=" + type + "&fn=" + firstName
+  + "&ln=" + lastName + "&dob=" + dob + "&level=" + level
+  + "&pr=" + princip + "&email=" + email + "&pass=" + pass
+  + "&passC=" + passC;
+
+  xhttp.open("POST", url, true);
+
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200){
+
+    }
+  };
+
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send(params);
+}
+
+function handleParentData(){
+  var firstName = document.getElementById("firstName").value;
+  var lastName = document.getElementById("lastName").value;
+  var dob = document.getElementById("dob").value;
+  var purp = purpose;
+  var pass = document.getElementById("pass").value;
+  var passC = document.getElementById("passC").value;
+
+  alert(firstName);
+  alert(purpose);
+  alert(passC);
+}
+
+function checkEmailUniqueness(email){
+  mode = "CheckEmail";
+
+  var xhttp = new XMLHttpRequest();
+  var url = "php/UsersRICH.php";
+  var params = "mode=" + mode + "&email=" + email;
+
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200){
+      var String1 = "exists";
+
+      var result = String1.localeCompare(this.responseText);
+      if (result == 0){
+        isEmailUnique = false;
+      }
+      else isEmailUnique = true;
+    }
+  };
+
+  xhttp.open("POST", url, true);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send(params);
+}
+
+
+//handleStudentData();
+//handleParentData();
+
+/*
+window.onscroll = function() {
+
+if (window.pageYOffset > 40) {
+document.getElementById("myLogo").style.top = "-135px";
+} else {
+document.getElementById("myLogo").style.top = "0px";
+}
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+var mediaElements = document.querySelectorAll('video, audio'), total = mediaElements.length;
+
+for (var i = 0; i < total; i++) {
+new MediaElementPlayer(mediaElements[i], {
+pluginPath: 'https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/',
+shimScriptAccess: 'always',
+success: function () {
+var target = document.body.querySelectorAll('.player'), targetTotal = target.length;
+for (var j = 0; j < targetTotal; j++) {
+target[j].style.visibility = 'visible';
+}
+}
+});
+}
+});
+*/
+</script>
+
+</body>
+</html>

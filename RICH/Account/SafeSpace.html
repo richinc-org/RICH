@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<script>
+
+var userInfo;
+getUserInfo();
+if (userInfo == ""){
+  //window.location.href = "../notLogin.html";
+}
+
+function getUserInfo(){
+  mode = "getInfo";
+
+  var xhttp = new XMLHttpRequest();
+  var url = "../php/UsersRICH.php";
+  var params = "mode=" + mode;
+
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200){
+      userInfo = this.responseText;
+    }
+  };
+
+  xhttp.open("POST", url, false);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send(params);
+}
+
+</script>
+
+<head>
+
+  <title>RICH &mdash; Reach Into Cultural Heights</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico" />
+
+  <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Work+Sans:300,400,700" rel="stylesheet">
+  <link rel="stylesheet" href="../fonts/icomoon/style.css">
+
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/magnific-popup.css">
+  <link rel="stylesheet" href="../css/jquery-ui.css">
+  <link rel="stylesheet" href="../css/owl.carousel.min.css">
+  <link rel="stylesheet" href="../css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="../css/bootstrap-datepicker.css">
+  <link rel="stylesheet" href="../css/animate.css">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/mediaelementplayer.min.css">
+
+  <link rel="stylesheet" href="../fonts/flaticon/font/flaticon.css">
+
+  <link rel="stylesheet" href="../css/aos.css">
+
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    #principleCol1, #principleCol2, #principleCol3, #principleCol4 {
+      cursor: pointer;
+      transform: scale(1);
+      transition: 150ms ease-out;
+    }
+    #principleCol1:hover, #principleCol2:hover, #principleCol3:hover, #principleCol4:hover {
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="site-wrap">
+
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div> <!-- .site-mobile-menu -->
+
+    <div id = "myLogo" style = "padding: 0;" class="site-navbar-wrap js-site-navbar bg-white">
+
+      <div id = "navigationBar" class="container-fluid">
+
+        <div class="text-center">
+          <a href = "../index.html"><img class = "img-fluid" src="../images/LOGO-Larger.png"  href="../index.html" alt="..."></a>
+        </div>
+
+        <div class="site-navbar bg-light">
+          <div class="py-1">
+            <div class="row align-items-left">
+              <li> <a href="logout.php"><button style="font-size: 16px; position: absolute; top:50px; right:50px ;" class="portalbutton"> LOGOUT </button></a></li>
+              <div class="col-12">
+                <nav class="site-navigation text-right" role="navigation">
+                  <div class="container-fluid">
+                    <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3"><a href="#"
+                        class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+
+                    <ul class="site-menu js-clone-nav d-none d-lg-block">
+
+                      <li style="float:left;">
+                        <div style="font-size: 27px;" id="userInfo">
+                        </div>
+                        
+                      </li>
+                      <li><a style="font-size: 16px;" class="activelink"
+                          href="https://www.richinc.org/RICH/Account/portal-home.html">Home</a></li>
+                      <li class="has-children">
+                        <a style="font-size: 16px;color:#c51f1f;" href="https://www.richinc.org/RICH/Account/weekly-writings.php" >RICH
+                          Reflective Writing</a>
+                        <ul class="dropdown arrow-top">
+                          <li><a href="https://www.richinc.org/RICH/Account/weekly-writings.php">Weekly-Writings</a></li>
+                          <li><a href="https://www.richinc.org/RICH/Account/mywritings.php">My Writings</a></li>
+                          <li><a href="https://www.richinc.org/RICH/Account/group-discussion.html">Group Discussion</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a style="font-size: 16px; color:#c5721f;" href="https://www.richinc.org/RICH/Account/redirect.html">Google
+                          Classroom</a></li>
+                      <li><a style="font-size: 16px;color:#2f7939;"
+                          href="https://www.richinc.org/RICH/Account/profile.html">Personal-Profile</a></li>
+                      <li><a style="font-size: 16px;"
+                          href="https://www.richinc.org/RICH/Account/projects.html">Projects</a></li>
+                      <li><a style="font-size: 16px; color:#c51f1f;"
+                          href="https://www.richinc.org/RICH/Account/SafeSpace.html" >Safe-Space</a></li>
+                      <!-- <li> <a href="logout.php"><button style="font-size: 16px; position:absolute; top:0; right:0 ;" class="portalbutton"> LOGOUT </button></a></li> -->
+
+
+                    </ul>
+
+                  </div>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id = "logoHeight" style="height: 400px;"></div>
+
+
+    <!--<div id "logoHeight" style="height: 250px;"></div>-->
+
+    <div style="padding-bottom: 100px; padding-left: 20px; padding-right: 20px;" class="text-center">
+
+      <div class = "container-fluid text-left" style = "border-radius: 10px; color: white; background: #2f4279; padding: 20px; font-size: 18px; font-weight: 600;">
+        <div style = "font-size: 35px;" class = "text-center"> <b> Welcome to RICH Safe Space!!! </b> </div> <br>
+        <!--
+        In RICH Safe Space you are free to ask us any question regarding or similar to the RICH principles.
+        Just click the tab regarding your question below and we will answer as soon as possible! REMEMBER: The
+        questions will be anonymous! Thank you for seeking help with RICH.
+      -->
+      <div class = "row">
+        <div style = "font-size: 26px; color: white;" class = "col text-center">
+
+          <p class = "text-center" style = "padding-bottom: 5px;">Explore RICH Principles</p>
+          Have a Question? <br>
+
+
+        </div><br><br>
+        <div style = "font-size: 26px; color: white;" class = "col text-center">
+
+          <p class = "text-center" style = "padding-bottom: 5px;">Tell us about it below</p>
+          Stay Positive
+
+
+        </div>
+      </div>
+    </div><br><br>
+
+    <div id = "piaContainer" class="container">
+      <div class = "col-md-11 mx-auto no-sidebar" >
+        <div id = "assignmentContainer" class="shapely-content">
+
+          <div class = "row">
+            <div id = "principleCol1" class = "col" ><img class = "img-fluid" onclick = "showForum('matter')"  src = "../images/matter.png"></div>
+            <div id = "principleCol2" class = "col" ><img class = "img-fluid" onclick = "showForum('responsible')"  src = "../images/responsibility.png"></div>
+            <div id = "principleCol3" class = "col" ><img class = "img-fluid" onclick = "showForum('considerate')"  src = "../images/considerate.png"></div>
+            <div id = "principleCol4" class = "col" ><img class = "img-fluid" onclick = "showForum('strategies')"  src = "../images/strategies.png"></div>
+          </div><br><br><br>
+
+          <div id = "myForum" style = "display: none;">
+            <div> <h4 id = "pointP" style="font-size: 40px;"> Which RICH Principle is on Your Mind? </h4> </div><br>
+
+            <div id = "topicImage"></div><br>
+
+            <textarea placeholder="Type Your Question" rows="3" id="question" style = "width: 100%; border: 1px solid #8585859c;"></textarea>
+            <button id = "submitButton" class = "portalbutton" style = "width: 100%;"> Submit </button><br><br><br><br>
+
+            <p style = "font-size: 14px;"> Your Identity is Always Hidden <br>
+              Always Stay Positive <br>
+            </p>
+
+            <hr>
+
+            <div class = "container" id = "forumQuestions"> </div>
+
+            <br><br><br><br><br><br><br><br><br>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <footer class="site-footer">
+    <div class="container">
+
+      <div class="row">
+        <div class="col">
+          <p class="text-center">
+              Email: rich@att.net
+              <br>
+              Phone: (929) 242-9036
+              <br>
+              Address: Tech Incubator at Queens College, 65-30 Kissena Blvd, Flushing, NY 11367
+              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+           <br>
+            Copyright &copy;
+            <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+            <script>document.write(new Date().getFullYear());</script> All Rights Reserved | This template is made by <a
+              href="https://colorlib.com" target="_blank">Colorlib</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+  </div>
+  
+<script src="../js/jquery-3.3.1.min.js"></script>
+<script src="../js/jquery-migrate-3.0.1.min.js"></script>
+<script src="../js/jquery-ui.js"></script>
+<script src="../js/popper.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/owl.carousel.min.js"></script>
+<script src="../js/jquery.stellar.min.js"></script>
+<script src="../js/jquery.countdown.min.js"></script>
+<script src="../js/jquery.magnific-popup.min.js"></script>
+<script src="../js/bootstrap-datepicker.min.js"></script>
+<script src="../js/aos.js"></script>
+
+
+<script src="../js/mediaelement-and-player.min.js"></script>
+
+<script src="../js/main.js"></script>
+
+<script>
+
+window.onscroll = function() {
+
+  if (window.pageYOffset > 20) {
+    document.getElementById("myLogo").style.top = "-260px";
+    document.getElementById("logoHeight").style.height = "220px";
+  } else {
+    document.getElementById("myLogo").style.top = "0px";
+    document.getElementById("logoHeight").style.height = "400px";
+  }
+}
+
+/*
+var date = String(new Date()).substring(3,25);
+alert(date);
+*/
+var userInfo;
+var topic;
+var Questions = [];
+var Answers = [];
+var totalAnswers = 0;
+var updatesCheck;
+
+//var userInfo;
+var profileData = [];
+getProfileData();
+if (profileData[0].FirstName == ""){
+  window.location.href = "../notLogin.html";
+}
+var lastName = profileData[0].LastName;
+document.getElementById("userInfo").innerHTML = "Hi " + profileData[0].FirstName + " " + lastName.substring(0,1) + ".";
+
+function getUserInfo(){
+  mode = "getInfo";
+
+  var xhttp = new XMLHttpRequest();
+  var url = "../php/UsersRICH.php";
+  var params = "mode=" + mode;
+
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200){
+      userInfo = this.responseText;
+    }
+  };
+
+  xhttp.open("POST", url, false);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send(params);
+}
+
+function Logout(){
+  mode = "Logout";
+
+  var xhttp = new XMLHttpRequest();
+  var url = "../php/UsersRICH.php";
+  var params = "mode=" + mode;
+
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200){
+
+    }
+  };
+
+  xhttp.open("POST", url, true);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send(params);
+
+  window.location.href = "../index.html";
+}
+
+function showForum(principle){
+
+  var forumQuestions = document.getElementById("forumQuestions");
+  var topicImage = document.getElementById("topicImage");
+
+  if (principle == "matter"){
+    //document.getElementById("principleCol1").style.transform = "scale(1.1, 1.1)";
+    document.getElementById("myForum").style.display = "block";
+    Questions = [];
+    //Answers = [];
+    forumQuestions.innerHTML = "";
+    topicImage.innerHTML = "";
+    topic = "matter";
+    getQuestions(principle);
+    //alert(Questions[1].Question);
+    displayTopicForum(principle);
+
+    location.href = "#";
+    location.href = "#pointP";
+
+    //window.scrollBy(0, 500);
+
+    setInterval("doUpdates(Questions.length, totalAnswers, topic)", 15000);
+    //setTimeout("checkUpdates()", 15);
+  }
+  if (principle == "considerate"){
+    //document.getElementById("principleCol2").style.transform = "scale(1.1, 1.1)";
+    document.getElementById("myForum").style.display = "block";
+    Questions = [];
+    //Answers = [];
+    forumQuestions.innerHTML = "";
+    topicImage.innerHTML = "";
+    topic = "considerate";
+    getQuestions(principle);
+    displayTopicForum(principle);
+
+    location.href = "#";
+    location.href = "#pointP";
+
+    setInterval("doUpdates(Questions.length, totalAnswers, topic)", 15000);
+    //setTimeout("checkUpdates()", 15);
+  }
+  if (principle == "responsible"){
+    //document.getElementById("principleCol3").style.transform = "scale(1.1, 1.1)";
+    document.getElementById("myForum").style.display = "block";
+    Questions = [];
+    //Answers = [];
+    forumQuestions.innerHTML = "";
+    topicImage.innerHTML = "";
+    topic = "responsible";
+    getQuestions(principle);
+    displayTopicForum(principle);
+
+    location.href = "#";
+    location.href = "#pointP";
+
+    setInterval("doUpdates(Questions.length, totalAnswers, topic)", 15000);
+    //setTimeout("checkUpdates()", 15);
+  }
+  if (principle == "strategies"){
+    //document.getElementById("principleCol4").style.transform = "scale(1.1, 1.1)";
+    document.getElementById("myForum").style.display = "block";
+    Questions = [];
+    //Answers = [];
+    forumQuestions.innerHTML = "";
+    topicImage.innerHTML = "";
+    topic = "strategies";
+    getQuestions(principle);
+    displayTopicForum(principle);
+
+    location.href = "#";
+    location.href = "#pointP";
+
+    setInterval("doUpdates(Questions.length, totalAnswers, topic)", 15000);
+    //setTimeout("checkUpdates()", 15);
+  }
+}
+
+function displayTopicForum(topic){
+  var forumQuestions = document.getElementById("forumQuestions");
+  Answers = [];
+  totalAnswers = 0;
+
+  var topicImageDIV = document.getElementById("topicImage");
+
+  var topicImage = document.createElement("img");
+  topicImage.className = "img-fluid text-center";
+  if (topic == "responsible") topicImage.src = "../images/responsibility.png";
+  else topicImage.src = "../images/" + topic + ".png";
+
+  topicImageDIV.appendChild(topicImage);
+
+  for (var i = 0; i < Questions.length; i++){
+    var mainDIV = document.createElement("div");
+    mainDIV.id = "mainDIV";
+    //alert(Questions.length);
+    //var questionROW = document.createElement("div");
+    //questionROW.className = "row";
+
+    var questionDIV = document.createElement("div");
+    questionDIV.className = "col text-left";
+    questionDIV.style.fontSize = "20px";
+    var question = document.createTextNode(Questions[i].Question);
+    questionDIV.appendChild(question);
+
+    var dateDIV = document.createElement("div");
+    dateDIV.className = "col text-right";
+    dateDIV.style.fontSize = "12px";
+    dateDIV.style.paddingRight = "2px";
+    var questionDate = document.createTextNode(Questions[i].QuestionDate);
+    dateDIV.appendChild(questionDate);
+
+    var button1 = document.createElement("BUTTON");
+    button1.className = "btn btn-info";
+    button1.id = Questions[i].QuestionID;
+    button1.style.cssFloat = "left";
+    button1.style.marginLeft = "1em";
+    //button1.style.backgroundColor = "#a8daeb";
+    var buttonText = document.createTextNode("Reply");
+
+    button1.appendChild(buttonText);
+
+    var QID = Questions[i].QuestionID;
+    //alert(QID);
+
+    getAnswers(QID);
+    totalAnswers += Answers.length;
+    //alert(totalAnswers);
+
+    button1.addEventListener ('click', function(){
+      //alert("BUTTON ID " + this.id);
+      reply(this.id);
+
+      //alert(window.pageYOffset)
+
+      //document.getElementById("navigationBar").style.display = "none";
+      //location.href = "#";
+      //location.href = "#answer" + Answers.length;
+      document.getElementById("replyArea" + this.id).focus();
+      document.getElementById("replyArea" + this.id).select();
+
+      // Hide Navbar on reply button click and get back to original position
+
+    });
+
+    //questionROW.appendChild(questionDIV);
+    //questionROW.appendChild(dateDIV);
+    mainDIV.appendChild(dateDIV);
+    mainDIV.appendChild(document.createElement("br"));
+    mainDIV.appendChild(questionDIV);
+    //forumQuestions.appendChild(questionDIV);
+    mainDIV.appendChild(document.createElement("br"));
+    //forumQuestions.appendChild(dateDIV);
+    mainDIV.appendChild(document.createElement("br"));
+    //forumQuestions.appendChild(questionID);
+    //forumQuestions.appendChild(document.createElement("br"));
+    mainDIV.appendChild(button1);
+    //forumQuestions.style.paddingBottom = "10px";
+    mainDIV.appendChild(document.createElement("br"));
+    mainDIV.appendChild(document.createElement("br"));
+
+    var answersContainer = document.createElement("div");
+    answersContainer.id = "answersContainer" + QID;
+    answersContainer.className = "container text-left";
+    answersContainer.paddingLeft = "20px"
+    //alert(answersContainer.id);
+    //answersContainer.className = "container";
+    //answersContainer.style.paddingLeft = "120px";
+
+    if (Answers.length != 0){
+      var answersTitle = document.createElement("div");
+      answersTitle.className = "text-left";
+      var answersText = document.createTextNode("Responses");
+      answersTitle.appendChild(answersText);
+      answersContainer.appendChild(answersTitle);
+      answersContainer.appendChild(document.createElement("br"));
+    }
+
+    var answersROW = document.createElement("div");
+    answersROW.className = "row";
+    answersROW.style.paddingRight = "15px";
+    answersROW.style.paddingLeft = "15px";
+
+    for (var j = 0; j < Answers.length; j++){
+      var answerCol = document.createElement("div");
+      answerCol.className = "text-center col-lg-12 col-md-12 col-sm-2";
+      /*
+      if (j % 2 == 0) answerCol.style.background = "rgba(30, 208, 218, 0.1)";
+      else answerCol.style.background = "#add8e657";
+      */
+      answerCol.style.background = "azure";
+      answerCol.style.paddingTop = "15px";
+      answerCol.style.paddingBottom = "15px";
+      //answerCol.id = "answer" + j;
+      var answerText = document.createTextNode(Answers[j].Answer);
+      answerCol.appendChild(answerText);
+      answersROW.appendChild(answerCol);
+      //answers.appendChild(document.createElement("br"));
+    }
+    answersContainer.appendChild(answersROW);
+
+    mainDIV.appendChild(answersContainer);
+
+    //var referenceDiv = document.createElement("p");
+    //referenceDiv.id = "pointP2";
+
+    //mainDIV.appendChild(referenceDiv);
+
+    forumQuestions.appendChild(mainDIV);
+    forumQuestions.appendChild(document.createElement("br"));
+
+    Answers = [];
+
+  }
+}
+
+document.getElementById("submitButton").onclick = function() {
+  if (document.getElementById("question").value != ""){
+    addQuestion(topic);
+    document.getElementById("question").value = "";
+
+    Questions = [];
+    forumQuestions.innerHTML = "";
+    getQuestions(topic);
+    displayTopicForum(topic);
+  }
+}
+
+function reply(QuestionID){
+
+  var forumQuestions = document.getElementById("forumQuestions");
+  var br = document.createElement("br");
+  var answersContainer = document.getElementById("answersContainer" + QuestionID);
+
+  if (document.getElementById("replyArea" + QuestionID) == null){
+    var replyArea = document.createElement("textarea");
+    replyArea.id = "replyArea" + QuestionID;
+    //alert(replyArea.id);
+
+    replyArea.style.border = "4px solid";
+    replyArea.style.borderColor = "#a8daeb";
+    replyArea.style.paddingLeft = "5px";
+    replyArea.style.paddingRight = "5px";
+    replyArea.style.width = "100%";
+
+    answersContainer.appendChild(replyArea);
+
+    var button = document.createElement("BUTTON");
+    button.className = "btn btn-success";
+    button.style.cssFloat = "left";
+    button.id = "replySubmitButton";
+    //button.style.backgroundColor = "#a8daeb";
+    var buttonText = document.createTextNode("Submit");
+    button.appendChild(buttonText);
+    button.onclick = function(){
+      if (document.getElementById("replyArea" + QuestionID).value != ""){
+        addAnswer(document.getElementById("replyArea" + QuestionID).value, QuestionID, topic);
+
+        /*
+        Questions = [];
+        forumQuestions.innerHTML = "";
+        getQuestions(topic);
+        displayTopicForum(topic);
+        */
+
+        totalAnswers++;
+
+        var replyContainer = document.getElementById("answersContainer" + QuestionID);
+        var answerDIV = document.createElement("div");
+        answerDIV.className = "row";
+        answerDIV.style.padding = "15px";
+        answerDIV.style.background = "azure";
+        var textNode = document.createTextNode(document.getElementById("replyArea" + QuestionID).value);
+        answerDIV.className = "text-center";
+        answerDIV.appendChild(textNode);
+        replyContainer.appendChild(answerDIV);
+
+        answersContainer.removeChild(replyArea);
+        answersContainer.removeChild(button);
+        answersContainer.removeChild(button2);
+        answersContainer.removeChild(br);
+      }
+
+    }
+
+    var button2 = document.createElement("BUTTON");
+    button2.className = "btn btn-danger";
+    button2.style.cssFloat = "left";
+    //button2.style.backgroundColor = "#a8daeb";
+    var buttonText2 = document.createTextNode("Cancel");
+    button2.appendChild(buttonText2);
+
+    button2.addEventListener ('click', function(){
+      if (document.getElementById("replySubmitButton") != null || document.getElementById("replyArea" + QuestionID) != null){
+        answersContainer.removeChild(replyArea);
+        answersContainer.removeChild(button);
+        answersContainer.removeChild(button2);
+        answersContainer.removeChild(br);
+        //forumQuestions.removeChild(br);
+        document.getElementById("navigationBar").style.display = "block";
+      }
+    });
+
+    answersContainer.appendChild(button);
+    answersContainer.appendChild(button2);
+    answersContainer.appendChild(br);
+    answersContainer.appendChild(br);
+
+  }
+
+}
+
+function doUpdates(x, y, topic){
+  checkUpdates(x, y, topic);
+
+  var forumQuestions = document.getElementById("forumQuestions");
+  if (updatesCheck == "updates"){
+    Questions = [];
+    forumQuestions.innerHTML = "";
+    getQuestions(topic);
+    displayTopicForum(topic);
+  }
+}
+
+function checkUpdates(length1, length2, topic){
+  mode = "checkUpdates";
+
+  var xhttp = new XMLHttpRequest();
+  var url = "../php/Forum.php";
+  var params = "mode=" + mode + "&length1=" + length1 + "&length2=" + length2 + "&topic=" + topic;
+
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200){
+      updatesCheck = this.responseText;
+    }
+  };
+
+  xhttp.open("POST", url, false);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send(params);
+}
+
+function getAnswers(AnswerID){
+  mode = "getAnswers";
+
+  var xhttp = new XMLHttpRequest();
+  var url = "../php/Forum.php";
+  var params = "mode=" + mode + "&AnswerID=" + AnswerID;
+
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200){
+      var String1 = "No results";
+      var result = String1.localeCompare(this.responseText);
+      if (result != 0){
+        Answers = JSON.parse(this.responseText);
+      }
+    }
+  };
+
+  xhttp.open("POST", url, false);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send(params);
+}
+
+function addAnswer(Answer, QuestionID, topic){
+  mode = "addAnswer";
+
+  var xhttp = new XMLHttpRequest();
+  var url = "../php/Forum.php";
+  var params = "mode=" + mode + "&Answer=" + Answer + "&QuestionID=" + QuestionID + "&topic=" + topic;
+
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200){
+
+    }
+  };
+
+  xhttp.open("POST", url, false);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send(params);
+}
+
+function addQuestion(topic){
+  var date = String(new Date()).substring(3,25);
+  var question = document.getElementById("question").value;
+
+  mode = "addQuestion";
+
+  var xhttp = new XMLHttpRequest();
+  var url = "../php/Forum.php";
+  var params = "mode=" + mode + "&topic=" + topic + "&date=" + date + "&question=" + question;
+
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200){
+
+    }
+  };
+
+  xhttp.open("POST", url, false);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send(params);
+}
+
+function getQuestions(){
+
+  mode = "getQuestions";
+
+  var xhttp = new XMLHttpRequest();
+  var url = "../php/Forum.php";
+  var params = "mode=" + mode + "&topic=" + topic;
+
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200){
+      var String1 = "No results";
+      var result = String1.localeCompare(this.responseText);
+      if (result != 0){
+        Questions = JSON.parse(this.responseText);
+      }
+    }
+  };
+
+  xhttp.open("POST", url, false);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send(params);
+}
+
+function getProfileData(){
+  mode = "getProfileData";
+
+  var xhttp = new XMLHttpRequest();
+  var url = "../php/UsersRICH.php";
+  var params = "mode=" + mode;
+
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200){
+      profileData = JSON.parse(this.responseText);
+    }
+  };
+
+  xhttp.open("POST", url, false);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send(params);
+}
+
+</script>
+
+</body>
+</html>

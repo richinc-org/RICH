@@ -1,0 +1,571 @@
+<?php 
+  session_start();
+  ob_start();
+  require("../classes/connect.php");
+
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+
+<script>
+var userInfo;
+getUserInfo();
+//alert(userInfo);
+if (userInfo == ""){
+  //window.location.href = "../notLogin.html";
+}
+
+function getUserInfo(){
+  mode = "getInfo";
+
+  var xhttp = new XMLHttpRequest();
+  var url = "../php/UsersRICH.php";
+  var params = "mode=" + mode;
+
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200){
+      userInfo = this.responseText;
+    }
+  };
+
+  xhttp.open("POST", url, false);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send(params);
+}
+
+</script>
+
+<head>
+  <title>RICH &mdash; Reach Into Cultural Heights</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico" />
+
+  <!--<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">-->
+
+  <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Work+Sans:300,400,700" rel="stylesheet">
+  <link rel="stylesheet" href="../fonts/icomoon/style.css">
+
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/magnific-popup.css">
+  <link rel="stylesheet" href="../css/jquery-ui.css">
+  <link rel="stylesheet" href="../css/owl.carousel.min.css">
+  <link rel="stylesheet" href="../css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="../css/bootstrap-datepicker.css">
+  <link rel="stylesheet" href="../css/animate.css">
+
+  <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/mediaelementplayer.min.css">-->
+
+  <link rel="stylesheet" href="../fonts/flaticon/font/flaticon.css">
+
+  <link rel="stylesheet" href="../css/aos.css">
+
+  <link rel="stylesheet" href="../css/style.css">
+  
+  <style>
+    textarea{
+      resize: none;
+    }
+
+    .tabs {
+      overflow: hidden;
+      border: 1px solid #ccc;
+      background-color: #f1f1f1;
+      width: 100%;
+    }
+
+    .tabs button {
+      float: left;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 14px 16px;
+      transition: 0.3s;
+      font-size: 17px;
+    }
+    /* Create an active/current tablink class */
+    .tabs button.active {
+      background-color: #ccc;
+    }
+
+    /* Style the tab content */
+    .tabcontent {
+      display: none;
+      padding: 6px 12px;
+      border: 1px solid #ccc;
+      border-top: none;
+    }
+
+    .tabcontent h3{
+      margin-bottom: 5px;
+    }
+
+    .articlediv-title{
+      margin-bottom: 0px;
+    }
+
+    .articlesFetch{
+      border: 2px solid black;
+      padding: 5px;
+      margin-bottom: 5px;
+    }
+
+    .articlesFetch a{
+      font-size: 25px;
+      cursor: pointer;
+    }
+
+    .articlesFetch button{
+      cursor: pointer;
+    }
+  </style>
+
+</head>
+<body>
+
+  <div class="site-wrap">
+
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div> <!-- .site-mobile-menu -->
+
+    <div id = "myLogo" style = "padding: 0;" class="site-navbar-wrap js-site-navbar bg-white">
+
+      <div class="container-fluid">
+
+        <div class="text-center">
+          <a href = "../index.html"><img class = "img-fluid" src="../images/LOGO-Larger.png"  href="../index.html" alt="..."></a>
+        </div>
+
+        <div class="site-navbar bg-light">
+          <div class="py-1">
+            <div class="row align-items-left">
+
+              <div class="col-12">
+                <nav class="site-navigation text-right" role="navigation">
+                  <div class="container-fluid">
+                    <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+
+                    <ul class="site-menu js-clone-nav d-none d-lg-block">
+
+                      <li style="float:left;">
+                        <div style="font-size: 27px;" id="userInfo">
+
+                        </div>
+                      </li>
+                      <li><a style="font-size: 16px;"
+                          href="https://www.richinc.org/RICH/Account/portal-home.html">Home</a></li>
+                      <li class="has-children activelink">
+                        <a style="font-size: 16px;" href="https://www.richinc.org/RICH/Account/weekly-writings.php">RICH
+                          Reflective Writing</a>
+                        <ul class="dropdown arrow-top">
+                          <li><a href="https://www.richinc.org/RICH/Account/weekly-writings.php">Weekly-Writings</a></li>
+                          <li><a href="https://www.richinc.org/RICH/Account/mywritings.php">My Writings</a></li>
+                          <li><a href="https://www.richinc.org/RICH/Account/group-discussion.html">Group Discussion</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a style="font-size: 16px;" href="https://www.richinc.org/RICH/Account/redirect.html">Google
+                          Classroom</a></li>
+                      <li><a style="font-size: 16px;"
+                          href="https://www.richinc.org/RICH/Account/profile.html">Personal-Profile</a></li>
+                      <li><a style="font-size: 16px;"
+                          href="https://www.richinc.org/RICH/Account/projects.html">Projects</a></li>
+                      <li><a style="font-size: 16px;"
+                          href="https://www.richinc.org/RICH/Account/SafeSpace.html">Safe-Space</a></li>
+                      <li> <button style="font-size: 16px;" class="portalbutton" onclick="Logout()"> LOGOUT </button>
+                      </li>
+
+
+                    </ul>
+                  </div>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id = "logoHeight" style="height: 400px;"></div>
+
+
+    <!--<div id "logoHeight" style="height: 250px;"></div>-->
+
+    <div style="padding-bottom: 100px;" class="text-center">
+      <div id = "piaContainer" class="container">
+        <div class = "col-md-12 mx-auto no-sidebar" >
+          <div id = "assignmentContainer" class="shapely-content">
+            <form action = "../php/dailywritings.php" method = "POST">
+              <h1> Weekly Reflective Writing </h1>
+              <h3>Title:</h3>
+              <textarea id = "titleEssay" name = "artTitle" style = "width: 100%; border: 1px solid #8585859c; text-align: left;" rows = "1" required><?php
+                $DB = new Database;
+                $conn = $DB->connect();
+                if (isset($_GET)) {
+                  if (isset($_GET['action']) == "e") {
+                    $aid = htmlspecialchars($_GET['id']);
+                    $author = htmlspecialchars($_GET['u']);
+                    $sqlfind = "SELECT * FROM Writings WHERE ArticleID = '$aid' AND Student = '$author';";
+                    $result = $DB->read($sqlfind);
+                    if ($result) {
+                      $queryData = mysqli_num_rows($result);
+                      if ($queryData > 0){
+                        while ($row = mysqli_fetch_assoc($result)) {
+                          echo htmlspecialchars($row['Title']);
+                        }
+                      }
+                    }
+                  }
+                }
+                else{}
+              ?></textarea>
+              <h4>Daily Writing:</h4>
+
+              <div id="WeeklyWriting">
+
+                <textarea id = "editor" name = "articletext" style = "height: 500px; width: 100%;" required><?php
+                $DB = new Database;
+                $conn = $DB->connect();
+                if (isset($_GET)) {
+                  if (isset($_GET['action']) == "e") {
+                    $aid = htmlspecialchars($_GET['id']);
+                    $author = htmlspecialchars($_GET['u']);
+                    $sqlfind = "SELECT * FROM Writings WHERE ArticleID = '$aid' AND Student = '$author';";
+                    $result = $DB->read($sqlfind);
+                    if ($result) {
+                      $queryData = mysqli_num_rows($result);
+                      if ($queryData > 0){
+                        while ($row = mysqli_fetch_assoc($result)) {
+                          echo htmlspecialchars($row['Essay']);
+                        }
+                      }
+                    }
+                  }
+
+                  if (isset($_GET['action']) == "d"){
+                    $aid = htmlspecialchars($_GET['id']);
+                    $author = htmlspecialchars($_GET['u']);
+                    $sqlfind = "DELETE FROM Writings WHERE ArticleID = '$aid' AND Student = '$author';";
+                    $result = $DB->save($sqlfind);
+                    header("location: daily-writings.php");
+                    exit();
+                  }
+                }
+                else{}
+              ?></textarea><br>
+
+                <div style = "display: none" id = "successfulSubmit" class = "container">
+                <div class="alert alert-success" role="alert">
+                  Thank you for submitting your daily writing assignment.
+                </div>
+                </div>
+
+                <div style = "display: none" id = "alreadySubmitted" class = "container">
+                <div id = "danger" class="alert alert-danger" role="alert">
+                  You already submitted a daily writing assignment.
+                </div>
+                </div>
+
+                <?php if (isset($_GET['error']) == "dsa"): ?>
+                  <script type="text/javascript">
+                    $("#alreadySubmitted").css("display", "block");
+                  </script>
+                <?php endif ?>
+
+                <div style = "display: none" id = "emptyInput" class = "container">
+                <div id = "danger" class="alert alert-danger" role="alert">
+                  You must provide answers in both text areas.
+                </div>
+                </div>
+
+                <h5 class = "text-center"> Reach For Success Principle(s) used in today's reflective writing:</h5>
+                <textarea id = "principlesUsed" name = "principle" style = "width: 100%; border: 1px solid #8585859c;" rows = "3" required><?php
+                $DB = new Database;
+                $conn = $DB->connect();
+                if (isset($_GET)) {
+                  if (isset($_GET['action']) == "e") {
+                    $aid = htmlspecialchars($_GET['id']);
+                    $author = htmlspecialchars($_GET['u']);
+                    $sqlfind = "SELECT * FROM Writings WHERE ArticleID = '$aid' AND Student = '$author';";
+                    $result = $DB->read($sqlfind);
+                    if ($result) {
+                      $queryData = mysqli_num_rows($result);
+                      if ($queryData > 0){
+                        while ($row = mysqli_fetch_assoc($result)) {
+                          echo htmlspecialchars($row['Principles']);
+                        }
+                      }
+                    }
+                  }
+                }
+                else{}
+              ?></textarea>
+                <button type = "submit" name = "save" style = "font-size: 16px; width: 49%;" class = "portalbutton" id = "saveEssay"> Save And Continue Later </button>
+                <button type = "submit" name = "submit" style = "font-size: 16px; width: 49%;" class = "portalbutton" id = "subEssay"> Submit Essay </button>
+            
+              </div>
+            </form>
+            <br><br>
+            <section style="height: auto; margin-bottom: 100px;">
+              <div style="height: auto; float: left;">
+                <h2 style="float: left;"><u>My Essays:</u></h2>
+                <div class="tabs">
+                  <button class="tablinks" onclick="openTab(event, 'saved')" id="defaultOpen">Saved</button>
+                  <button class="tablinks" onclick="openTab(event, 'submitted')">Submitted</button>
+                </div>
+
+                <div id="saved" class="tabcontent">
+                  <h3 class="articlediv-title">Saved Essays</h3>
+                  <?php
+                    $db = new Database;
+                    $conn = $db->connect();
+                    $email = htmlspecialchars($_SESSION['userName']);
+                    $sql = "SELECT * FROM Writings WHERE Student = '$email' AND Status = 'Saved';";
+                    $result = $db->read($sql);
+                    if ($result) {
+                      $queryData = mysqli_num_rows($result);
+                      if ($queryData > 0){
+                        while ($row = mysqli_fetch_assoc($result)) {
+      ?>
+                          <div class = 'articlesFetch'>
+                            <a href="mywritings.php?id=<?php echo htmlspecialchars($row['ArticleID']);?>&u=<?php echo htmlspecialchars($row['Student']);?>"><?php echo htmlspecialchars($row['Title']); ?></a><br>
+                            Created: <?php echo $row['DateAdded']; ?><br>
+
+                            <a href="daily-writings.php?action=e&id=<?php echo htmlspecialchars($row['ArticleID']); ?>&u=<?php echo htmlspecialchars($row['Student']); ?>"><button>Edit</button></a>
+                            <a href="daily-writings.php?action=d&id=<?php echo htmlspecialchars($row['ArticleID']); ?>&u=<?php echo htmlspecialchars($row['Student']); ?>"><button>Delete</button></a>
+                          </div>
+      <?php
+                        }
+                      }
+                      else{
+                        $result = false;
+                        echo "<br>No saved essays found";
+                      }
+                    }
+                    else{
+                      $result = false;
+                      echo "<br>No saved essays found";
+                    }
+    ?>
+                </div>
+                <div id="submitted" class="tabcontent">
+                  <h3 class="articlediv-title">Submitted Essays</h3>
+                  <?php
+                    $db = new Database;
+                    $conn = $db->connect();
+                    $email = htmlspecialchars($_SESSION['userName']);
+                    $sql = "SELECT * FROM Writings WHERE Student = '$email' AND Status = 'Submitted';";
+                    $result = $db->read($sql);
+                    if ($result) {
+                      $queryData = mysqli_num_rows($result);
+                      if ($queryData > 0){
+                        while ($row = mysqli_fetch_assoc($result)) {
+      ?>
+                          <div class = 'articlesFetch'>
+                            <a href="mywritings.php?id=<?php echo htmlspecialchars($row['ArticleID']);?>&u=<?php echo htmlspecialchars($row['Student']);?>"><?php echo htmlspecialchars($row['Title']); ?></a><br>
+                            Created: <?php echo $row['DateAdded']; ?><br>
+
+                            <button disabled>Edit</button>
+                            <a href="daily-writings.php?action=d&id=<?php echo htmlspecialchars($row['ArticleID']);?>&u=<?php echo htmlspecialchars($row['Student']);?>"><button>Delete</button></a>
+                          </div>
+      <?php
+                        }
+                      }
+                      else{
+                        $result = false;
+                        echo "<br>No submitted essays found";
+                      }
+                    }
+                    else{
+                      $result = false;
+                      echo "<br>No submitted essays found";
+                    }
+    ?>
+                </div>
+              </div>
+            </section>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    document.getElementById("defaultOpen").click();
+
+    function openTab(evt, tabName){
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(tabName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+  </script>
+  <footer class="site-footer">
+    <div class="container">
+
+      <div class="row">
+        <div class="col">
+          <p class="text-center">
+              Email: rich@att.net
+              <br>
+              Phone: (929) 242-9036
+              <br>
+              Address: Tech Incubator at Queens College, 65-30 Kissena Blvd, Flushing, NY 11367
+              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+           <br>
+            Copyright &copy;
+            <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+            <script>document.write(new Date().getFullYear());</script> All Rights Reserved | This template is made by <a
+              href="https://colorlib.com" target="_blank">Colorlib</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+  </div>
+
+<script src="../js/jquery-3.3.1.min.js"></script>
+<script src="../js/jquery-migrate-3.0.1.min.js"></script>
+<script src="../js/jquery-ui.js"></script>
+<script src="../js/popper.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/owl.carousel.min.js"></script>
+<script src="../js/jquery.stellar.min.js"></script>
+<script src="../js/jquery.countdown.min.js"></script>
+<script src="../js/jquery.magnific-popup.min.js"></script>
+<script src="../js/bootstrap-datepicker.min.js"></script>
+<script src="../js/aos.js"></script>
+
+<script>
+
+window.onscroll = function() {
+
+  if (window.pageYOffset > 20) {
+    document.getElementById("myLogo").style.top = "-260px";
+    document.getElementById("logoHeight").style.height = "220px";
+  } else {
+    document.getElementById("myLogo").style.top = "0px";
+    document.getElementById("logoHeight").style.height = "400px";
+  }
+}
+
+var statusCheck;
+/*
+var date = new Date();
+if (date.getDay() == 3){
+document.getElementById("WeeklyWriting").style.display = "block";
+}
+else {
+document.getElementById("notDay").style.display = "block";
+}
+*/
+var profileData = [];
+getProfileData();
+if (profileData[0].FirstName == ""){
+  window.location.href = "../notLogin.html";
+}
+var lastName = profileData[0].LastName;
+document.getElementById("userInfo").innerHTML = "Hi " + profileData[0].FirstName + " " + lastName.substring(0,1) + ".";
+
+function getUserInfo(){
+  mode = "getInfo";
+
+  var xhttp = new XMLHttpRequest();
+  var url = "../php/UsersRICH.php";
+  var params = "mode=" + mode;
+
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200){
+      userInfo = this.responseText;
+    }
+  };
+
+  xhttp.open("POST", url, false);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send(params);
+}
+
+function Logout(){
+  mode = "Logout";
+
+  var xhttp = new XMLHttpRequest();
+  var url = "../php/UsersRICH.php";
+  var params = "mode=" + mode;
+
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200){
+
+    }
+  };
+
+  xhttp.open("POST", url, false);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send(params);
+
+  window.location.href = "../index.html";
+}
+
+function getProfileData(){
+  mode = "getProfileData";
+
+  var xhttp = new XMLHttpRequest();
+  var url = "../php/UsersRICH.php";
+  var params = "mode=" + mode;
+
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200){
+      profileData = JSON.parse(this.responseText);
+    }
+  };
+
+  xhttp.open("POST", url, false);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send(params);
+}
+
+</script>
+
+<script>
+
+function getStatus(date, day){
+  mode = "getWritingStatus";
+
+  var xhttp = new XMLHttpRequest();
+  var url = "../php/RICHProjects.php";
+  var params = "mode=" + mode + "&date=" + date + "&day=" + day;
+
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200){
+      if (this.responseText != null){
+        statusCheck = this.responseText;
+      }
+    }
+  };
+
+  xhttp.open("POST", url, false);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send(params);
+}
+</script>
+
+</body>
+</html>

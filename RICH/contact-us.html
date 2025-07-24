@@ -1,0 +1,546 @@
+.
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>RICH &mdash; Reach Into Cultural Heights</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
+
+  <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Work+Sans:300,400,700" rel="stylesheet">
+  <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/magnific-popup.css">
+  <link rel="stylesheet" href="css/jquery-ui.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+  <link rel="stylesheet" href="css/animate.css">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/mediaelementplayer.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+
+  <link rel="stylesheet" href="css/aos.css">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    .contact-container
+    {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+    }
+
+    .contact-left
+    {
+      background: linear-gradient(to bottom, #384d7c, #6d86b7);
+      color: white;
+      border-radius: 32px;
+      box-shadow: 0 8px 32px rgba(44, 62, 80, 0.18), 0 1.5px 8px rgba(44, 62, 80, 0.10);
+      padding: 3.5rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+      max-width: 520px;
+      width: 100%;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeInUp 1s ease-out 0.2s forwards;
+    }
+
+    .contact-left-title h2, .contact-left-title p, .contact-left-title hr {
+      color: #f5f8ff;
+      text-align: center;
+      font-family: 'Work Sans', Arial, sans-serif;
+    }
+
+    .contact-left-title hr {
+      background-color: white;
+    }
+
+    .contact-envelope-icon {
+      color: white;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    }
+
+    .contact-inputs {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      font-family: 'Work Sans', Arial, sans-serif;
+      margin-bottom: 0.5rem;
+      background: white;
+      color: #384d7c;
+      box-shadow: 0 1px 4px rgba(44, 62, 80, 0.08);
+      transition: box-shadow 0.2s;
+      resize: none;
+    }
+
+    .contact-inputs::placeholder {
+      color: #6d86b7;
+      opacity: 1;
+    }
+
+    .contact-inputs:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px #6d86b7;
+      background: #f4f7fb;
+    }
+
+    .contact-left button[type="submit"] {
+      background: transparent;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      padding: 0.85rem 0;
+      font-size: 1.1rem;
+      font-weight: 600;
+      width: 100%;
+      cursor: pointer;
+      font-family: 'Work Sans', Arial, sans-serif;
+      margin-top: 0.5rem;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    }
+
+    .contact-left button[type="submit"]:hover {
+      background: rgba(255,255,255,0.12);
+      color: #e0e8f7;
+      box-shadow: 0 2px 8px rgba(44, 62, 80, 0.18);
+    }
+
+    @media (max-width:800px)
+    {
+      .contact-inputs
+      {
+        width: 80vw;
+      }
+    }
+
+    /* Modern Contact Form Styles */
+    .contact-container {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: white;
+    }
+    .contact-left {
+      background: linear-gradient(to bottom, #2b3f87, #5b7acb);
+      color: white;
+      border-radius: 15px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.55), 0 1.5px 8px rgba(0, 0, 0, 0.35);
+      padding: 3.5rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+      max-width: 520px;
+      width: 100%;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeInUp 1s ease-out 0.2s forwards;
+    }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .contact-envelope-icon {
+      font-size: 2.7rem;
+      color: white;
+      margin-bottom: 0.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+    .contact-left-title h2 {
+      font-weight: 700;
+      color: #2563eb;
+      font-size: 2.5rem;
+      margin-bottom: 0.25rem;
+      text-align: center;
+    }
+    .contact-left-title hr {
+      border: none;
+      width: 80px;
+      height: 4px;
+      background-color: #7dd3fc;
+      border-radius: 10px;
+      margin: 0 auto 1rem auto;
+      display: block;
+    }
+    .contact-left-title p {
+      color: #222;
+      font-size: 1.08rem;
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+    .contact-inputs {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      background-color: white;
+      color: black;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-family: 'Work Sans', Arial, sans-serif;
+      margin-bottom: 0.5rem;
+      box-shadow: none;
+      transition: box-shadow 0.2s;
+      resize: none;
+    }
+    .contact-inputs::placeholder {
+      color: #555;
+      opacity: 1;
+    }
+    .contact-inputs:focus {
+      outline: none;
+      background: #f4f7fb;
+    }
+    .contact-left button[type="submit"] {
+      background-color: #2b3f87;
+      color: white;
+      font-weight: 600;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 8px;
+      padding: 0.85rem 0;
+      font-size: 1.1rem;
+      width: 100%;
+      cursor: pointer;
+      font-family: 'Work Sans', Arial, sans-serif;
+      margin-top: 0.5rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.15s;
+    }
+    .contact-left button[type="submit"]:hover {
+      background-color: #3d5399;
+      transform: scale(1.02);
+    }
+    @media (max-width: 600px) {
+      .contact-left {
+        padding: 1.2rem 0.5rem;
+        max-width: 98vw;
+      }
+      .contact-left-title h2 {
+        font-size: 2rem;
+      }
+    }
+
+      .contact-section {
+        margin-bottom: 60px;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <div class="site-wrap">
+
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div> <!-- .site-mobile-menu -->
+
+
+    <div id="myLogo" class="site-navbar-wrap js-site-navbar bg-white">
+
+      <div class="container-fluid">
+
+        <div class="text-center pics_in_a_row">
+          <a href="https://www.instagram.com/p/CqocMt_PwZ3/?utm_source=ig_web_button_share_sheet">
+            <img class="img-fluid top" src="3decade.png"
+              href="https://www.instagram.com/p/CqocMt_PwZ3/?utm_source=ig_web_button_share_sheet" alt="..." width="200"
+              height="200"></a>
+
+
+          <a href="index.html"><img class="img-fluid top" src="images/LOGO.png" href="index.html" alt="..."></a>
+
+          <a href="https://www.richinc.org/RICH/rich_new_vision/rich_new_vision.html">
+            <img class="img-fluid top" src="nvl.png" alt="..." width="200" height="187">
+          </a>
+        </div>
+
+        <div class="icon-links">
+          <a href="https://www.instagram.com/richincstudents/" target="_blank"><i class="fa fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/company/reach-into-cultural-heights/" target="_blank"><i
+              class="fa fa-linkedin-square"></i></a>
+          <a href="https://www.youtube.com/channel/UCqAvWoYXzpvOtIstzJ8LBBg?view_as=subscriber" target="_blank"><i
+              class="fa fa-youtube-square"></i></a>
+        </div>
+
+        <div class="site-navbar bg-light">
+          <div class="py-1">
+            <div class="row align-items-left">
+
+              <div class="col-12">
+                <nav class="site-navigation text-center" role="navigation">
+                  <div class="container-fluid">
+                    <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3" style="float:right;"><a href="#"
+                        class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+
+                    <ul class="site-menu js-clone-nav d-none d-lg-block">
+
+                      <li><a class="activelink" href="index.html">Home</a></li>
+
+                      <li class="has-children">
+                        <a href="mission.html" style="color:#c51f1f;">About Us</a>
+                        <!-- <ul class="dropdown arrow-top">-->
+                        <ul class="dropdown menu1">
+                          <li><a href="mission.html">About Reach Into Cultural Heights</a></li>
+                          <li><a href="board-directors.html">Board of Directors</a></li>
+                          <li><a href="interns.html">CUNY Interns</a></li>
+                          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        </ul>
+                      </li>
+
+
+
+                      <li class="has-children">
+                        <a href="overview.html" style="color:#c5721f;">Our Work</a>
+                        <!-- <ul class="dropdown arrow-top"> -->
+                        <ul class="dropdown menu2">
+                          <li><a href="overview.html">Program Overview</a></li>
+                          <li><a href="rich-learning-system.html">RICH Learning System</a></li>
+                          <li><a href="sdlp.html">Self-Directed Learning Projects</a></li>
+                          <li><a href="nvlpessay1.html">RICH Student Essays to NVLP Elders</a></li>
+                          <li><a href="projectsnack.html">RICH Snacking for Smartness</a></li>
+                          <li><a href="reach-for-success.html">RICH Towards The Future</a></li>
+                        </ul>
+                      </li>
+
+                      <li class="has-children">
+                        <a href="graduate-testimonials.html" style="color:#2f7939;">Success Stories</a>
+                        <!-- <ul class="dropdown arrow-top"> -->
+                        <ul class="dropdown menu3">
+                          <li><a href="graduate-testimonials.html">Graduate Testimonials</a></li>
+                          <li><a href="first-graduates.html">First Graduates</a></li>
+                          <li><a href="campaign1.html">Then & Now</a></li>
+                        </ul>
+                      </li>
+
+                      <li><a href="parents-investment-alliance.html">Parents Investment Alliance</a></li>
+                      <!--
+                  <li><a href="gsuite-classroom.html">G Suite Classroom</a></li>-->
+
+                      <li class="has-children">
+                        <a href="podcasts.html" style="color:#c51f1f;">Podcasts</a>
+                        <!-- <ul class="dropdown arrow-top"> -->
+                        <ul class="dropdown menu4">
+                          <li><a href="podcasts.html">Reach For Success Program</a></li>
+                        </ul>
+                      </li>
+
+                      <li class="has-children">
+                        <a href="annual-reports.html" style="color:#c5721f;">Contact Us</a>
+                        <!-- <ul class="dropdown arrow-top"> -->
+                        <ul class="dropdown menu5">
+                          <li><a href="annual-reports.html">Annual Reports</a></li>
+                          <li><a href="partnership-opportunities.html">Partnership Opportunities</a></li>
+                          <li><a href="contact-us.html">Contact Us</a></li>
+                        </ul>
+                      </li>
+
+                      <li class="has-children">
+                        <a onclick="checkLogin()"style="color:#2f7939;">RICH PORTAL</a>
+                        <!-- <ul class="dropdown arrow-top"> -->
+                        <ul class="dropdown menu6">
+                          <li><a onclick="checkLogin()">Portal Login</a></li>
+                          <li><a href="gsuite-classroom.html">G Suite Classroom</a></li>
+                        </ul>
+                      </li>
+                      <!--
+                  <li>
+                    <button class="portalbutton" onclick="checkLogin()"> RICH PORTAL </button>
+                  </li>
+                -->
+
+
+                    </ul>
+
+                  </div>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="logoHeight" style="height: 350px;"></div>
+
+    <div id="piaContainer" class="container">
+
+      <div class="col-md-8 mx-auto no-sidebar">
+        <div class="shapely-content">
+
+          <div id="contact-beginning" class="contact-section">
+            <h1> Contact Us </h1><br>
+
+            <h2> Interested In The RICH, Inc., Reach For Success Online Program? </h2>
+            <p><a href="https://classroom.google.com/c/NzA5NDAxOTM3MjY2?cjc=3vfpigb" target="_blank">Get a sample of our Online Classroom here</a></p>
+            <p>Contact: Contact@richinc.org<br>
+            +1 (929) 242-9036</p>
+            <p> Reach Into Cultural Heights (RICH) is located at the Tech Incubator <u><a
+                  href="https://www.google.com/maps/dir//reach+into+the+cultural+heights+address/@40.6726398,-74.0425785,11z/data=!3m1!5s0x89c2606085db8af3:0x73c8c0062a899fb1!4m8!4m7!1m0!1m5!1m1!1s0x89c260e3e404989b:0x31e1b9781781d668!2m2!1d-73.8180215!2d40.7343144">
+                  Boulevard, CEP Hall 2 Flushing, New York 11367. </a></u></p>
+          </div>
+        
+
+          <!-- Contact Page Start -->
+           <div class="contact-container">
+            <form action="https://api.web3forms.com/submit" method="POST" class="contact-left">
+                <div class="contact-left-title">
+                    <div class="contact-envelope-icon">
+                        <i class="fa fa-envelope"></i>
+                    </div>
+                    <h2>Get In Touch!</h2>
+                    <hr>
+                    <p style="color: white;">Program available for middle school students.<br>Parent/Guardian or school/program administrators must complete this form.</p>
+                </div>
+                <input type="hidden" name="access_key" value="da91b3f9-83d9-4259-920d-7b7e1ad58ec1">
+                <input type="text" name="name" placeholder="Your Name " class="contact-inputs" required>
+                <input type="email" name="email" placeholder="Your Email " class="contact-inputs" required>
+                <textarea name="area" placeholder="Contact # " class="contact-inputs" rows="2"></textarea>
+                <textarea name="skill" placeholder="How can we help your middle schooler?" class="contact-inputs" rows="2"></textarea>
+                <button type="submit">Submit</button>
+            </form>
+
+            <!-- <div class="contact-right"> </div> -->
+           </div>
+  <br><br><br><br>
+  <footer class="site-footer">
+    <div class="container">
+
+      <div class="row">
+        <div class="col">
+          <p class="text-center">
+            <a href="contact-us.html">Join Us!</a><br>
+            Email: rich@att.net
+            <br>
+            Phone: (929) 242-9036
+            <br>
+            Address: Tech Incubator at Queens College, 65-30 Kissena Blvd, Flushing, NY 11367
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            <br>
+            Copyright &copy;
+            <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+            <script>document.write(new Date().getFullYear());</script> All Rights Reserved | This template is made by <a
+              href="https://colorlib.com" target="_blank">Colorlib</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+  </div>
+
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/jquery.countdown.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/bootstrap-datepicker.min.js"></script>
+  <script src="js/aos.js"></script>
+
+
+  <script src="js/mediaelement-and-player.min.js"></script>
+
+  <script src="js/main.js"></script>
+
+
+  <script>
+    //-----------------------------------------------------------------------------
+    window.onscroll = function () {
+
+      if (window.pageYOffset > 20) {
+        document.getElementById("myLogo").style.top = "-250px";
+        document.getElementById("logoHeight").style.height = "200px";
+      } else {
+        document.getElementById("myLogo").style.top = "0px";
+        document.getElementById("logoHeight").style.height = "375px";
+      }
+    }
+
+    var userInfo;
+    getUserInfo();
+
+    function getUserInfo() {
+      mode = "getInfo";
+
+      var xhttp = new XMLHttpRequest();
+      var url = "php/UsersRICH.php";
+      var params = "mode=" + mode;
+
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          userInfo = this.responseText;
+        }
+      };
+
+      xhttp.open("POST", url, false);
+      xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xhttp.send(params);
+    }
+
+    function checkLogin() {
+
+      if (userInfo == "" || userInfo == "undefined") {
+        window.location.href = "login.php";
+      }
+      else {
+        window.location.href = "Account/portal-home.html";
+      }
+      //window.location.href = "login.php";
+    }
+    //---------------------------------------------------------------------------------
+
+    document.addEventListener('DOMContentLoaded', function () {
+      var mediaElements = document.querySelectorAll('video, audio'), total = mediaElements.length;
+
+      for (var i = 0; i < total; i++) {
+        new MediaElementPlayer(mediaElements[i], {
+          pluginPath: 'https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/',
+          shimScriptAccess: 'always',
+          success: function () {
+            var target = document.body.querySelectorAll('.player'), targetTotal = target.length;
+            for (var j = 0; j < targetTotal; j++) {
+              target[j].style.visibility = 'visible';
+            }
+          }
+        });
+      }
+    });
+  </script>
+
+</body>
+
+</html>
