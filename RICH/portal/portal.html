@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RICH Portal</title>
+  <link rel="stylesheet" href="css/portal.css" />
+</head>
+<body>
+
+     <header class="topbar-right">
+          
+          <nav class="main-nav">
+               <a href="portal.html">
+                    <img src="../images/LOGO_Transparent.png" alt="RICH Logo">
+               </a>
+               <a href="portal.html" class="nav-link active">Home</a>
+               <a href="reflections.html" class="nav-link">Reflective Writing</a>
+               <a href="#" class="nav-link">Google Classroom</a>
+               <a href="#" class="nav-link">Personal Profile</a>
+               <a href="#" class="nav-link">Projects</a>
+               <a href="#" class="nav-link">Safe Space</a>
+          </nav>
+
+          <div class="user-box">
+               <div class="user-avatar" id="user-avatar">R</div>
+               <div>
+               <p class="user-label">Signed in as</p>
+               <p class="user-email" id="user-email">Loading...</p>
+               </div>
+          </div>
+
+          <button id="logout-btn" class="logout-btn">Logout</button>
+     </header>
+  
+
+    <main class="portal-main">
+      <section id="principles" class="principles-section">
+        <div class="section-heading fade-up">
+          <p class="section-tag">Core Values</p>
+          <h2>RICH 4 Guiding Principles</h2>
+          <p>
+            These principles help shape growth, reflection, responsibility,
+            collaboration, and goal-setting.
+          </p>
+        </div>
+
+        <div class="principles-grid">
+          <article class="principle-card fade-up delay-1">
+            <img class="principle-cloud" src="../images/matter.png" alt="I Matter Cloud">
+            <p class="principle-text">
+              My goal is to maintain a positive attitude.
+            </p>
+          </article>
+
+          <article class="principle-card fade-up delay-2">
+            <img class="principle-cloud" src="../images/responsibility.png" alt="Responsibility Cloud">
+            <p class="principle-text">
+              My goal is to put forth more effort to improve my self-management skills.
+            </p>
+          </article>
+
+          <article class="principle-card fade-up delay-3">
+            <img class="principle-cloud" src="../images/considerate.png" alt="Considerate Cloud">
+            <p class="principle-text">
+              My goal is to motivate myself in the spirit of teamwork to better my relationship with others.
+            </p>
+          </article>
+
+          <article class="principle-card fade-up delay-4">
+            <img class="principle-cloud" src="../images/strategies.png" alt="Strategies Cloud">
+            <p class="principle-text">
+              I am committed to setting well-defined and realistic goals that demonstrate my personal learning style.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script src="../js/supabaseClient.js"></script>
+  <script src="js/portal.js"></script>
+</body>
+</html>

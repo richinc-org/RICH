@@ -20,9 +20,9 @@
           <h1>Welcome Back</h1>
           <p class="subtitle">Sign in to continue your progress.</p>
 
-          <form>
-            <input type="email" placeholder="Email address" required />
-            <input type="password" placeholder="Password" required />
+          <form id="login-form">
+            <input id="email" type="email" placeholder="Email address" required />
+            <input id="password" type="password" placeholder="Password" required />
 
             <div class="options">
               <label>
@@ -34,6 +34,8 @@
 
             <button type="submit">Sign In</button>
           </form>
+
+          <p id="login-message"></p>
 
           <p class="signup">
             Don’t have an account?
@@ -51,5 +53,10 @@
 
     </div>
   </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script src="js/supabaseClient.js"></script>
+  <script src="js/login.js"></script>
+  
 </body>
 </html>
