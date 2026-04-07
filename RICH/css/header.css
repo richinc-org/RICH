@@ -395,3 +395,27 @@ body.loaded {
     gap: 15px;
   }  
 }
+
+/* Keyframe: rotates the element from 0° to a full 360° 
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Apply the spin to the logo image in the bottom header 
+.bottom-header .logo-container img {
+  animation: spin 10s linear infinite;
+}
+
+/* Apply the same spin to the logo image in the mobile header 
+.moble-header-container .logo-container img {
+  animation: spin 10s linear infinite;
+}
+
+spinning stops when the mouse hovers over the image.
+.bottom-header .logo-container img:hover,
+.moble-header-container .logo-container img:hover {
+  animation-play-state: paused;
+}
+I was going to add a feature where the logo spins continously but forgot that icon and writing are not separate images.
+If you ever implement spinning effect on the logo, this might be helpful.*/

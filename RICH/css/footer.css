@@ -1,0 +1,277 @@
+/* ================================================================
+   footer.css
+   Standalone footer styles shared across all pages of the site.
+   Link this file in any page that uses the standard RICH footer:
+     <link rel="stylesheet" href="css/footer.css">
+   Depends on the CSS variables defined in the page's own CSS
+   (--navy, --gold, --shadow). If a page doesn't define them,
+   the fallback values at the bottom of this file will apply.
+================================================================ */
+
+
+/* ── Fallback tokens ────────────────────────────────────────────
+   Ensures the footer renders correctly even on pages that don't
+   define these variables in their own stylesheet.
+---------------------------------------------------------------- */
+:root {
+  --navy:   #0e1e33;
+  --gold:   #d6a95c;
+  --shadow: rgba(14, 30, 51, 0.15);
+}
+
+
+/* ── Override style.css's .site-footer ul li rule ───────────────
+   style.css line 236 sets margin-bottom: 20px on all ul li
+   inside .site-footer. This kills it for our contact items.
+---------------------------------------------------------------- */
+.site-footer ul li,
+.site-footer ol li {
+  margin-bottom: 0 !important;
+}
+
+/* ── Outer footer wrapper ───────────────────────────────────────
+   Deep navy background with a fade-in scroll reveal animation.
+   The .show class is added by the page's IntersectionObserver.
+---------------------------------------------------------------- */
+.site-footer {
+  background: var(--navy);
+  color: rgba(255, 255, 255, 0.85);
+  font-family: "Inter", sans-serif;
+  padding: 0;
+  /* Fade-in on scroll — triggered when JS adds .show */
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s ease, transform 1.2s ease;
+}
+
+.site-footer.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ── Gold top divider ───────────────────────────────────────────
+   Thin gold bar that separates the page content from the footer,
+   echoing the gold left border used on content cards.
+---------------------------------------------------------------- */
+.footer-divider {
+  height: 4px;
+  background: var(--gold);
+  width: 100%;
+}
+
+
+/* Three-column inner layout */
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;        /* all three columns vertically centred */
+  gap: 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0.8rem 2rem 0.6rem;
+}
+
+/* Each column stacks its children and centres vertically */
+.footer-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  justify-content: center;   /* centre content vertically in the footer */
+}
+
+
+/* ── Column 1: Branding ─────────────────────────────────────────
+   Oval logo sits above the org name, vertically centred.
+---------------------------------------------------------------- */
+.footer-brand {
+  align-items: flex-start;
+  justify-content: center;   /* centre branding vertically */
+}
+
+.footer-logo {
+  width: 120px;              /* wider oval */
+  height: 38px;              /* shorter height = flatter oval */
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  margin-bottom: 0.25rem;
+  flex-shrink: 0;
+}
+
+.footer-tagline {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--gold);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.footer-sub {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0;
+  line-height: 1.3;
+}
+
+
+/* ── Column headings (Contact Us / Follow Us) ───────────────────*/
+.footer-heading {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  margin: 0;                 /* zero margin — heading sits flush on content below */
+  padding: 0;
+  text-align: center;
+}
+
+
+/* ── Column 2: Contact ──────────────────────────────────────────
+   Everything on one tight centred column, no wasted space.
+---------------------------------------------------------------- */
+.footer-contact {
+  align-items: center;
+}
+
+.footer-contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;                    /* zero gap — no space between any items */
+  font-size: 0.76rem;
+  line-height: 1.2;          /* tighter line height removes internal spacing */
+  color: #ffffff;
+  text-align: center;
+}
+
+.footer-contact-list li {
+  color: #ffffff;
+  padding: 0;                /* no padding on individual items */
+}
+
+/* Address specifically smaller to save the most space */
+.footer-contact-list .footer-address {
+  font-size: 0.68rem;
+  line-height: 1.2;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.footer-contact-list a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-contact-list a:hover {
+  color: var(--gold);
+}
+
+/* Compact Join Us pill — pushed to bottom, slightly larger */
+.footer-join-btn {
+  display: inline-block;
+  margin-top: 10px;          /* pushes button to the bottom of the column */
+  padding: 5px 18px;         /* slightly bigger than before */
+  background: linear-gradient(135deg, #f79533, #f37055);
+  color: #fff !important;
+  font-weight: 600;
+  border-radius: 40px;
+  text-decoration: none !important;
+  font-size: 0.8rem;         /* slightly larger font */
+  letter-spacing: 0.3px;
+  box-shadow: 0 3px 8px rgba(243, 112, 85, 0.3);
+  transition: all 0.3s ease;
+  width: fit-content;
+}
+
+.footer-join-btn:hover {
+  background: linear-gradient(135deg, #f9a13b, #f8855d);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(243, 112, 85, 0.4);
+}
+
+
+/* ── Column 3: Social icons ─────────────────────────────────────
+   Heading and icons centred vertically and right-aligned.
+---------------------------------------------------------------- */
+.footer-social {
+  align-items: flex-end;
+  justify-content: center;   /* centre social section vertically */
+}
+
+.social-icons {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  margin-top: 0.15rem;
+}
+
+/* Compact circle buttons */
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1.5px solid var(--gold);
+  color: var(--gold);
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease;
+}
+
+.social-icon:hover {
+  background: var(--gold);
+  color: var(--navy);
+  transform: translateY(-3px);
+}
+
+
+/* ── Copyright bar ──────────────────────────────────────────────*/
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  padding: 0.3rem 2rem;
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.footer-bottom p {
+  margin: 0;
+  font-size: 0.7rem;
+}
+
+
+/* ── Responsive: mobile (≤ 768px) ───────────────────────────────*/
+@media (max-width: 768px) {
+  .footer-inner {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1rem 1.5rem 0.6rem;
+  }
+
+  .footer-col {
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .footer-brand {
+    align-items: center;
+  }
+
+  .footer-social {
+    align-items: center;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+}
