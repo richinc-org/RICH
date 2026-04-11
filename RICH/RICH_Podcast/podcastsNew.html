@@ -6,6 +6,7 @@
     <title>Podcasts</title>
     <link rel="stylesheet" href="podcastsNew.css">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/footer.css">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500&family=Inria+Sans:wght@400;700&display=swap" rel="stylesheet">
 
     <!-- Navbar dependencies (from contact-us.html) -->
@@ -37,7 +38,7 @@
 
     <!-- Goals: add nav bar, add subtitles-->
     <h1>PODCASTS</h1>
-    <h3>Understanding RICH's 4 guiding Principals</h3>
+    <h3>Understanding RICH's 4 Guiding Principles</h3>
     <div class="podcast-list">
         <div class="welcome-podcast">
             <a class="transcript" href="transcripts.html#welcome">Transcript</a>
@@ -96,28 +97,95 @@
         </div>
     </div>
 
-
+    <!-- ============================================================
+       FOOTER
+       Three-column layout: branding | contact info | social links.
+       Uses the site's --navy and --gold tokens to match the page
+       design. Reveals on scroll via the same IntersectionObserver
+       logic used by the intro, outro, and content rows.
+  ============================================================ -->
     <footer class="site-footer">
-        <div class="container">
+        <div class="footer-inner">      
+            <!-- Column 1: Branding — logo above org name, aligned to bottom -->
+        <div class="footer-col footer-brand">
+            <img src="../images/LOGO.png" alt="RICH Logo" class="footer-logo">
+            <p class="footer-tagline">Reach Into Cultural Heights</p>
+            <p class="footer-sub">Empowering the next generation of compassionate leaders.</p>
+        </div>
+        <!-- Column 2: Contact info -->
+        <div class="footer-col footer-contact">
+            <h3 class="footer-heading">Contact Us</h3>
+            <ul class="footer-contact-list">
+            <li>
+                <!-- Email link -->
+                <a href="mailto:rich@att.net">rich@att.net</a>
+            </li>
+            <li>
+                <!-- Phone number -->
+                <a href="tel:9292429036">(929) 242-9036</a>
+            </li>
+            <li class="footer-address">
+                Tech Incubator at Queens College,<br>
+                65-30 Kissena Blvd,<br>
+                Flushing, NY 11367
+            </li>
+            <li>
+                <!-- Call-to-action link -->
+                <a href="contact-us.html" class="footer-join-btn">Join Us!</a>
+            </li>
+            </ul>
+        </div>
+            <!-- Column 3: Social media icons -->
+        <div class="footer-col footer-social">
+            <h3 class="footer-heading">Follow Us</h3>
+            <div class="social-icons">
 
-        <div class="row">
-            <div class="col">
-            <p class="text-center">
-                <a href="../contact-us.html">Join Us!</a><br>
-                Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7103181219311005055f1f1405">[email&#160;protected]</a>
-                <br>
-                Phone: (929) 242-9036
-                <br>
-                Address: Tech Incubator at Queens College, 65-30 Kissena Blvd, Flushing, NY 11367
-                <br>
-                Copyright &copy;
-                <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-                <script>document.write(new Date().getFullYear());</script> All Rights Reserved 
-            </p>
-            </div>
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/richincstudents/"
+                target="_blank"
+                aria-label="Instagram"
+                class="social-icon">
+                <i class="fa fa-instagram"></i>
+            </a>
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/company/reach-into-cultural-heights/"
+                target="_blank"
+                aria-label="LinkedIn"
+                class="social-icon">
+                <i class="fa fa-linkedin"></i>
+            </a>
+            <!-- TikTok — Font Awesome 4 doesn't include TikTok so we
+                use a plain SVG path for the logo instead -->
+            <a href="https://www.tiktok.com/@reachintoculturalheights"
+                target="_blank"
+                aria-label="TikTok"
+                class="social-icon">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    width="18" height="18">
+                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88
+                        2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0
+                        .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34
+                        6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18
+                        8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/>
+                </svg>
+            </a>
+
             </div>
         </div>
+
+        </div><!-- end .footer-inner -->
+            <!-- Copyright bar at the very bottom -->
+        <div class="footer-bottom">
+        <p>
+            Copyright &copy;
+            <script>document.write(new Date().getFullYear());</script>
+            RICH — Reach Into Cultural Heights. All Rights Reserved.
+        </p>
+        </div>
     </footer>
+
 
     <!-- Navbar JS (from contact-us.html) -->
     <script src="../js/header.js"></script>
@@ -396,6 +464,29 @@
         });
     </script>
 
+    <!-- Footer reveal: adds .show when footer scrolls into view -->
+    <script>
+    (function () {
+        const footer = document.querySelector('.site-footer');
+        if (!footer) return;
+        if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(
+            (entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                footer.classList.add('show');
+                observer.unobserve(footer);
+                }
+            });
+            },
+            { threshold: 0.05 }
+        );
+        observer.observe(footer);
+        } else {
+        footer.classList.add('show');
+        }
+    })();
+    </script>
     
 </body>
 </html>
