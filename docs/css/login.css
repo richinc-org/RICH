@@ -115,9 +115,9 @@
 
 .portal-title {
   color: #162957;
-  font-size: 2rem;
   font-weight: 600;
   margin-bottom: 1.25rem;
+  text-align: center;
 }
 
 .portal-subtitle {
