@@ -51,7 +51,7 @@
             <div class="subtitles" id="sub-welcome">[Subtitles appear here]</div>
         </div>
 
-        <h1 class="four">THE FOUR PRINCIPLES</h1>
+        <h1 class="four">RICH Guiding Principles</h1>
 
         <div class="podcasts1">
             <div class="matter-podcast">
@@ -467,26 +467,32 @@
     <!-- Footer reveal: adds .show when footer scrolls into view -->
     <script>
     (function () {
-        const footer = document.querySelector('.site-footer');
-        if (!footer) return;
-        if ('IntersectionObserver' in window) {
-        const observer = new IntersectionObserver(
-            (entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                footer.classList.add('show');
-                observer.unobserve(footer);
-                }
-            });
-            },
-            { threshold: 0.05 }
+        const targets = document.querySelectorAll(
+            '.welcome-podcast, .matter-podcast, .responsibility-podcast, ' +
+            '.considerate-podcast, .strategies-podcast, .four, ' + '.site-footer'
         );
-        observer.observe(footer);
-        } else {
-        footer.classList.add('show');
+
+        if (!('IntersectionObserver' in window)) {
+            targets.forEach(el => el.classList.add('fade-in'));
+            return;
         }
-    })();
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in');
+                observer.unobserve(entry.target);
+            }
+            });
+        }, { threshold: 0.17 });
+
+        targets.forEach(el => observer.observe(el));
+        })();
     </script>
-    
+
+    <!--Script for fade-in-->
+
 </body>
 </html>
+
+
