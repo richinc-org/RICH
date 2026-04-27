@@ -1,5 +1,18 @@
 const internsRaw = [
 
+
+     // ==== 2026 - Spring ====
+    {
+     name: "Mauricio Martinez",
+     role: "Software Engineering Intern",
+     img: "intern_images/Mauricio_Martinez.jpg",
+     tags: ["LaGuardia Community College"],
+     semesters: ["2026-Spring"],
+     bio: `A Software Engineering Intern who supported the front-end development and the user experience improvements for RICH. As the front-end engineer contributed to redesigning the login portal, creating a responsive and visually engaging interface using HTML, CSS, JavaScript, and Bootstrap. During the internship implemented dynamic features to enhance usability while maintaining compatibility with the existing system.
+Collaborated with fellow interns to support ongoing website improvements that contributed to gaining valuable skills in front-end development, problem-solving, and real-world application of software engineering.`,
+      
+   }, 
+     
      // ==== 2026 - Winter ====
     {
      name: "Nafisa Tabassum",
