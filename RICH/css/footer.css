@@ -38,6 +38,9 @@
   color: rgba(255, 255, 255, 0.85);
   font-family: "Inter", sans-serif;
   padding: 0;
+  /* Fade-in on scroll — triggered when JS adds .show */
+  opacity: 0;
+  transform: translateY(40px);
   transition: opacity 0.9s ease, transform 1.2s ease;
 }
 

@@ -1,0 +1,537 @@
+/* ================================================================
+   rich-learning-system.css
+   Page-specific styles for rich-learning-system.html.
+   Mirrors the visual design of overview.css.
+   Referenced only by rich-learning-system.html.
+================================================================ */
+
+
+/* ── Animated headline words ────────────────────────────────────
+   Each word in .intro h1 and .outro h1 is wrapped in a <span>
+   by JS. They start invisible and slide up, staggered by a delay
+   so each word appears after the last — like a typewriter effect.
+---------------------------------------------------------------- */
+.intro h1 .word,
+.outro h1 .word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* When the parent banner gets .show, each word animates in */
+.intro.show .word,
+.outro.show .word {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Smooth scroll ──────────────────────────────────────────────
+   Makes all anchor link jumps animate smoothly instead of
+   snapping instantly to the target position.
+---------------------------------------------------------------- */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ── CSS Custom Properties (Brand Tokens) ──────────────────────
+   Centralised colour and shadow values used throughout this file.
+   Change a value here and it updates everywhere on the page.
+---------------------------------------------------------------- */
+:root {
+  --bg-100:  #faf6f0;               /* lightest page background    */
+  --bg-200:  #f1ece4;               /* mid page background         */
+  --bg-300:  #e7e1d8;               /* darkest page background     */
+  --card-bg: #f5eadb;               /* warm card / banner fill     */
+  --navy:    #0e1e33;               /* primary text / heading colour */
+  --gold:    #d6a95c;               /* accent colour (borders, bars) */
+  --shadow:  rgba(14, 30, 51, 0.15); /* consistent drop-shadow tint  */
+}
+
+
+/* ── Box-sizing reset ───────────────────────────────────────────
+   Ensures padding and borders are included in element widths,
+   preventing unexpected layout overflow.
+---------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+
+/* ── Body ───────────────────────────────────────────────────────
+   Warm gradient background that deepens as the page scrolls down.
+   Inter is the main reading font; colour and line-height set here
+   cascade to all text unless overridden.
+---------------------------------------------------------------- */
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom,
+    var(--bg-100) 0%,
+    var(--bg-200) 50%,
+    var(--bg-300) 100%
+  );
+  color: var(--navy);
+  font-family: "Inter", sans-serif;
+  line-height: 1.5;
+}
+
+
+/* ── Headings ───────────────────────────────────────────────────
+   h1 is used for intro/outro banners.
+   h2 is used for each content card title.
+---------------------------------------------------------------- */
+h1, h2 {
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--navy);
+}
+
+h1 {
+  font-size: 4rem;
+  letter-spacing: -0.05rem;
+}
+
+h2 {
+  font-size: 3rem;
+  letter-spacing: -0.03rem;
+  position: relative; /* needed so the ::after bar positions correctly */
+}
+
+/* Gold decorative underbar that appears beneath every h2 */
+h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  margin-top: 0.5rem;
+  border-radius: 2px;
+  background-color: var(--gold);
+}
+
+
+/* ── Body text ──────────────────────────────────────────────────
+   Paragraph default. Slightly larger than browser default for
+   readability on wide screens.
+---------------------------------------------------------------- */
+p {
+  font-size: 1.35rem;
+  font-weight: 400;
+  text-align: left;
+  color: var(--navy);
+}
+
+/* Extra word-spacing on paragraphs inside content cards */
+.text-area p {
+  word-spacing: 3px;
+}
+
+
+/* ── Lists inside content cards ─────────────────────────────────
+   Ordered and unordered lists share the same size and indent
+   so they look consistent across all content rows.
+---------------------------------------------------------------- */
+.text-area ol,
+.text-area ul {
+  font-size: 1.2rem;
+  color: var(--navy);
+  padding-left: 1.5rem;
+  margin: 0;
+  line-height: 1.8;
+}
+
+
+/* ── Intro banner ───────────────────────────────────────────────
+   Full viewport height — gives the opening statement maximum
+   visual impact as the first thing the user sees.
+---------------------------------------------------------------- */
+.intro {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  max-width: 1700px;
+  margin: auto;
+  background: var(--card-bg);
+  border-radius: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 12px 32px var(--shadow);
+}
+
+/* ── Outro banner ───────────────────────────────────────────────
+   Shorter than the intro — 60svh is enough for a closing
+   statement without feeling like wasted space at the end.
+---------------------------------------------------------------- */
+.outro {
+  position: relative;
+  width: 100%;
+  height: 60svh;
+  max-width: 1700px;
+  margin: auto;
+  background: var(--card-bg);
+  border-radius: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 12px 32px var(--shadow);
+}
+
+/* Headline inside the intro/outro — constrained width for readability */
+.intro h1,
+.outro h1 {
+  width: 70%;
+  text-align: center;
+}
+
+
+/* ── Main content wrapper ───────────────────────────────────────
+   Centres the content column on wide screens and adds vertical
+   padding. The large gap between rows creates breathing room so
+   each section feels like its own visual moment.
+---------------------------------------------------------------- */
+.main-content {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 12rem;              /* large gap = clear separation between content rows */
+}
+
+
+/* ── Images inside content rows ─────────────────────────────────
+   Images fill their column, are cropped to fit via object-fit,
+   and get a rounded border and drop shadow to match the cards.
+---------------------------------------------------------------- */
+.main-content img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1rem;
+  box-shadow: 0 8px 22px var(--shadow);
+  background-color: #f9f5ef; /* shows while the image loads */
+}
+
+
+/* ── Content rows (two-column layout) ───────────────────────────
+   Each .row holds two .col elements side by side.
+   Bootstrap's default .row margin is reset here so it doesn't
+   conflict with our flex gap.
+---------------------------------------------------------------- */
+.main-content .row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5rem;
+  margin-right: 0; /* override Bootstrap's negative margin */
+  margin-left: 0;
+}
+
+/* Each column takes equal space and centres its child vertically */
+.main-content .col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0; /* override Bootstrap's column padding */
+}
+
+
+/* ── Text card ───────────────────────────────────────────────────
+   The styled box that holds the heading, paragraph, and lists.
+   The gold left border is the key visual accent matching overview.
+   On hover, the card lifts slightly and deepens its shadow to give
+   a tactile, interactive feel.
+---------------------------------------------------------------- */
+.main-content .text-area {
+  width: 100%;
+  padding: 2.5rem;
+  background-color: var(--card-bg);
+  border-radius: 1.25rem;
+  box-shadow: 0 10px 26px var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  border-left: 8px solid var(--gold);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Lift effect — card rises and shadow deepens on hover */
+.main-content .text-area:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px var(--shadow);
+}
+
+
+/* ── Image placeholder card ─────────────────────────────────────
+   Used for Row 5 (Parent section) where no photo exists yet.
+   Matches the image column's height and visual weight.
+   Replace this div with an <img> when a real photo is available.
+---------------------------------------------------------------- */
+.img-placeholder {
+  height: 380px;
+  background: var(--card-bg);
+  border-radius: 1rem;
+  box-shadow: 0 8px 22px var(--shadow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-placeholder span {
+  font-size: 5rem; /* emoji icon centred in the placeholder */
+}
+
+
+/* ── Scroll-reveal animation ────────────────────────────────────
+   Elements start invisible and slightly below their final position.
+   When JavaScript adds the .show class (via IntersectionObserver),
+   the transition plays: they fade in and slide up into place.
+---------------------------------------------------------------- */
+.intro,
+.outro,
+.main-content .row {
+  opacity: 0;
+  transform: translateY(80px);
+  transition: opacity 1s ease, transform 1.5s ease;
+}
+
+.intro.show,
+.outro.show,
+.main-content .row.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ── Responsive: medium screens (≤ 1350px) ──────────────────────
+   Allow h2 text to wrap so it doesn't overflow narrower columns.
+---------------------------------------------------------------- */
+@media (max-width: 1350px) {
+  .text-area h2 {
+    white-space: normal;
+  }
+}
+
+
+/* ── Footer ─────────────────────────────────────────────────────
+   Replaces the old plain blue footer with a three-column layout
+   that uses the page's --navy and --gold design tokens.
+---------------------------------------------------------------- */
+
+/* Outer footer wrapper — deep navy background */
+.site-footer {
+  background: var(--navy);
+  color: rgba(255, 255, 255, 0.85);  /* brighter base text */
+  font-family: "Inter", sans-serif;
+  padding: 0;
+  /* Fade-in on scroll — same pattern as intro/outro/rows */
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s ease, transform 1.2s ease;
+}
+
+/* When JS adds .show, the footer fades and slides into view */
+.site-footer.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Gold top border — echoes the left border on text cards */
+.footer-divider {
+  height: 4px;
+  background: var(--gold);
+  width: 100%;
+}
+
+/* Three-column flex row */
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1.8rem 2rem;       /* further reduced padding to shrink height */
+}
+
+/* Each column shares the same flex base */
+.footer-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;                /* tighter gap between items */
+}
+
+/* ── Column 1: Branding ── */
+.footer-logo {
+  width: 90px;
+  height: auto;
+  border-radius: 50%;   /* circular crop to match the logo's shape */
+  margin-bottom: 0.5rem;
+}
+
+.footer-tagline {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--gold);   /* gold for the org name — stands out */
+  margin: 0;
+}
+
+.footer-sub {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ── Column 2 & 3: Shared heading style ── */
+.footer-heading {
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  margin: 0 0 0.3rem;
+  text-align: center;         /* centre headings in their columns */
+}
+
+/* Centre the contact column */
+.footer-contact {
+  align-items: center;
+}
+
+/* ── Column 2: Contact list ── */
+.footer-contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #ffffff;              /* solid white — fully readable on dark navy */
+  text-align: center;
+}
+
+/* Make sure address <li> text is also solid white, not inherited navy */
+.footer-contact-list li {
+  color: #ffffff;
+}
+
+.footer-contact-list a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-contact-list a:hover {
+  color: var(--gold);
+}
+
+/* "Join Us!" styled as a pill button matching header's Donate button */
+.footer-join-btn {
+  display: inline-block;
+  margin-top: 0.4rem;
+  padding: 8px 22px;
+  background: linear-gradient(135deg, #f79533, #f37055);
+  color: #fff !important;
+  font-weight: 600;
+  border-radius: 40px;
+  text-decoration: none !important;
+  font-size: 0.9rem;
+  letter-spacing: 0.4px;
+  box-shadow: 0 4px 10px rgba(243, 112, 85, 0.3);
+  transition: all 0.3s ease;
+  width: fit-content;
+}
+
+.footer-join-btn:hover {
+  background: linear-gradient(135deg, #f9a13b, #f8855d);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(243, 112, 85, 0.4);
+}
+
+/* ── Column 3: Social icons ── */
+.footer-social {
+  align-items: center;        /* centre the heading and icons horizontally */
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;    /* centre icons under the heading */
+  margin-top: 0.3rem;
+}
+
+/* Each icon is a gold-bordered circle that fills with gold on hover */
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  color: var(--gold);
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease;
+}
+
+.social-icon:hover {
+  background: var(--gold);   /* fills the circle with gold */
+  color: var(--navy);        /* icon turns navy so it contrasts */
+  transform: translateY(-3px);
+}
+
+/* ── Copyright bar ── */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  padding: 0.8rem 2rem;       /* slimmer copyright bar */
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.footer-bottom p { margin: 0; font-size: 0.85rem; }
+
+/* ── Footer responsive (≤ 768px) ── */
+@media (max-width: 768px) {
+  .footer-inner {
+    flex-direction: column;  /* stack columns vertically on mobile */
+    gap: 2rem;
+    padding: 3rem 1.5rem 2rem;
+  }
+}
+
+
+/* ── Responsive: mobile (≤ 900px) ───────────────────────────────
+   Stack columns vertically instead of side by side.
+   Even-numbered rows reverse order so images always appear above
+   their corresponding text card on small screens.
+---------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .main-content .row {
+    flex-direction: column;
+  }
+
+  /* Flip image and text order for even rows on mobile */
+  .main-content .row:nth-child(even) {
+    flex-direction: column-reverse;
+  }
+
+  /* Scale down headings for small screens */
+  h1 { font-size: 2.8rem; }
+  h2 { font-size: 2rem; }
+  p  { font-size: 1.15rem; }
+
+  /* Fixed height so images don't become too tall when stacked */
+  .main-content img {
+    height: 280px;
+  }
+}

@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="css/animate.css">
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/mediaelementplayer.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 
 
@@ -94,16 +94,120 @@
 			padding-right: 55px;
 		}
 	}
+
+  /* --- Default styles for mobile --- */
+  .banner {
+          display: flex;
+          /* Change to a vertical layout */
+          flex-direction: row; 
+          align-items: center;
+          justify-content: center;
+          padding: 2rem;
+          background: white;
+          /* Adjust gap for vertical stacking */
+          gap: 1.5rem; 
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .globe {
+          /* Slightly smaller globe for mobile */
+          width: 100px;
+          height: 100px; 
+          animation: spin 20s linear infinite;
+        }
+
+        @keyframes spin {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+
+        .divider {
+          /* Change to a vertical divider for mobile */
+          width: 1px; 
+          height: 2px;
+          background: #888;
+          border-radius: 4px;
+        }
+
+        .svg-image {
+          width: 200px; 
+          height: auto;
+          margin-top: 10px;
+        } */ 
+       
+        .rich-line {
+          font-size: 10rem; /* Slightly smaller font for mobile */
+        }
+
+        /* --- Media Query for Desktops (screens wider than 768px) --- */
+        @media (min-width: 768px) {
+          .banner {
+            /* Switch back to horizontal layout */
+            flex-direction: row; 
+            gap: 2rem;
+          }
+
+          .globe {
+            /* Restore original globe size */
+            width: 150px;
+            height: 150px;
+          }
+
+          .divider {
+            /* Switch back to a vertical divider */
+            width: 3px;
+            height: 80px; 
+            border-radius: 4px;
+          }
+
+          .svg-image {
+          width: 280px; 
+          height: auto;
+          margin-top: 10px;
+        } */ 
+
+        .rich-line {
+          /* Restore original font size */
+          font-size: 3rem; 
+        }
+        }
+	    .social-sidebar {
+            position: fixed; /* This is the key property that makes it "stick" */
+            top: 50%; /* Positions it vertically in the middle of the screen */
+            left: 50px; /* Positions it from the left edge of the screen */
+            transform: translateY(-50%); /* This perfectly centers it vertically */
+            z-index: 1000; /* Ensures it stays on top of other page content */
+            
+            display: flex;
+            flex-direction: column; /* Stacks the icons on top of each other */
+            gap: 10px; /* Adds space between the icons */
+            
+            background-color: #0e0101e6;
+            padding: 15px 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(232, 226, 226, 0.828);
+            margin-top: 110px;
+        }
+
+        /* Styling for the individual icon links */
+        .social-sidebar a {
+            color: #fff5f5; /* Icon color */
+            font-size: 24px; /* Icon size */
+            transition: transform 0.2s ease-in-out, color 0.2s;
+        }
+
+        /* Adds a nice effect when you hover over the icons */
+        .social-sidebar a:hover {
+            color: #007bff; /* Change color on hover */
+            transform: scale(1.2); /* Make the icon slightly larger */
+        }
+	
   </style>
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-  /> 
 </head>
 
 <body>
 
-  <!-- <div class="site-wrap"> -->
+  <div class="site-wrap">
 
     <div class="site-mobile-menu">
       <div class="site-mobile-menu-header">
@@ -114,14 +218,11 @@
       <div class="site-mobile-menu-body"></div>
     </div> <!-- .site-mobile-menu -->
 
-
     <div style="top: 0px;" id="myLogo" class="site-navbar-wrap js-site-navbar bg-white">
-
-
 
       <div class="container-fluid">
 
-        <div class="text-center pics_in_a_row">
+        <!-- <div class="text-center pics_in_a_row">
           <a href="https://www.instagram.com/p/CqocMt_PwZ3/?utm_source=ig_web_button_share_sheet">
             <img class="img-fluid top" src="3decade.png"
               href="https://www.instagram.com/p/CqocMt_PwZ3/?utm_source=ig_web_button_share_sheet" alt="..." width="200"
@@ -139,7 +240,25 @@
 			<a href="https://www.instagram.com/richincstudents/" target = "_blank"><i class="fa fa-instagram"></i></a>
 			<a href="https://www.linkedin.com/company/reach-into-cultural-heights/" target = "_blank"><i class="fa fa-linkedin-square"></i></a>
 			<a href="https://www.youtube.com/channel/UCqAvWoYXzpvOtIstzJ8LBBg?view_as=subscriber" target = "_blank"><i class="fa fa-youtube-square"></i></a>
-		</div>
+		</div> -->
+
+
+    <div class="banner">
+      <img src="brand-globe.png" alt="RICH Globe" class="globe">
+      <div class="divider"></div>
+      <div class="text">
+        <img src="images/rich-logo.svg" class="svg-image" alt="RICH">
+      </div>
+    </div>
+
+
+    <div class="social-sidebar">
+            <a href="https://www.instagram.com/richincstudents/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/company/reach-into-cultural-heights/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.youtube.com/channel/UCqAvWoYXzpvOtIstzJ8LBBg?view_as=subscriber" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.tiktok.com/@reachintoculturalheights" target="_blank"><i class="fab fa-tiktok"></i></a>
+          </div>
+
 
         <div class="site-navbar bg-light">
           <div class="py-1">
@@ -160,7 +279,7 @@
                           <ul class="dropdown arrow-top">
                             <li><a href="mission.html">About Reach Into Cultural Heights</a></li>
                             <li><a href="board-directors.html">Board of Directors</a></li>
-							<li><a href="interns.html">CUNY Interns</a></li>
+							<li><a href="interns.html">College Interns</a></li>
                             <li><a href="privacy-policy.html">Privacy Policy</a></li>
 
                           </ul>
@@ -313,7 +432,7 @@
         </div>
       </div>
     </footer>
-    <!-- </div> -->
+    </div>
 
   <script src="js/jquery-3.3.1.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
