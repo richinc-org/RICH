@@ -2,6 +2,28 @@ const internsRaw = [
 
 
      // ==== 2026 - Spring ====
+
+    {
+     name: "Adrian Trifoi",
+     role: "Graphic Designer and Marketing Intern",
+     img: "intern_images/Adrian_Trifoi.jpeg",
+     tags: ["LaGuardia Community College", "Criminal Justice"],
+     semesters: ["2026-Spring"],
+     bio: `A Graphic Designer and Marketing Intern who supported the visual branding and digital
+      marketing efforts for RICH. As a creative contributor, played a key role in enhancing the
+      organization’s visual identity by designing engaging and meaningful characters that represented
+      the four core principles of RICH, helping to communicate its mission in a more interactive and
+      memorable way. Contributed to the website’s aesthetic by creating custom backgrounds for
+      multiple pages, improving the overall look and user experience while maintaining consistency
+      with the brand. During the internship, also updated the interns’ training manual by incorporating
+      and documenting the accomplishments of fellow interns, ensuring their work was recognized and
+      preserved for future teams. Collaborated closely with other interns to support ongoing design and
+      marketing initiatives, while developing strong skills in graphic design, creativity,
+      communication, and the real-world application of marketing strategies.`,
+      
+     },
+
+    
     {
      name: "Mauricio Martinez",
      role: "Software Engineering Intern",
