@@ -1,0 +1,231 @@
+* {
+  box-sizing: border-box; /* Apply to prevent width issues */
+}
+
+body {
+  background-color: #fdfcfc !important;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Hard stop for horizontal scroll */
+  width: 100%;
+  padding-top: 0 !important;
+}
+
+h1 {
+  font-family: "Inter", sans-serif;
+  color: #ff6868;
+  text-align: center;
+  letter-spacing: 3px;
+  font-size: 46px;
+  font-weight: 400;
+  margin: 20px 0;
+  padding-top: 30px;
+  padding-bottom: 10px;
+}
+
+.four {
+  font-family: 'Fredoka', sans-serif;
+  color: #ff6868;
+  text-align: center;
+  letter-spacing: 3px;
+  font-size: 26px;
+  font-weight: 250;
+  text-decoration: underline;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
+h3 {
+  color: #602b2b;
+  text-align: center;
+  letter-spacing: 2px;
+  font-family: 'Inria Sans', sans-serif;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+/* Main Container */
+.podcast-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  padding: 30px 20px;
+  width: 100%;
+  max-width: 1000px; /* Limits overall width for desktop */
+  margin: 0 auto;    /* Centers the whole container */
+}
+
+.welcome-podcast {
+  width: 100%;
+  max-width: 550px;
+  background-color: #d6a95c;
+  border-radius: 10px;
+  padding: 20px 30px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.welText,
+.welcome-podcast p,
+.matter-podcast p,
+.responsibility-podcast p,
+.considerate-podcast p,
+.strategies-podcast p {
+  text-align: center;
+  font-family: 'Inria Sans', sans-serif;
+}
+
+.matterText{
+  font-size: 20px;
+}
+
+/* Podcasts rows */
+.podcasts1,
+.podcasts2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+  gap: 2rem;
+}
+
+.matter-podcast,
+.responsibility-podcast,
+.considerate-podcast,
+.strategies-podcast {
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.matter-podcast         { background-color: #c7e6ff; }
+.strategies-podcast     { background-color: #ccf5b2; }
+.responsibility-podcast { background-color: #ffbdbe; }
+.considerate-podcast    { background-color: #fdfda4; }
+
+/* Subtitles */
+.subtitles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: rgba(255,255,255,0.55);
+  border-radius: 8px;
+  padding: 10px 16px;
+  margin-top: 12px;
+  font-family: 'Inria Sans', sans-serif;
+  font-size: 15px;
+  color: #444;
+  min-height: 60px;
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+/* Transcripts */
+.transcript {
+  display: inline-block; 
+  text-align: left;
+  font-family: 'Inria Sans', sans-serif;
+  font-size: 17px;
+  color: #2a5db0;
+  text-decoration: underline;
+  margin-bottom: 12px;
+  font-weight: 400;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto 15px auto;
+  display: block;
+}
+
+audio {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.moble-header-container img,
+.bottom-header .logo-container img {
+  margin: unset;
+  display: unset;
+}
+
+.moble-header-container .logo-container img {
+  height: 90px !important;
+  width: auto !important;
+  max-width: unset !important;
+  display: inline !important;
+  margin: 0 !important;
+}
+
+.site-footer {
+  background-color: var(--navy) !important;
+  padding: 0 !important;
+  font-size: inherit !important;
+  text-align: inherit !important;
+}
+
+.site-footer .footer-heading {
+  font-size: 0.72rem !important;
+}
+
+.site-footer a {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+  .podcasts1,
+  .podcasts2 {
+    grid-template-columns: 1fr; /* Stack vertically on mobile */
+    gap: 1.5rem;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+}
+
+@media (max-width: 510px) {
+  .moble-header-container .logo-container img {
+    margin-left: -55px !important;
+  }
+}
+
+@media (max-width: 440px) {
+  .moble-header-container .logo-container img {
+    margin-left: -70px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .moble-header-container .logo-container img {
+    margin-left: -70px !important;
+  }
+}
+
+.welcome-podcast,
+.matter-podcast,
+.responsibility-podcast,
+.considerate-podcast,
+.strategies-podcast,
+.four, 
+.site-footer
+{
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.site-footer img{
+  margin: 0; /* overrides podcastsNew.css's img margin to center img*/
+  display: inline-block;
+}

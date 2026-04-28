@@ -65,11 +65,9 @@ function initMobileMenu() {
   });
 }
 
-/* -----------------------------------
-   LOAD HEADER
------------------------------------ */
+/* LOAD HEADER*/
 function loadHeader() {
-  return fetch("header.html")
+  return fetch("/RICH/header.html")
     .then(res => res.text())
     .then(html => {
       document.getElementById("header-container").outerHTML = html;
