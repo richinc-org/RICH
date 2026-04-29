@@ -1,4 +1,57 @@
 const internsRaw = [
+
+
+     // ==== 2026 - Spring ====
+
+    {
+     name: "Adrian Trifoi",
+     role: "Graphic Designer and Marketing Intern",
+     img: "intern_images/Adrian_Trifoi.jpeg",
+     tags: ["LaGuardia Community College", "Criminal Justice"],
+     semesters: ["2026-Spring"],
+     bio: `A Graphic Designer and Marketing Intern who supported the visual branding and digital
+      marketing efforts for RICH. As a creative contributor, played a key role in enhancing the
+      organization’s visual identity by designing engaging and meaningful characters that represented
+      the four core principles of RICH, helping to communicate its mission in a more interactive and
+      memorable way. Contributed to the website’s aesthetic by creating custom backgrounds for
+      multiple pages, improving the overall look and user experience while maintaining consistency
+      with the brand. During the internship, also updated the interns’ training manual by incorporating
+      and documenting the accomplishments of fellow interns, ensuring their work was recognized and
+      preserved for future teams. Collaborated closely with other interns to support ongoing design and
+      marketing initiatives, while developing strong skills in graphic design, creativity,
+      communication, and the real-world application of marketing strategies.`,
+      
+     },
+
+    
+    {
+     name: "Mauricio Martinez",
+     role: "Software Engineering Intern",
+     img: "intern_images/Mauricio_Martinez.jpg",
+     tags: ["LaGuardia Community College"],
+     semesters: ["2026-Spring"],
+     bio: `A Software Engineering Intern who supported the front-end development and the user experience improvements for RICH. As the front-end engineer contributed to redesigning the login portal, creating a responsive and visually engaging interface using HTML, CSS, JavaScript, and Bootstrap. During the internship implemented dynamic features to enhance usability while maintaining compatibility with the existing system.
+Collaborated with fellow interns to support ongoing website improvements that contributed to gaining valuable skills in front-end development, problem-solving, and real-world application of software engineering.`,
+      
+   }, 
+     
+     // ==== 2026 - Winter ====
+    {
+     name: "Nafisa Tabassum",
+     role: "Software Engineering Intern",
+     img: "intern_images/NafisaTabassum.jpg",
+     tags: ["Queens College"],
+     semesters: ["2026-Winter"],
+     bio: `A Software Engineer Intern who supports full-stack development and digital improvements for RICH. During her internship, she helps turn website ideas into practical features by contributing to website  development, improving site structure, and enhancing user experience. She collaborates with fellow interns to refine features and support ongoing website improvements. She also helps review, update, and troubleshoot parts of RICH’s Google Classroom setup to improve how program materials are organized and delivered. In addition, she mentored a high school intern, helping turn feedback and testing into meaningful improvements across RICH’s digital platforms. Through this experience, she strengthens her software engineering, web development, leadership, and problem-solving skills while supporting the organization’s goals.`,
+     hsInterns: [
+     {
+          name: "Sophia Kalesioris",
+          img: "intern_images/SophiaKal_hs_intern.jpeg",
+          bio: `A senior at Bayside High School who worked closely with a college intern to support the evaluation and improvement of RICH’s digital learning and website experience. During her internship, she served as a beta tester for the RICH Google Classroom, completing activities and reviewing materials from the perspective of a student participant in order to help the team better understand how students would engage with the program. She also provided thoughtful feedback on weekly forms, assignments, and classroom structure, offering valuable insights into what was effective and what could be improved. In addition, she explored the RICH website in depth, testing navigation, reviewing content, and sharing suggestions for updates, modifications, and possible feature improvements. Through her work, she helped strengthen the organization’s understanding of user experience and contributed meaningful feedback that supported ongoing improvements to both the Google Classroom and website.`
+     }
+    ] 
+   }, 
+
      // ===== 2025 — Summer =====
      {
      name: "Shakil Nabil",

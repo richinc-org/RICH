@@ -1,0 +1,122 @@
+body {
+  background-color: #e9e7e77a;
+  margin: 0;
+  padding: 0px; 
+}
+
+/* Fix navbar white edges */
+#site-header, #moble-header {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+}
+
+/* Padding between navbar and page content */
+#links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-top: 30px;
+}
+
+h1 {
+  color: #ff6868;
+  text-align: center;
+  letter-spacing: 3px;
+  font-size: 2rem; 
+  font-weight: 500;
+  margin: 10px 0;
+}
+
+/* Restore original fonts overridden by navbar CSS */
+h2, h3, h4 {
+  font-family: 'Inria Sans', sans-serif !important;
+}
+
+h3, h4 {
+  color: #602b2b;
+  text-align: center;
+  padding: 0 10px;
+}
+
+h3 { letter-spacing: 2px; margin: 0; }
+h4 { letter-spacing: 1px; margin: 10px 0 20px 0; }
+
+.top {
+  color: #332ab1;
+  text-align: center;
+  letter-spacing: 1px;
+  font-family: 'Inria Sans', sans-serif;
+  font-size: 14px;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.transcript-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(210, 232, 251);
+  margin: 0 auto;
+  padding: 15px;
+  border-radius: 10px;
+  width: 90%; 
+  max-width: 400px; 
+}
+
+#links a {
+  color: #332ab1;
+  text-decoration: underline;
+  font-family: 'Inria Sans', sans-serif;
+  margin: 8px 0;
+  transition: color 0.3s ease;
+}
+
+#links a:hover, a:hover {
+  color: #ff6868;
+  text-decoration: none;
+}
+
+#welcome, #matter, #responsible, #considerate, #strategies {
+  background-color: rgb(210, 232, 251);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px auto;
+  width: 95%; 
+  max-width: 800px; 
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-sizing: border-box;
+  scroll-margin-top: 100px;
+  padding: 15px;
+}
+
+.transcripts p,
+#links p,
+.transcript-links p {
+  line-height: 1.5;
+  font-family: 'Inria Sans', sans-serif;
+}
+
+
+/* Responsive Design for Mobile Devices */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 24px;
+    letter-spacing: 1px;
+  }
+  
+  h2, h6 {
+    text-align: center;
+    padding: 7px;
+  }
+
+  #welcome, #matter, #responsible, #considerate, #strategies {
+    padding: 15px;
+  }
+
+  .top {
+    display: block;
+    margin: 5px 0 0 0;
+    color:#ff6868;
+  }
+}

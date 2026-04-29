@@ -72,13 +72,13 @@ body {
 
 /* Image swap (instant change at each zoom end) */
 @keyframes slideShow {
-  0%, 19.99%  { background-image: url('/RICH/images/graduate-image6.jpg'); }
-  20%, 39.99% { background-image: url('/RICH/image7.jpg'); }
-  40%, 59.99% { background-image: url('/RICH/images/rich-image4.jpg'); }
-  60%, 79.99% { background-image: url('/RICH/Image5.jpg'); }
-  /* 80%, 99.99% { background-image: url('/RICH/image0.jpeg'); } */
-  80%, 99.99% { background-image: url('/RICH/Image3.jpg'); }
-  100%        { background-image: url('/RICH/images/graduate-image6.jpg'); }
+  0%, 19.99%  { background-image: url('../images/graduate-image6.jpg'); }
+  20%, 39.99% { background-image: url('../image7.jpg'); }
+  40%, 59.99% { background-image: url('../images/rich-image4.jpg'); }
+  60%, 79.99% { background-image: url('../Image5.jpg'); }
+  /* 80%, 99.99% { background-image: url('../image0.jpeg'); } */
+  80%, 99.99% { background-image: url('../Image3.jpg'); }
+  100%        { background-image: url('../images/graduate-image6.jpg'); }
 }
 
 .hero-slideshow::before {
