@@ -4,6 +4,15 @@ const internsRaw = [
      // ==== 2026 - Spring ====
 
     {
+     name: "Akm Hossain",
+     role: "Software Engineer Intern",
+     img: "intern_images/Akm_Hossain.jpg",
+     tags: ["Hunter College", "Computer Science"],
+     semesters: ["2026-Spring"],
+     bio: `AKM Hossain is a Computer Science student and TA at Hunter College, who worked on re-implementing RICH's podcast page. The new webpage brings a more interactive and accessible experience to users by implementing live subtitles and an appealing layout. AKM worked closely with our team’s graphic designer, Adrian, who developed new visuals tailored to our primarily young audience. AKM then implemented these graphics into his podcast redesign. In the future, AKM aspires to continue pursuing software development and build impactful projects.`,
+    },
+
+    {
      name: "Adrian Trifoi",
      role: "Graphic Designer and Marketing Intern",
      img: "intern_images/Adrian_Trifoi.jpeg",
