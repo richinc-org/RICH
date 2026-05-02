@@ -35,7 +35,9 @@
     .sdlp-intro {
       position: relative;
       width: 100%;
-      min-height: 100vh;
+      height: 90vh;
+      max-height: 100vh;
+      overflow: hidden;
       background: #f5eadb;
       border-radius: 0;
       display: flex;
@@ -100,7 +102,7 @@
       display: flex;
       justify-content: space-between;
       gap: 4rem;
-      align-items: center;
+      align-items: flex-start;
       opacity: 0;
       transform: translateY(80px);
       transition: opacity 1s ease, transform 1.5s ease;
@@ -116,6 +118,18 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+    }
+
+    .sdlp-col-elevated {
+      align-self: flex-start;
+    }
+
+    .sdlp-row .sdlp-col:not(.sdlp-col-elevated) {
+      margin-top: 14rem;
+    }
+
+    .sdlp-row .sdlp-col.sdlp-col-nvlp-video {
+      margin-top: 20rem;
     }
 
     .sdlp-main-content img {
@@ -159,13 +173,14 @@
     .sdlp-text-area q,
     .sdlp-text-area ol,
     .sdlp-text-area li {
-      font-size: 1.05rem;
+      font-size: 1.2rem;
       font-weight: 400;
-      color: #0e1e33;
+      color: rgba(0, 0, 0, 0.7);
       margin: 0;
-      font-family: "Inter", sans-serif;
+      font-family: 'Josefin Sans', sans-serif;
       text-align: left;
       word-spacing: normal;
+      line-height: 1.7;
     }
 
     .sdlp-text-area h2::after {
@@ -234,6 +249,14 @@
       .sdlp-col {
         width: 100%;
       }
+
+      .sdlp-row .sdlp-col:not(.sdlp-col-elevated) {
+        margin-top: 0;
+      }
+
+      .sdlp-row .sdlp-col.sdlp-col-nvlp-video {
+        margin-top: 0;
+      }
     }
   </style>
 </head>
@@ -264,92 +287,51 @@
 
       <!-- Row 1: NVLP — text left, video right -->
       <div class="sdlp-row">
-        <div class="sdlp-col">
+        <div class="sdlp-col sdlp-col-elevated">
           <div class="sdlp-text-area sdlp-card-nvlp">
             <h2>National Visionary Leadership Project (NVLP)</h2>
             <p>
-              Since 2003, the National Visionary Leadership Project has been an enviable resource for our students
-              attending the program. During the spring term, students are introduced to NVLP's online self-narrated
-              stories of extraordinary achievement as told by the African American elders. Our students listen to the
-              elder's talk not only about his/her life as an adult, but also as a child having to overcome obstacles
-              in order to gain success. As a culminating activity, RICH students write a short essay on how their
-              chosen elder's life reflects the values introduced in the "Reach for Success" program.
-            </p>
-            <p>
-              In collaborative efforts to enrich the personal experience of students, RICH provides self-directed
-              activities using communicative technologies such as the online multimedia educational resources found
-              on the website. Examples of the people represented in RICH student essays are found <a class="imbeddedlink"
-                href="https://www.youtube.com/@visionaryproject/featured" target="here">here.</a>
-            </p>
-            <p>
-              In 2020, RICH celebrates 17 years since introducing the NVLP's web-based collection of comprehensive
+              In 2020, RICH celebrated 17 years since introducing the NVLP's web-based collection of comprehensive
               videotaped biographical interviews of extraordinary African American elders (Visionaries) who have made
               significant contributions to shaping American history and culture. RICH believes that by introducing these
               biographical interviews to the next generation of leaders, students can be inspired by their stories of
-              overcoming obstacles and challenges. These stories include life lessons such as persevering, celebrating
-              triumphs, and respecting oneself. RICH program graduate, Sherman Whittenburg, described his experience
-              "This website brought me to somewhere where I'm not alone anymore. These people were once in my shoes and
-              they continue to knock at the door and opened the door and fight through it, and it's comforting."
+              overcoming obstacles and challenges. These stories include life lessons, such as persevering, celebrating
+              triumphs, and respecting oneself.
             </p>
             <p>
-              "NVLP is grateful to RICH for its pioneering vision, using the web-based, video-taped NVLP Oral History
-              Collection to motivate students to become academic achievers and productive citizens. We both work to
-              inspire, engage and educate the next generation of young leaders." Cheryl S. Clarke, CEO, NVLP
-            </p>
-            <p>
-              For more information about the project, please access the following link: <a class="imbeddedlink"
+              For more information about the student essay project, please access the following link: <a class="imbeddedlink"
                 href="nvlpessay1.html">RICH/NVLP</a>
+            </p>
+            <p>
+              For more information about the visionary project, please visit <a class="imbeddedlink"
+                href="https://www.youtube.com/@visionaryproject/featured" target="_blank">National Visionary Leadership Project (NVLP).</a>
             </p>
           </div>
         </div>
-        <div class="sdlp-col">
+        <div class="sdlp-col sdlp-col-nvlp-video">
           <div class="embed-responsive embed-responsive-4by3">
             <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/pxhkZnOKkaI"></iframe>
           </div>
         </div>
       </div>
 
-      <!-- Row 2: BHM — image left, text right -->
+      <!-- Row 2: Peace Run — video left, text right -->
       <div class="sdlp-row">
         <div class="sdlp-col">
-          <img class="img-fluid" src="images/self-image2.jpg" alt="Black History Month">
-        </div>
-        <div class="sdlp-col">
-          <div class="sdlp-text-area sdlp-card-bhm">
-            <h2>Celebrating Black History Month honoring the National Visionary Leadership Project (NVLP)</h2>
-            <q>I refuse to accept the view that mankind is so tragically bound to the starless midnight of racism and war
-              that the bright daybreak of peace and brotherhood can never become a reality… I believe that unarmed truth
-              and unconditional love will have the final word.</q>
-            <p>-Martin Luther King Jr.</p>
-            <p>"My mother would say that Dr. Martin Luther King, Jr., made us proud to be American citizens. In my
-              family, it was the wisdom of my mother's mother that we sought to learn from. And in that spirit, I
-              embraced the National Visionary Leadership Project with its mission 'to ensure that the wisdom of our
-              country's extraordinary African American elders is preserved by and passed on to younger generations who
-              will lead us into tomorrow,' as a way to offer youth in an online platform, the opportunity to experience
-              what I know to be true, the transformation of thinking while listening to wise elders. Take a listen to
-              the radio broadcast honoring positive change."
-            </p>
-            <p>Jacqueline O. Dawson, Ph.D., Executive Director, RICH Inc.</p>
-            <p>For more information about, please visit <a class="imbeddedlink"
-                href="https://www.youtube.com/@visionaryproject/featured" target="_blank">
-                National Visionary Leadership Project (NVLP).
-              </a></p>
+          <div class="embed-responsive embed-responsive-4by3">
+            <iframe class="embed-responsive-item"
+              src="https://www.youtube.com/embed/NKFS6KaeeyY?version=3&rel=1&fs=1&autohide=2&showsearch=0&showinfo=1&iv_load_policy=1&wmode=transparent"></iframe>
           </div>
         </div>
-      </div>
-
-      <!-- Row 3: Peace Run — text left, video right -->
-      <div class="sdlp-row">
-        <div class="sdlp-col">
+        <div class="sdlp-col sdlp-col-elevated">
           <div class="sdlp-text-area sdlp-card-peace">
             <h2>Peace Run</h2>
             <p>
-              To expand our youth's concept about themselves and others, we encourage our students
-              to write essays about other cultures using the Peace Run website as a learning tool. At RICH we
-              believe that urban students need to master the written language and use English Language Arts as a
-              foundation for all learning. Students select a country from around the world to conduct their
-              research. Each student is challenged to use the RICH Principles to explain the importance of
-              understanding people from other parts of the world. Reach for Success Program 4 Guiding Principles are:
+              To expand today's youth concept about themselves and others, Rich encourages students to write essays
+              about other cultures using the Peace Run website as a learning tool. Students select a country from
+              around the world to conduct their research. Each student is challenged to use the RICH 4 Guiding
+              Principles to explain the importance of understanding people from other parts of the world.
+              Reach for Success Program 4 Guiding Principles:
             </p>
             <ol>
               <li>I matter</li>
@@ -358,12 +340,6 @@
               <li>I use thinking strategies for school success</li>
             </ol>
             <p>Find more about Peace Run: <a class="imbeddedlink" href="https://www.peacerun.org/us/" target="_blank">About Peace Run.</a></p>
-          </div>
-        </div>
-        <div class="sdlp-col">
-          <div class="embed-responsive embed-responsive-4by3">
-            <iframe class="embed-responsive-item"
-              src="https://www.youtube.com/embed/NKFS6KaeeyY?version=3&rel=1&fs=1&autohide=2&showsearch=0&showinfo=1&iv_load_policy=1&wmode=transparent"></iframe>
           </div>
         </div>
       </div>
