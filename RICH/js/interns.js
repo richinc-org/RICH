@@ -3,6 +3,15 @@ const internsRaw = [
 
      // ==== 2026 - Spring ====
 
+     {
+     name: "Md Refath Choudhury",
+     role: "Software Engineer Intern",
+     img: "intern_images/mdrefath.jpg",
+     tags: ["Hunter College", "Computer Science"],
+     semesters: ["2026-Spring"],
+     bio: `A Software Engineer intern at RICH who contributed to redesigning the web presence during the internship. The work focused on redesigning the Self Directed Learning Project page to give it a more modern and visually appealing look, improving the overall experience for users visiting the site. Additionally on the backend side, worked on migrating the site's login system from legacy PHP to a modern stack using Next.js, TypeScript, and Supabase, laying the groundwork for a more secure and maintainable authentication flow. This improves the overall experience for the login and sets the organization up with a more scalable foundation going forward.`,
+    },
+
     {
      name: "Akm Hossain",
      role: "Software Engineer Intern",
