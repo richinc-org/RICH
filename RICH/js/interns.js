@@ -3,6 +3,26 @@ const internsRaw = [
 
      // ==== 2026 - Spring ====
 
+     
+     {
+     name: "Jobanpreet Kahlon",
+     role: "Accounting Intern",
+     img: "intern_images/Joban.jpg",
+     tags: ["Queens College", "Computer Science"],
+     semesters: ["2026-Spring"],
+     bio: `Developed and implemented an audit ready cloud-based financial management system for a 501(c)(3) nonprofit, designing a transaction-level accounting framework to accurately track and report all income and expenses. Built dynamic dashboards and automated reporting tools using Excel, leveraging functions such as SUMIFS to generate real-time monthly and annual financial insights. Established standardized processes and workflows for budgeting, expense categorization, and data management, improving financial organization and operational efficiency. Conducted research on corporate and grant funding opportunities and contributed to the development of funding proposals to support organizational growth. Collaborated directly with leadership to deliver data-driven insights, enhance financial transparency, and align reporting practices with professional accounting standards.`,
+    },
+     
+     {
+     name: "MD Sharear Sharif Shefat",
+     role: "Front-end Developer & Beta Tester",
+     img: "intern_images/SharifShefat.jpg",
+     tags: ["Queens College", "Computer Science"],
+     semesters: ["2026-Spring"],
+     bio: `During the internship, MD Sharif redesigned the RICH Learning System webpage (rich-learning-system.html) to match the modern aesthetic established in the updated overview.html. The page was rebuilt from a single-column format into an alternating two-column layout with text cards and images, significantly improving visual hierarchy and readability. The redesign incorporated a warm gradient background, a gold accent card system and scroll-reveal animations consistent with the site's updated design language. Interactive features including card hover effects and word-by-word headline animations were also added to enhance the user experience.
+As part of the redesign, MD Sharif developed a reusable footer.A CSS stylesheet featuring a three-column layout with contact information, social media links (Instagram, LinkedIn, YouTube, and TikTok) and brand identity elements built to be deployable across all pages of the site. The structure and design were also separated into dedicated HTML and CSS files, improving code maintainability and making future updates easier to manage.`,
+    },
+     
      {
      name: "Md Refath Choudhury",
      role: "Software Engineer Intern",
