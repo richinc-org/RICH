@@ -8,7 +8,7 @@ const internsRaw = [
      name: "Jobanpreet Kahlon",
      role: "Accounting Intern",
      img: "intern_images/Joban.jpg",
-     tags: ["Queens College", "Computer Science"],
+     tags: ["Queens College"],
      semesters: ["2026-Spring"],
      bio: `Developed and implemented an audit ready cloud-based financial management system for a 501(c)(3) nonprofit, designing a transaction-level accounting framework to accurately track and report all income and expenses. Built dynamic dashboards and automated reporting tools using Excel, leveraging functions such as SUMIFS to generate real-time monthly and annual financial insights. Established standardized processes and workflows for budgeting, expense categorization, and data management, improving financial organization and operational efficiency. Conducted research on corporate and grant funding opportunities and contributed to the development of funding proposals to support organizational growth. Collaborated directly with leadership to deliver data-driven insights, enhance financial transparency, and align reporting practices with professional accounting standards.`,
     },
