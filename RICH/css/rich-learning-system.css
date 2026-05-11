@@ -238,6 +238,17 @@ p {
   padding: 0; /* override Bootstrap's column padding */
 }
 
+.twoimg {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.twoimg img {
+  height: 400px;
+  width: 600px;
+  object-fit: cover;
+}
 
 /* ── Text card ───────────────────────────────────────────────────
    The styled box that holds the heading, paragraph, and lists.

@@ -8,7 +8,7 @@ const internsRaw = [
      name: "Jobanpreet Kahlon",
      role: "Accounting Intern",
      img: "intern_images/Joban.jpg",
-     tags: ["Queens College"],
+     tags: ["Queens College", "Business Administration"],
      semesters: ["2026-Spring"],
      bio: `Developed and implemented an audit ready cloud-based financial management system for a 501(c)(3) nonprofit, designing a transaction-level accounting framework to accurately track and report all income and expenses. Built dynamic dashboards and automated reporting tools using Excel, leveraging functions such as SUMIFS to generate real-time monthly and annual financial insights. Established standardized processes and workflows for budgeting, expense categorization, and data management, improving financial organization and operational efficiency. Conducted research on corporate and grant funding opportunities and contributed to the development of funding proposals to support organizational growth. Collaborated directly with leadership to deliver data-driven insights, enhance financial transparency, and align reporting practices with professional accounting standards.`,
     },
@@ -66,7 +66,7 @@ As part of the redesign, MD Sharif developed a reusable footer.A CSS stylesheet 
      name: "Mauricio Martinez",
      role: "Software Engineering Intern",
      img: "intern_images/Mauricio_Martinez.jpg",
-     tags: ["LaGuardia Community College"],
+     tags: ["LaGuardia Community College", "Computer Science"],
      semesters: ["2026-Spring"],
      bio: `A Software Engineering Intern who supported the front-end development and the user experience improvements for RICH. As the front-end engineer contributed to redesigning the login portal, creating a responsive and visually engaging interface using HTML, CSS, JavaScript, and Bootstrap. During the internship implemented dynamic features to enhance usability while maintaining compatibility with the existing system.
 Collaborated with fellow interns to support ongoing website improvements that contributed to gaining valuable skills in front-end development, problem-solving, and real-world application of software engineering.`,
