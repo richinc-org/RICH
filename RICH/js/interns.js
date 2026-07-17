@@ -1,95 +1,101 @@
 const internsRaw = [
 
-
-     // ==== 2026 - Spring ====
-
-     
-     {
-     name: "Jobanpreet Kahlon",
-     role: "Accounting Intern",
-     img: "intern_images/Joban.jpg",
-     tags: ["Queens College", "Business Administration"],
-     semesters: ["2026-Spring"],
-     bio: `Developed and implemented an audit ready cloud-based financial management system for a 501(c)(3) nonprofit, designing a transaction-level accounting framework to accurately track and report all income and expenses. Built dynamic dashboards and automated reporting tools using Excel, leveraging functions such as SUMIFS to generate real-time monthly and annual financial insights. Established standardized processes and workflows for budgeting, expense categorization, and data management, improving financial organization and operational efficiency. Conducted research on corporate and grant funding opportunities and contributed to the development of funding proposals to support organizational growth. Collaborated directly with leadership to deliver data-driven insights, enhance financial transparency, and align reporting practices with professional accounting standards.`,
-    },
-     
-     {
-     name: "MD Sharear Sharif Shefat",
-     role: "Front-end Developer & Beta Tester",
-     img: "intern_images/SharifShefat.jpg",
-     tags: ["Queens College", "Computer Science"],
-     semesters: ["2026-Spring"],
-     bio: `During the internship, MD Sharif redesigned the RICH Learning System webpage (rich-learning-system.html) to match the modern aesthetic established in the updated overview.html. The page was rebuilt from a single-column format into an alternating two-column layout with text cards and images, significantly improving visual hierarchy and readability. The redesign incorporated a warm gradient background, a gold accent card system and scroll-reveal animations consistent with the site's updated design language. Interactive features including card hover effects and word-by-word headline animations were also added to enhance the user experience.
-As part of the redesign, MD Sharif developed a reusable footer.A CSS stylesheet featuring a three-column layout with contact information, social media links (Instagram, LinkedIn, YouTube, and TikTok) and brand identity elements built to be deployable across all pages of the site. The structure and design were also separated into dedicated HTML and CSS files, improving code maintainability and making future updates easier to manage.`,
-    },
-     
-     {
-     name: "Md Refath Choudhury",
-     role: "Software Engineer Intern",
-     img: "intern_images/mdrefath.jpg",
-     tags: ["Hunter College", "Computer Science"],
-     semesters: ["2026-Spring"],
-     bio: `A Software Engineer intern at RICH who contributed to redesigning the web presence during the internship. The work focused on redesigning the Self Directed Learning Project page to give it a more modern and visually appealing look, improving the overall experience for users visiting the site. Additionally on the backend side, worked on migrating the site's login system from legacy PHP to a modern stack using Next.js, TypeScript, and Supabase, laying the groundwork for a more secure and maintainable authentication flow. This improves the overall experience for the login and sets the organization up with a more scalable foundation going forward.`,
-    },
-
-    {
-     name: "Akm Hossain",
-     role: "Software Engineer Intern",
-     img: "intern_images/Akm_Hossain.jpg",
-     tags: ["Hunter College", "Computer Science"],
-     semesters: ["2026-Spring"],
-     bio: `AKM Hossain is a Computer Science student and TA at Hunter College, who worked on re-implementing RICH's podcast page. The new webpage brings a more interactive and accessible experience to users by implementing live subtitles and an appealing layout. AKM worked closely with our team’s graphic designer, Adrian, who developed new visuals tailored to our primarily young audience. AKM then implemented these graphics into his podcast redesign. In the future, AKM aspires to continue pursuing software development and build impactful projects.`,
-    },
-
-    {
-     name: "Adrian Trifoi",
-     role: "Graphic Designer and Marketing Intern",
-     img: "intern_images/Adrian_Trifoi.jpeg",
-     tags: ["LaGuardia Community College", "Criminal Justice"],
-     semesters: ["2026-Spring"],
-     bio: `A Graphic Designer and Marketing Intern who supported the visual branding and digital
-      marketing efforts for RICH. As a creative contributor, played a key role in enhancing the
-      organization’s visual identity by designing engaging and meaningful characters that represented
-      the four core principles of RICH, helping to communicate its mission in a more interactive and
-      memorable way. Contributed to the website’s aesthetic by creating custom backgrounds for
-      multiple pages, improving the overall look and user experience while maintaining consistency
-      with the brand. During the internship, also updated the interns’ training manual by incorporating
-      and documenting the accomplishments of fellow interns, ensuring their work was recognized and
-      preserved for future teams. Collaborated closely with other interns to support ongoing design and
-      marketing initiatives, while developing strong skills in graphic design, creativity,
-      communication, and the real-world application of marketing strategies.`,
+       // ==== 2026 - Spring ====
+      {
+      name: "Mubasshir Al Shahriar",
+      role: "Software Engineering Intern",
+      img: "intern_images/mubasshir_shahriar.jpg",
+      tags: ["Queens College", "Computer Science"],
+      semesters: ["2026-Winter", "2026-Spring"],
+      bio: `A Software Engineering Intern at RICH and a senior Computer Science major with an Economics minor. As one of three core interns, he helped lead and guide a team of fellow interns, supporting their work through collaboration, mentoring, and regular project coordination. During the internship, he attended weekly team meetings, represented the RICH intern group at a Department of Education meetup event, and contributed to the daily maintenance, updates, and improvements of the RICH web portal. His work focused mainly on front-end development, including maintaining and improving the portal’s user interface, fixing bugs, updating content, and supporting a smoother user experience. He also contributed to database maintenance and backend planning by reviewing the existing system and helping explore a possible restructuring using Supabase, Next.js, and TypeScript. Through this role, he gained valuable leadership skills in collaborating teamwork, software engineering, and problem-solving for technical issues with the administrators in a professional setting.`,
+      },
       
-     },
-
-    
-    {
-     name: "Mauricio Martinez",
-     role: "Software Engineering Intern",
-     img: "intern_images/Mauricio_Martinez.jpg",
-     tags: ["LaGuardia Community College", "Computer Science"],
-     semesters: ["2026-Spring"],
-     bio: `A Software Engineering Intern who supported the front-end development and the user experience improvements for RICH. As the front-end engineer contributed to redesigning the login portal, creating a responsive and visually engaging interface using HTML, CSS, JavaScript, and Bootstrap. During the internship implemented dynamic features to enhance usability while maintaining compatibility with the existing system.
-Collaborated with fellow interns to support ongoing website improvements that contributed to gaining valuable skills in front-end development, problem-solving, and real-world application of software engineering.`,
+      {
+      name: "Jobanpreet Kahlon",
+      role: "Accounting Intern",
+      img: "intern_images/Joban.jpg",
+      tags: ["Queens College", "Business Administration"],
+      semesters: ["2026-Spring"],
+      bio: `Developed and implemented an audit ready cloud-based financial management system for a 501(c)(3) nonprofit, designing a transaction-level accounting framework to accurately track and report all income and expenses. Built dynamic dashboards and automated reporting tools using Excel, leveraging functions such as SUMIFS to generate real-time monthly and annual financial insights. Established standardized processes and workflows for budgeting, expense categorization, and data management, improving financial organization and operational efficiency. Conducted research on corporate and grant funding opportunities and contributed to the development of funding proposals to support organizational growth. Collaborated directly with leadership to deliver data-driven insights, enhance financial transparency, and align reporting practices with professional accounting standards.`,
+      },
       
-   }, 
-     
-     // ==== 2026 - Winter ====
-    {
-     name: "Nafisa Tabassum",
-     role: "Software Engineering Intern",
-     img: "intern_images/NafisaTabassum.jpg",
-     tags: ["Queens College"],
-     semesters: ["2026-Winter"],
-     bio: `A Software Engineer Intern who supports full-stack development and digital improvements for RICH. During her internship, she helps turn website ideas into practical features by contributing to website  development, improving site structure, and enhancing user experience. She collaborates with fellow interns to refine features and support ongoing website improvements. She also helps review, update, and troubleshoot parts of RICH’s Google Classroom setup to improve how program materials are organized and delivered. In addition, she mentored a high school intern, helping turn feedback and testing into meaningful improvements across RICH’s digital platforms. Through this experience, she strengthens her software engineering, web development, leadership, and problem-solving skills while supporting the organization’s goals.`,
-     hsInterns: [
-     {
-          name: "Sophia Kalesioris",
-          img: "intern_images/SophiaKal_hs_intern.jpeg",
-          bio: `A senior at Bayside High School who worked closely with a college intern to support the evaluation and improvement of RICH’s digital learning and website experience. During her internship, she served as a beta tester for the RICH Google Classroom, completing activities and reviewing materials from the perspective of a student participant in order to help the team better understand how students would engage with the program. She also provided thoughtful feedback on weekly forms, assignments, and classroom structure, offering valuable insights into what was effective and what could be improved. In addition, she explored the RICH website in depth, testing navigation, reviewing content, and sharing suggestions for updates, modifications, and possible feature improvements. Through her work, she helped strengthen the organization’s understanding of user experience and contributed meaningful feedback that supported ongoing improvements to both the Google Classroom and website.`
-     }
-    ] 
-   }, 
+      {
+      name: "MD Sharear Sharif Shefat",
+      role: "Front-end Developer & Beta Tester",
+      img: "intern_images/SharifShefat.jpg",
+      tags: ["Queens College", "Computer Science"],
+      semesters: ["2026-Spring"],
+      bio: `During the internship, MD Sharif redesigned the RICH Learning System webpage (rich-learning-system.html) to match the modern aesthetic established in the updated overview.html. The page was rebuilt from a single-column format into an alternating two-column layout with text cards and images, significantly improving visual hierarchy and readability. The redesign incorporated a warm gradient background, a gold accent card system and scroll-reveal animations consistent with the site's updated design language. Interactive features including card hover effects and word-by-word headline animations were also added to enhance the user experience.
+  As part of the redesign, MD Sharif developed a reusable footer.A CSS stylesheet featuring a three-column layout with contact information, social media links (Instagram, LinkedIn, YouTube, and TikTok) and brand identity elements built to be deployable across all pages of the site. The structure and design were also separated into dedicated HTML and CSS files, improving code maintainability and making future updates easier to manage.`,
+      },
+      
+      {
+      name: "Md Refath Choudhury",
+      role: "Software Engineer Intern",
+      img: "intern_images/mdrefath.jpg",
+      tags: ["Hunter College", "Computer Science"],
+      semesters: ["2026-Spring"],
+      bio: `A Software Engineer intern at RICH who contributed to redesigning the web presence during the internship. The work focused on redesigning the Self Directed Learning Project page to give it a more modern and visually appealing look, improving the overall experience for users visiting the site. Additionally on the backend side, worked on migrating the site's login system from legacy PHP to a modern stack using Next.js, TypeScript, and Supabase, laying the groundwork for a more secure and maintainable authentication flow. This improves the overall experience for the login and sets the organization up with a more scalable foundation going forward.`,
+      },
 
+      {
+      name: "Akm Hossain",
+      role: "Software Engineer Intern",
+      img: "intern_images/Akm_Hossain.jpg",
+      tags: ["Hunter College", "Computer Science"],
+      semesters: ["2026-Spring"],
+      bio: `AKM Hossain is a Computer Science student and TA at Hunter College, who worked on re-implementing RICH's podcast page. The new webpage brings a more interactive and accessible experience to users by implementing live subtitles and an appealing layout. AKM worked closely with our team’s graphic designer, Adrian, who developed new visuals tailored to our primarily young audience. AKM then implemented these graphics into his podcast redesign. In the future, AKM aspires to continue pursuing software development and build impactful projects.`,
+      },
+
+      {
+      name: "Adrian Trifoi",
+      role: "Graphic Designer and Marketing Intern",
+      img: "intern_images/Adrian_Trifoi.jpeg",
+      tags: ["LaGuardia Community College", "Criminal Justice"],
+      semesters: ["2026-Spring"],
+      bio: `A Graphic Designer and Marketing Intern who supported the visual branding and digital
+        marketing efforts for RICH. As a creative contributor, played a key role in enhancing the
+        organization’s visual identity by designing engaging and meaningful characters that represented
+        the four core principles of RICH, helping to communicate its mission in a more interactive and
+        memorable way. Contributed to the website’s aesthetic by creating custom backgrounds for
+        multiple pages, improving the overall look and user experience while maintaining consistency
+        with the brand. During the internship, also updated the interns’ training manual by incorporating
+        and documenting the accomplishments of fellow interns, ensuring their work was recognized and
+        preserved for future teams. Collaborated closely with other interns to support ongoing design and
+        marketing initiatives, while developing strong skills in graphic design, creativity,
+        communication, and the real-world application of marketing strategies.`,
+        
+      },
+
+      
+      {
+      name: "Mauricio Martinez",
+      role: "Software Engineering Intern",
+      img: "intern_images/Mauricio_Martinez.jpg",
+      tags: ["LaGuardia Community College", "Computer Science"],
+      semesters: ["2026-Spring"],
+      bio: `A Software Engineering Intern who supported the front-end development and the user experience improvements for RICH. As the front-end engineer contributed to redesigning the login portal, creating a responsive and visually engaging interface using HTML, CSS, JavaScript, and Bootstrap. During the internship implemented dynamic features to enhance usability while maintaining compatibility with the existing system.
+  Collaborated with fellow interns to support ongoing website improvements that contributed to gaining valuable skills in front-end development, problem-solving, and real-world application of software engineering.`,
+        
+    }, 
+      
+      // ==== 2026 - Winter ====
+      {
+      name: "Nafisa Tabassum",
+      role: "Software Engineering Intern",
+      img: "intern_images/NafisaTabassum.jpg",
+      tags: ["Queens College"],
+      semesters: ["2026-Winter", "2026-Spring"],
+      bio: `A Software Engineer Intern who supported full-stack development and digital improvements for RICH. During her internship, she helped to turn website ideas into practical live features by contributing to website development and collaboration with fellow interns. She helped refine existing features, support ongoing platform improvements, and create a Google Site for intern documentation alongside two other tech interns. She also helped review, update, and troubleshoot RICH’s Google Classroom setup to improve how program materials are organized and delivered. In addition, she mentored a high school intern, helping turn feedback and testing into meaningful improvements across RICH’s digital platforms. Through this experience, she strengthens her web development, leadership, and problem-solving skills while supporting the organization’s goals. 
+  `,
+      hsInterns: [
+      {
+            name: "Sophia Kalesioris",
+            img: "intern_images/SophiaKal_hs_intern.jpeg",
+            bio: `A senior at Bayside High School who worked closely with a college intern to support the evaluation and improvement of RICH’s digital learning and website experience. During her internship, she served as a beta tester for the RICH Google Classroom, completing activities and reviewing materials from the perspective of a student participant in order to help the team better understand how students would engage with the program. She also provided thoughtful feedback on weekly forms, assignments, and classroom structure, offering valuable insights into what was effective and what could be improved. In addition, she explored the RICH website in depth, testing navigation, reviewing content, and sharing suggestions for updates, modifications, and possible feature improvements. Through her work, she helped strengthen the organization’s understanding of user experience and contributed meaningful feedback that supported ongoing improvements to both the Google Classroom and website.`
+      }
+      ] 
+    },
      // ===== 2025 — Summer =====
      {
      name: "Shakil Nabil",
