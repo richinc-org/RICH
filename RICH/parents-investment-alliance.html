@@ -42,6 +42,10 @@
         padding-right: 55px;
       }
     }
+
+    #piaContainer {
+      margin-top: 60px;
+    }
   </style>
   <link rel="stylesheet" href="css/header.css">
 </head>
@@ -58,13 +62,8 @@
       <div class="site-mobile-menu-body"></div>
     </div> <!-- .site-mobile-menu -->
 
-    <!--LOAD HEADER (Header Styles Contained in header.css)-->
+    <!--LOAD HEADER (Header Styles Contained in header.css and Header JS Contained in header.js)-->
     <div id="header-container"></div>
-    <script>
-      fetch("header.html")
-        .then(res => res.text())
-        .then(html => document.getElementById("header-container").innerHTML = html);
-    </script>
 
 
     <!--MADE HIDDEN-->
@@ -199,55 +198,97 @@
         <div class="shapely-content">
 
           <img width="100%" class="img-fluid" src="images/parents-image1.png" alt="" width="669" height="167"><br><br>
-          <h2 style="text-align: center;"> “Our Children, Our Greatest Investment” </h2>
-          <p> By modeling the RICH approach, parents can actively engage in a conversation with their child focusing on
-            reinforcing the Reach for Success program guiding principles.
-            The RICH objective is to help parents help their children internalize the importance of
-            expressing positive attitudes towards themselves and others. Secondly, the role of one’s attitude,
-            self-talk, and thinking play a great role in their ability to succeed in school and in life. We are there
-            for the parent who is looking for a
-            supporting echo in reinforcing positive attitudes for school and life success.<br><br>
-            RICH, Inc. Parent Investment Alliance (PIA) workshops will uniquely align with the Reach for Success program
-            concepts on nurturing the social and emotional learning of today’s youth.<br><br>
-            We welcome parents to join us in a conversation around nurturing the social and emotional learning of our
-            young people.<br><br>
-            RICH, Inc. Parent Investment Alliance (PIA) facilitator, Ms. Evita Belmonte is well known for her parent
-            leadership experience as an educational advocate and a New York City and State trainer.<br><br>
-            Parent Investment Alliance (PIA) presentations highlight the RICH Principles as taught to public school
-            students: <br>
-          </p>
+          <h1 style="text-align: center; font-weight: 700; font-size: 2.8rem; margin-bottom: 0.4rem;"> Our Children, Our Greatest Investment </h1>
+          <h2 style="text-align: center; font-weight: 400; font-size: 1.8rem; color: #555; margin-top: 0;"> Greatness Lives in Every Child </h2>
+          <br>
 
-          <ol>
-            <li> I matter! </li>
-            <li> I am responsible for my behavior </li>
-            <li> I am considerate of classmates and others </li>
-            <li> I use thinking strategies for school success. </li>
-          </ol>
-
+          <h4> We're Here to Make Sure They Know It Too. </h4>
           <p>
-            Each parent who participates in the RICH-PIA workshop is
-            guided to motivate our youth. Each parent is encouraged using the RICH model starting in the home
-            environment nurturing their child’s thinking about self-respect and respect for others.
+            Raising a child in this city takes everything you've got. And when your child struggles to
+            believe in themselves — in the classroom, at home, with their peers — it can feel like you're
+            pushing against a wall alone.
+          </p>
+          <p> You're not alone. That's exactly why RICH is here. </p>
+
+          <h3> What the Parent Investment Alliance Is </h3>
+          <p>
+            The <strong>RICH Parent Investment Alliance (PIA)</strong> is a program designed to give you the tools to
+            reinforce your child's positive self-confidence practiced at home for school success.
+            Because here's what 30 years of working with families has taught us: when a parent and a
+            program speak the same language, a child’s self-confidence strengthens.
+          </p>
+          <p>
+            Our Parent Investment Alliance program is led by Dr. Evita Belmonte, a New York State
+            parent leadership advocate, educator, and New York City Department of Education former
+            board member on the Panel for Educational Policy. Dr. Belmonte has decades of experience
+            working with Chancellors, Superintendents, Principals, and the United Federation of
+            Teachers as a Parent Teacher Association Chairperson, supporting families' learning
+            experiences for their children.
+          </p>
+          <p>
+            RICH Chairman Thomas Southwood supports The Parent Investment Alliance (PIA)
+            “Because the RICH PIA program focuses on helping parents develop successful home
+            environments that foster their child's confidence in learning.”
           </p>
 
-          <h3> Program Goal </h3>
+          <!-- ===== YouTube video: replace VIDEO_ID below with the actual YouTube video ID ===== -->
+          <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;max-width:100%;margin:30px 0;">
+            <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;"
+              src="https://www.youtube.com/embed/VIDEO_ID"
+              title="RICH Parent Investment Alliance" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          </div>
 
-          <p> Parents building positive character and academic traits in their children that will prepare them through
-            their school years to become astute leaders in our global society. </p>
-
-          <h3> Behavioral Objectives </h3>
+          <h3> What You'll Walk Away With </h3>
+          <p>
+            By the end of a RICH PIA workshop, you'll know how to have “heart-to-heart” conversations
+            with your child — conversations built around the same 4 Guiding Principles a child learns in
+            the RICH program.
+          </p>
 
           <ul>
-            <li> Parents will become aware that “their children matter” </li>
-            <li> Parents will become aware “children are accountable for their behavior” </li>
-            <li> Parents will become aware “children learn concerned for others” </li>
-            <li> Parents will become aware “how children become self-directed learners” </li>
+            <li> <strong>I Matter</strong> — helping your child understand that their voice and goals count in your home
+              and in the world. </li>
+            <li> <strong>I Am Responsible for My Behavior</strong> — giving your child the language to own their
+              actions, not deflect them. </li>
+            <li> <strong>I Am Considerate of Others</strong> — building the habit of seeing and respecting the people
+              around them. </li>
+            <li> <strong>I Use Thinking Strategies for School Success</strong> — showing your child how to set action
+              goals and to understand the role of relationships in achieving goals when it gets hard. </li>
           </ul>
 
-          <h5 style="padding-bottom:50px;"> Former Chairman's Message - <a class="imbeddedlink"
-              href="https://www.richinc.org/RICH/bill_mccreary.html">
-              Helping parents help
-              their children! </a> </h5>
+          <p>
+            These aren't abstract values. They're specific, repeatable conversations you can start during
+            everyday teachable moments.
+          </p>
+
+          <h3> What Changes When Parents Get Involved </h3>
+          <p>
+            The goal is straightforward: a child who goes to school with enthusiasm and confidence
+            comes home with a sense of accountability and grows up knowing they matter.
+          </p>
+          <p> Here's what that looks like in practice: </p>
+          <p>
+            Your child knows they matter — and acts like it. They take ownership of their behaviour
+            instead of making excuses. They treat their classmates, teachers, and family with genuine
+            respect. And they learn to think their way through challenges instead of shutting down.
+            That's not a wish. That's what happens when the home and the Reach for Success Program
+            work together.
+          </p>
+
+          <h3> Join the Conversation </h3>
+          <p>
+            The RICH PIA workshops are open to all parents and caregivers of students in the Reach for
+            Success program.
+          </p>
+
+          <h4> Come as you are. Leave with something real. </h4>
+          <h5 style="padding-bottom:50px;">
+            <em>Our children, our greatest investment. Helping parents help their children.</em> — Former RICH
+            Chairman, the late <a class="imbeddedlink" href="bill_mccreary.html">Bill McCreary</a>, award-winning
+            journalist.
+          </h5>
 
         </div>
 
@@ -310,6 +351,7 @@ Phone: (123) 3240-345-9348 </p>
     </footer>
   <!-- </div> -->
 
+  <script src="js/header.js"></script>
   <script src="js/jquery-3.3.1.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
   <script src="js/jquery-ui.js"></script>

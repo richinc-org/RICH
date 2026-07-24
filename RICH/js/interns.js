@@ -1,6 +1,5 @@
 const internsRaw = [
 
-<<<<<<< HEAD
 
      // ==== 2026 - Spring ====
 
@@ -66,18 +65,8 @@ As part of the redesign, MD Sharif developed a reusable footer.A CSS stylesheet 
       and documenting the accomplishments of fellow interns, ensuring their work was recognized and
       preserved for future teams. Collaborated closely with other interns to support ongoing design and
       marketing initiatives, while developing strong skills in graphic design, creativity,
-      communication, and the real-world application of marketing strategies.`,
-=======
-       // ==== 2026 - Spring ====
-      {
-      name: "Mubasshir Al Shahriar",
-      role: "Software Engineering Intern",
-      img: "intern_images/mubasshir_shahriar.jpg",
-      tags: ["Queens College", "Computer Science"],
-      semesters: ["2026-Winter", "2026-Spring"],
-      bio: `A Software Engineering Intern at RICH and a senior Computer Science major with an Economics minor. As one of three core interns, he helped lead and guide a team of fellow interns, supporting their work through collaboration, mentoring, and regular project coordination. During the internship, he attended weekly team meetings, represented the RICH intern group at a Department of Education meetup event, and contributed to the daily maintenance, updates, and improvements of the RICH web portal. His work focused mainly on front-end development, including maintaining and improving the portal’s user interface, fixing bugs, updating content, and supporting a smoother user experience. He also contributed to database maintenance and backend planning by reviewing the existing system and helping explore a possible restructuring using Supabase, Next.js, and TypeScript. Through this role, he gained valuable leadership skills in collaborating teamwork, software engineering, and problem-solving for technical issues with the administrators in a professional setting.`,
-      },
->>>>>>> a9c7fbcd41b4cbbe0f6a7b13c60a8c4a4b457652
+      communication, and the real-world application of marketing strategies.`
+    },
       
       {
       name: "Jobanpreet Kahlon",
