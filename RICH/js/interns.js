@@ -3,6 +3,14 @@ const internsRaw = [
 
      // ==== 2026 - Spring ====
 
+     {
+     name: "Mubasshir Al Shahriar",
+     role: "Software Engineering Intern",
+     img: "",
+     tags: ["Queens College", "Computer Science"],
+     semesters: ["2026-Spring"],
+     bio: `To be filled in`,
+    },
      
      {
      name: "Jobanpreet Kahlon",
