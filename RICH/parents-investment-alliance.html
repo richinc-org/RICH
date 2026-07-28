@@ -22,335 +22,395 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/mediaelementplayer.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-
-
   <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
 
   <link rel="stylesheet" href="css/aos.css">
 
   <link rel="stylesheet" href="css/style.css">
 
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/overview.css">
+
   <style>
-    .icon-links {
-      text-align: center;
-      font-size: 24px;
+    /* Page-specific tweaks that build on overview.css */
+    .text-area h2 {
+      white-space: normal;
+    }
+
+    /* Full-width container used when a section has no image */
+    .full-block {
+      width: 100%;
+      padding: 3rem;
+    }
+
+    /* Horizontal scroll section: two full-width panels that slide as you scroll */
+    .hscroll-wrap {
+      position: relative;
+      height: 260vh;
+    }
+
+    .hscroll-sticky {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hscroll-track {
+      display: flex;
       width: 100%;
     }
 
-    @media only screen and (min-width: 1400px) {
-      .icon-links {
-        padding-right: 55px;
+    .hpanel {
+      flex: 0 0 100%;
+      width: 100%;
+      height: 74vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem 2rem;
+    }
+
+    .hpanel .text-area {
+      width: 100%;
+      max-width: 1080px;
+      height: 100%;
+      margin: 0 auto;
+      padding: 3rem 3.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    @media (max-width: 900px) {
+      /* On small screens fall back to stacked full-width blocks */
+      .hscroll-wrap {
+        height: auto;
+      }
+
+      .hscroll-sticky {
+        position: static;
+        height: auto;
+        overflow: visible;
+      }
+
+      .hscroll-track {
+        flex-direction: column;
+        transform: none !important;
+        gap: 3rem;
+      }
+
+      .hpanel {
+        flex: 0 0 auto;
+        height: auto;
+        padding: 0;
+      }
+
+      .hpanel .text-area {
+        height: auto;
+        max-width: none;
       }
     }
 
-    #piaContainer {
-      margin-top: 60px;
+    .text-area a {
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .text-area ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding-left: 0;
+    }
+
+    .text-area ul li {
+      font-size: 1.2rem;
+      padding-left: 1.5rem;
+      position: relative;
+      color: var(--navy);
+    }
+
+    .text-area ul li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.55rem;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: var(--gold);
+    }
+
+    .text-area ul li strong {
+      color: var(--navy);
+    }
+
+    .outro .quote {
+      width: 72%;
+      margin: 1.5rem auto 0;
+      text-align: center;
+      font-size: 1.25rem;
+      font-style: italic;
+      color: var(--navy);
+    }
+
+    .outro .quote a {
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .outro-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 2rem;
     }
   </style>
-  <link rel="stylesheet" href="css/header.css">
 </head>
 
 <body>
 
-  <!-- <div class="site-wrap"> -->
-    <div class="site-mobile-menu">
-      <div class="site-mobile-menu-header">
-        <div class="site-mobile-menu-close mt-3">
-          <span class="icon-close2 js-menu-toggle"></span>
+  <!--LOAD HEADER (Header Styles Contained in header.css)-->
+  <div id="header-container"></div>
+
+  <section class="intro">
+    <h1>Greatness Lives in Every Child</h1>
+  </section>
+
+  <section class="main-content">
+
+    <div class="row">
+      <div class="col">
+        <div class="text-area">
+          <h2>We're Here to Make Sure They Know It Too.</h2>
+          <p>Raising a child in this city takes everything you've got. And when your child struggles to believe in themselves — in the classroom, at home, with their peers — it can feel like you're pushing against a wall alone.</p>
+          <p>You're not alone. That's exactly why RICH is here.</p>
         </div>
       </div>
-      <div class="site-mobile-menu-body"></div>
-    </div> <!-- .site-mobile-menu -->
+      <div class="col">
+        <div class="img"><img src="images/pia-classroom.png" alt="RICH students in class"></div>
+      </div>
+    </div>
 
-    <!--LOAD HEADER (Header Styles Contained in header.css and Header JS Contained in header.js)-->
-    <div id="header-container"></div>
-
-
-    <!--MADE HIDDEN-->
-    <div id="myLogo" class="site-navbar-wrap js-site-navbar bg-white" hidden>
-
-      <div class="container-fluid" hidden>
-
-        <div class="text-center pics_in_a_row">
-          <a href="https://www.instagram.com/p/CqocMt_PwZ3/?utm_source=ig_web_button_share_sheet">
-            <img class="img-fluid top" src="3decade.png"
-              href="https://www.instagram.com/p/CqocMt_PwZ3/?utm_source=ig_web_button_share_sheet" alt="..." width="200"
-              height="200"></a>
-
-
-          <a href="index.html"><img class="img-fluid top" src="images/LOGO.png" href="index.html" alt="..."></a>
-
-          <a href="https://www.richinc.org/RICH/rich_new_vision/rich_new_vision.html">
-            <img class="img-fluid top" src="nvl.png" alt="..." width="200" height="187">
-          </a>
+    <div class="row">
+      <div class="col">
+        <div class="img"><img src="images/pia-leaders.png" alt="RICH Parent Investment Alliance leadership"></div>
+      </div>
+      <div class="col">
+        <div class="text-area">
+          <p>The <strong>RICH Parent Investment Alliance (PIA)</strong> is a program designed to give you the tools to reinforce your child's positive self-confidence practiced at home for school success. Because here's what 30 years of working with families has taught us: when a parent and a program speak the same language, a child's self-confidence strengthens.</p>
+          <p>Our Parent Investment Alliance program is led by Dr. Evita Belmonte, a New York State parent leadership advocate, educator, and New York City Department of Education former board member on the Panel for Educational Policy. Dr. Belmonte has decades of experience working with Chancellors, Superintendents, Principals, and the United Federation of Teachers as a Parent Teacher Association Chairperson, supporting families' learning experiences for their children.</p>
+          <p>RICH Chairman <a href="https://www.youtube.com/watch?v=J47G9RSTWaY" target="_blank">Thomas Southwood</a> supports The Parent Investment Alliance (PIA) "Because the RICH PIA program focuses on helping parents develop successful home environments that foster their child's confidence in learning."</p>
         </div>
+      </div>
+    </div>
 
-        <div class="icon-links">
-          <a href="https://www.instagram.com/richincstudents/" target="_blank"><i class="fa fa-instagram"></i></a>
-          <a href="https://www.linkedin.com/company/reach-into-cultural-heights/" target="_blank"><i
-              class="fa fa-linkedin-square"></i></a>
-          <a href="https://www.youtube.com/channel/UCqAvWoYXzpvOtIstzJ8LBBg?view_as=subscriber" target="_blank"><i
-              class="fa fa-youtube-square"></i></a>
+    <div class="hscroll-wrap">
+      <div class="hscroll-sticky">
+        <div class="hscroll-track">
+
+          <div class="hpanel">
+            <div class="text-area">
+              <h2>What You'll Walk Away With</h2>
+              <p>By the end of a RICH PIA workshop, you'll know how to have "heart-to-heart" conversations with your child — conversations built around the same 4 Guiding Principles a child learns in the RICH program.</p>
+              <ul>
+                <li><strong>I Matter</strong> — helping your child understand that their voice and goals count in your home and in the world.</li>
+                <li><strong>I Am Responsible for My Behavior</strong> — giving your child the language to own their actions, not deflect them.</li>
+                <li><strong>I Am Considerate of Others</strong> — building the habit of seeing and respecting the people around them.</li>
+                <li><strong>I Use Thinking Strategies for School Success</strong> — showing your child how to set action goals and to understand the role of relationships in achieving goals when it gets hard.</li>
+              </ul>
+              <p>These aren't abstract values. They're specific, repeatable conversations you can start during everyday teachable moments.</p>
+            </div>
+          </div>
+
+          <div class="hpanel">
+            <div class="text-area">
+              <h2>What Changes When Parents Get Involved</h2>
+              <p>The goal is straightforward: a child who goes to school with enthusiasm and confidence comes home with a sense of accountability and grows up knowing they matter.</p>
+              <p>Here's what that looks like in practice:</p>
+              <p>Your child knows they matter — and acts like it. They take ownership of their behaviour instead of making excuses. They treat their classmates, teachers, and family with genuine respect. And they learn to think their way through challenges instead of shutting down. That's not a wish. That's what happens when the home and the Reach for Success Program work together.</p>
+            </div>
+          </div>
+
         </div>
+      </div>
+    </div>
 
-        <div class="site-navbar bg-light">
-          <div class="py-1">
-            <div class="row align-items-left">
+    <div class="row">
+      <div class="col">
+        <div class="text-area">
+          <h2>Join the Conversation</h2>
+          <p>The RICH PIA workshops are open to all parents and caregivers of students in the Reach for Success program.</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="img"><img src="images/parents-group.png" alt="RICH parents and children"></div>
+      </div>
+    </div>
 
-              <div class="col-12">
-                <nav class="site-navigation text-center" role="navigation">
-                  <div class="container-fluid">
-                    <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3" style="float:right;"><a href="#"
-                        class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+  </section>
 
-                    <ul class="site-menu js-clone-nav d-none d-lg-block">
-
-                      <li><a class="activelink" href="index.html">Home</a></li>
-
-                      <li class="has-children">
-                        <a href="mission.html" style="color:#c51f1f;">About Us</a>
-                        <!-- <ul class="dropdown arrow-top">-->
-                        <ul class="dropdown menu1">
-                          <li><a href="mission.html">About Reach Into Cultural Heights</a></li>
-                          <li><a href="board-directors.html">Board of Directors</a></li>
-                          <li><a href="interns.html">CUNY Interns</a></li>
-                          <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                        </ul>
-                      </li>
-
-
-
-                      <li class="has-children">
-                        <a href="overview.html" style="color:#c5721f;">Our Work</a>
-                        <!-- <ul class="dropdown arrow-top"> -->
-                        <ul class="dropdown menu2">
-                          <li><a href="overview.html">Program Overview</a></li>
-                          <li><a href="rich-learning-system.html">RICH Learning System</a></li>
-                          <li><a href="sdlp.html">Self-Directed Learning Projects</a></li>
-                          <li><a href="nvlpessay1.html">RICH Student Essays to NVLP Elders</a></li>
-                          <li><a href="projectsnack.html">RICH Snacking for Smartness</a></li>
-                          <li><a href="reach-for-success.html">RICH Towards The Future</a></li>
-                        </ul>
-                      </li>
-
-                      <li class="has-children">
-                        <a href="graduate-testimonials.html" style="color:#2f7939;">Success Stories</a>
-                        <!-- <ul class="dropdown arrow-top"> -->
-                        <ul class="dropdown menu3">
-                          <li><a href="graduate-testimonials.html">Graduate Testimonials</a></li>
-                          <li><a href="first-graduates.html">First Graduates</a></li>
-                          <li><a href="campaign1.html">Then & Now</a></li>
-                        </ul>
-                      </li>
-
-                      <li><a href="parents-investment-alliance.html">Parents Investment Alliance</a></li>
-                      <!--
-                  <li><a href="gsuite-classroom.html">G Suite Classroom</a></li>-->
-
-                      <li class="has-children">
-                        <a href="podcasts.html" style="color:#c51f1f;">Podcasts</a>
-                        <!-- <ul class="dropdown arrow-top"> -->
-                        <ul class="dropdown menu4">
-                          <li><a href="podcasts.html">Reach For Success Program</a></li>
-                        </ul>
-                      </li>
-
-                      <li class="has-children">
-                        <a href="annual-reports.html" style="color:#c5721f;">Contact Us</a>
-                        <!-- <ul class="dropdown arrow-top"> -->
-                        <ul class="dropdown menu5">
-                          <li><a href="annual-reports.html">Annual Reports</a></li>
-                          <li><a href="partnership-opportunities.html">Partnership Opportunities</a></li>
-                          <li><a href="contact-us.html">Contact Us</a></li>
-                        </ul>
-                      </li>
-
-                      <li class="has-children">
-                        <a onclick="checkLogin()">RICH PORTAL</a>
-                        <!-- <ul class="dropdown arrow-top"> -->
-                        <ul class="dropdown menu6">
-                          <li><a onclick="checkLogin()">Portal Login</a></li>
-                          <li><a href="gsuite-classroom.html">G Suite Classroom</a></li>
-                        </ul>
-                      </li>
-                      <!--
-                  <li>
-                    <button class="portalbutton" onclick="checkLogin()"> RICH PORTAL </button>
-                  </li>
-                -->
+  <section class="outro">
+    <div class="outro-inner">
+      <h1>Come as you are. Leave with something real.</h1>
+      <p class="quote">
+        <em>Our children, our greatest investment. Helping parents help their children.</em> — Former RICH Chairman, the late
+        <a class="imbeddedlink" href="bill_mccreary.html">Bill McCreary</a>, award-winning journalist.
+      </p>
+    </div>
+  </section>
 
 
-                    </ul>
+  <div class="site-mobile-menu">
+    <div class="site-mobile-menu-header">
+      <div class="site-mobile-menu-close mt-3">
+        <span class="icon-close2 js-menu-toggle"></span>
+      </div>
+    </div>
+    <div class="site-mobile-menu-body"></div>
+  </div> <!-- .site-mobile-menu -->
 
-                  </div>
-                </nav>
-              </div>
+
+  <div style="top: 0px;" id="myLogo" class="site-navbar-wrap js-site-navbar bg-white" hidden>
+
+    <div class="container-fluid" hidden>
+
+      <div class="text-center pics_in_a_row">
+        <a href="https://www.instagram.com/p/CqocMt_PwZ3/?utm_source=ig_web_button_share_sheet">
+          <img class="img-fluid top" src="3decade.png"
+            href="https://www.instagram.com/p/CqocMt_PwZ3/?utm_source=ig_web_button_share_sheet" alt="..." width="200"
+            height="200"></a>
+
+        <a href="index.html"><img class="img-fluid top" src="images/LOGO.png" href="index.html" alt="..."></a>
+
+        <a href="https://www.richinc.org/RICH/rich_new_vision/rich_new_vision.html">
+          <img class="img-fluid top" src="nvl.png" alt="..." width="200" height="187">
+        </a>
+      </div>
+      <div class="icon-links">
+        <a href="https://www.instagram.com/richincstudents/" target="_blank"><i class="fa fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/company/reach-into-cultural-heights/" target="_blank"><i
+            class="fa fa-linkedin-square"></i></a>
+        <a href="https://www.youtube.com/channel/UCqAvWoYXzpvOtIstzJ8LBBg?view_as=subscriber" target="_blank"><i
+            class="fa fa-youtube-square"></i></a>
+      </div>
+
+      <div class="site-navbar bg-light">
+        <div class="py-1">
+          <div class="row align-items-left">
+
+            <div class="col-12">
+              <nav class="site-navigation text-center" role="navigation">
+                <div class="container-fluid">
+                  <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3" style="float:right;"><a href="#"
+                      class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+
+                  <ul class="site-menu js-clone-nav d-none d-lg-block">
+
+                    <li><a class="activelink" href="index.html">Home</a></li>
+
+                    <li class="has-children">
+                      <a href="mission.html" style="color:#c51f1f;">About Us</a>
+                      <ul class="dropdown menu1">
+                        <li><a href="mission.html">About Reach Into Cultural Heights</a></li>
+                        <li><a href="board-directors.html">Board of Directors</a></li>
+                        <li><a href="interns.html">CUNY Interns</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                      </ul>
+                    </li>
+
+                    <li class="has-children">
+                      <a href="overview.html" style="color:#c5721f;">Our Work</a>
+                      <ul class="dropdown menu2">
+                        <li><a href="overview.html">Program Overview</a></li>
+                        <li><a href="rich-learning-system.html">RICH Learning System</a></li>
+                        <li><a href="sdlp.html">Self-Directed Learning Projects</a></li>
+                        <li><a href="nvlpessay1.html">RICH Student Essays to NVLP Elders</a></li>
+                        <li><a href="projectsnack.html">RICH Snacking for Smartness</a></li>
+                        <li><a href="reach-for-success.html">RICH Towards The Future</a></li>
+                      </ul>
+                    </li>
+
+                    <li class="has-children">
+                      <a href="graduate-testimonials.html" style="color:#2f7939;">Success Stories</a>
+                      <ul class="dropdown menu3">
+                        <li><a href="graduate-testimonials.html">Graduate Testimonials</a></li>
+                        <li><a href="first-graduates.html">First Graduates</a></li>
+                        <li><a href="campaign1.html">Then & Now</a></li>
+                      </ul>
+                    </li>
+
+                    <li><a href="parents-investment-alliance.html">Parents Investment Alliance</a></li>
+
+                    <li class="has-children">
+                      <a href="podcasts.html" style="color:#c51f1f;">Podcasts</a>
+                      <ul class="dropdown menu4">
+                        <li><a href="podcasts.html">Reach For Success Program</a></li>
+                      </ul>
+                    </li>
+
+                    <li class="has-children">
+                      <a href="annual-reports.html" style="color:#c5721f;">Contact Us</a>
+                      <ul class="dropdown menu5">
+                        <li><a href="annual-reports.html">Annual Reports</a></li>
+                        <li><a href="partnership-opportunities.html">Partnership Opportunities</a></li>
+                        <li><a href="contact-us.html">Contact Us</a></li>
+                      </ul>
+                    </li>
+
+                    <li class="has-children">
+                      <a onclick="checkLogin()">RICH PORTAL</a>
+                      <ul class="dropdown menu6">
+                        <li><a onclick="checkLogin()">Portal Login</a></li>
+                        <li><a href="gsuite-classroom.html">G Suite Classroom</a></li>
+                      </ul>
+                    </li>
+
+                  </ul>
+
+                </div>
+              </nav>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div id="logoHeight" style="height: 350px;" hidden></div>
-    <!--MADE HIDDEN ENDS-->
-    <div id="piaContainer" class="container">
+  </div>
+  <div id="logoHeight" style="height: 350px;" hidden></div>
 
-      <div class="col-md-8 mx-auto no-sidebar">
-        <div class="shapely-content">
-
-          <img width="100%" class="img-fluid" src="images/parents-image1.png" alt="" width="669" height="167"><br><br>
-          <h1 style="text-align: center; font-weight: 700; font-size: 2.8rem; margin-bottom: 0.4rem;"> Greatness Lives in Every Child </h1>
-          <br>
-
-          <h4> We're Here to Make Sure They Know It Too. </h4>
-          <p>
-            Raising a child in this city takes everything you've got. And when your child struggles to
-            believe in themselves — in the classroom, at home, with their peers — it can feel like you're
-            pushing against a wall alone.
+  <footer class="site-footer" hidden>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <p class="text-center">
+            <a href="contact-us.html">Join Us!</a><br>
+            Email: rich@att.net
+            <br>
+            Phone: (929) 242-9036
+            <br>
+            Address: Tech Incubator at Queens College, 65-30 Kissena Blvd, Flushing, NY 11367
+            <br>
+            Copyright &copy;
+            <script data-cfasync="false"
+              src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+            <script>document.write(new Date().getFullYear());</script> All Rights Reserved | This template is made by
+            <a href="https://colorlib.com" target="_blank">Colorlib</a>
           </p>
-          <p> You're not alone. That's exactly why RICH is here. </p>
-
-          <h3> What the Parent Investment Alliance Is </h3>
-          <p>
-            The <strong>RICH Parent Investment Alliance (PIA)</strong> is a program designed to give you the tools to
-            reinforce your child's positive self-confidence practiced at home for school success.
-            Because here's what 30 years of working with families has taught us: when a parent and a
-            program speak the same language, a child’s self-confidence strengthens.
-          </p>
-          <p>
-            Our Parent Investment Alliance program is led by Dr. Evita Belmonte, a New York State
-            parent leadership advocate, educator, and New York City Department of Education former
-            board member on the Panel for Educational Policy. Dr. Belmonte has decades of experience
-            working with Chancellors, Superintendents, Principals, and the United Federation of
-            Teachers as a Parent Teacher Association Chairperson, supporting families' learning
-            experiences for their children.
-          </p>
-          <p>
-            RICH Chairman Thomas Southwood supports The Parent Investment Alliance (PIA)
-            “Because the RICH PIA program focuses on helping parents develop successful home
-            environments that foster their child's confidence in learning.”
-          </p>
-
-          <!-- ===== YouTube video: replace VIDEO_ID below with the actual YouTube video ID ===== -->
-          <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;max-width:100%;margin:30px 0;">
-            <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;"
-              src="https://www.youtube.com/embed/VIDEO_ID"
-              title="RICH Parent Investment Alliance" frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen></iframe>
-          </div>
-
-          <h3> What You'll Walk Away With </h3>
-          <p>
-            By the end of a RICH PIA workshop, you'll know how to have “heart-to-heart” conversations
-            with your child — conversations built around the same 4 Guiding Principles a child learns in
-            the RICH program.
-          </p>
-
-          <ul>
-            <li> <strong>I Matter</strong> — helping your child understand that their voice and goals count in your home
-              and in the world. </li>
-            <li> <strong>I Am Responsible for My Behavior</strong> — giving your child the language to own their
-              actions, not deflect them. </li>
-            <li> <strong>I Am Considerate of Others</strong> — building the habit of seeing and respecting the people
-              around them. </li>
-            <li> <strong>I Use Thinking Strategies for School Success</strong> — showing your child how to set action
-              goals and to understand the role of relationships in achieving goals when it gets hard. </li>
-          </ul>
-
-          <p>
-            These aren't abstract values. They're specific, repeatable conversations you can start during
-            everyday teachable moments.
-          </p>
-
-          <h3> What Changes When Parents Get Involved </h3>
-          <p>
-            The goal is straightforward: a child who goes to school with enthusiasm and confidence
-            comes home with a sense of accountability and grows up knowing they matter.
-          </p>
-          <p> Here's what that looks like in practice: </p>
-          <p>
-            Your child knows they matter — and acts like it. They take ownership of their behaviour
-            instead of making excuses. They treat their classmates, teachers, and family with genuine
-            respect. And they learn to think their way through challenges instead of shutting down.
-            That's not a wish. That's what happens when the home and the Reach for Success Program
-            work together.
-          </p>
-
-          <h3> Join the Conversation </h3>
-          <p>
-            The RICH PIA workshops are open to all parents and caregivers of students in the Reach for
-            Success program.
-          </p>
-
-          <h4> Come as you are. Leave with something real. </h4>
-          <h5 style="padding-bottom:50px;">
-            <em>Our children, our greatest investment. Helping parents help their children.</em> — Former RICH
-            Chairman, the late <a class="imbeddedlink" href="bill_mccreary.html">Bill McCreary</a>, award-winning
-            journalist.
-          </h5>
-
         </div>
-
-
       </div>
     </div>
-
-    <!--
-    <div class="py-5 quick-contact-info">
-    <div class="container">
-    <div class="row">
-    <div class="col-md-4">
-    <div>
-    <h2><span class="icon-room"></span> Location</h2>
-    <p class="mb-0">New York - 2398 <br>  10 Hadson Carl Street</p>
-  </div>
-</div>
-<div class="col-md-4">
-<div>
-<h2><span class="icon-clock-o"></span> Service Times</h2>
-<p class="mb-0">Wednesdays at 6:30PM - 7:30PM <br>
-Fridays at Sunset - 7:30PM <br>
-Saturdays at 8:00AM - Sunset</p>
-</div>
-</div>
-<div class="col-md-4">
-<h2><span class="icon-comments"></span> Get In Touch</h2>
-<p class="mb-0">Email: info@yoursite.com <br>
-Phone: (123) 3240-345-9348 </p>
-</div>
-</div>
-</div>
-</div>
--->
-    <footer class="site-footer">
-      <div class="container">
-
-        <div class="row">
-          <div class="col">
-            <p class="text-center">
-              <a href="contact-us.html">Join Us!</a><br>
-              Email: rich@att.net
-              <br>
-              Phone: (929) 242-9036
-              <br>
-              Address: Tech Incubator at Queens College, 65-30 Kissena Blvd, Flushing, NY 11367
-              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-              <br>
-              Copyright &copy;
-              <script data-cfasync="false"
-                src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-              <script>document.write(new Date().getFullYear());</script> All Rights Reserved | This template is made by
-              <a href="https://colorlib.com" target="_blank">Colorlib</a>
-              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            </p>
-          </div>
-
-        </div>
-      </div>
-    </footer>
-  <!-- </div> -->
+  </footer>
 
   <script src="js/header.js"></script>
+  <script src="js/overview.js"></script>
   <script src="js/jquery-3.3.1.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
   <script src="js/jquery-ui.js"></script>
@@ -362,7 +422,6 @@ Phone: (123) 3240-345-9348 </p>
   <script src="js/jquery.magnific-popup.min.js"></script>
   <script src="js/bootstrap-datepicker.min.js"></script>
   <script src="js/aos.js"></script>
-
 
   <script src="js/mediaelement-and-player.min.js"></script>
 
@@ -406,12 +465,11 @@ Phone: (123) 3240-345-9348 </p>
     function checkLogin() {
 
       if (userInfo == "" || userInfo == "undefined") {
-        window.location.href = "login.php";
+        window.location.href = "login.html";
       }
       else {
         window.location.href = "Account/portal-home.html";
       }
-      //window.location.href = "login.php";
     }
     //---------------------------------------------------------------------------------
 
@@ -431,6 +489,49 @@ Phone: (123) 3240-345-9348 </p>
         });
       }
     });
+  </script>
+
+  <script>
+    // Pinned horizontal scroll: slide between the two panels as the user scrolls.
+    (function () {
+      var wrap = document.querySelector('.hscroll-wrap');
+      var sticky = document.querySelector('.hscroll-sticky');
+      var track = document.querySelector('.hscroll-track');
+      if (!wrap || !sticky || !track) return;
+
+      var current = 0, target = 0, running = false;
+
+      function isDesktop() {
+        return window.matchMedia('(min-width: 901px)').matches;
+      }
+
+      function computeTarget() {
+        if (!isDesktop()) { target = 0; return; }
+        var rect = wrap.getBoundingClientRect();
+        var total = wrap.offsetHeight - window.innerHeight;
+        var p = total > 0 ? (-rect.top) / total : 0;
+        target = Math.min(1, Math.max(0, p));
+        if (!running) { running = true; requestAnimationFrame(raf); }
+      }
+
+      function raf() {
+        current += (target - current) * 0.08; // easing → slow, smooth slide
+        if (isDesktop()) {
+          track.style.transform = 'translateX(' + (-current * sticky.clientWidth) + 'px)';
+        } else {
+          track.style.transform = '';
+        }
+        if (Math.abs(target - current) > 0.001) {
+          requestAnimationFrame(raf);
+        } else {
+          running = false;
+        }
+      }
+
+      window.addEventListener('scroll', computeTarget, { passive: true });
+      window.addEventListener('resize', computeTarget);
+      computeTarget();
+    })();
   </script>
 
 </body>
