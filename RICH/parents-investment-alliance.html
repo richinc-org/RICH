@@ -54,7 +54,11 @@
       top: 0;
       height: 100vh;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
+      /* start content below the fixed header so the top of the box is
+         always visible (the section is pinned, so it can't be scrolled up) */
+      padding-top: 9vh;
+      box-sizing: border-box;
       overflow: hidden;
     }
 
@@ -66,9 +70,9 @@
     .hpanel {
       flex: 0 0 100%;
       width: 100%;
-      height: 74vh;
+      height: auto;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: center;
       padding: 1rem 2rem;
     }
@@ -76,12 +80,12 @@
     .hpanel .text-area {
       width: 100%;
       max-width: 1080px;
-      height: 100%;
+      height: auto;
       margin: 0 auto;
       padding: 3rem 3.5rem;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
     }
 
     @media (max-width: 900px) {
@@ -173,6 +177,290 @@
       width: 100%;
       padding: 2rem;
     }
+
+    /* ---- Intro hero: full-bleed photo background with an editorial scrim -- */
+    .intro.intro--hero {
+      position: relative;
+      height: 92vh;
+      min-height: 560px;
+      max-width: none;
+      width: 100%;
+      padding: 0;
+      overflow: hidden;
+      border-radius: 0;
+      box-shadow: none;
+      background-image: url('images/pia-intro-students.png');
+      background-size: cover;
+      background-position: center 38%;
+      display: flex;
+      align-items: stretch;
+      justify-content: flex-start;
+    }
+
+    /* Slow zoom on the photo so the hero feels alive, not static */
+    .intro.intro--hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: inherit;
+      background-size: cover;
+      background-position: center 38%;
+      animation: intro-zoom 18s ease-out forwards;
+      z-index: 0;
+    }
+
+    @keyframes intro-zoom {
+      from { transform: scale(1.08); }
+      to { transform: scale(1); }
+    }
+
+    /* Navy scrim: strong on the left where the text sits, clearing to the right
+       so the children's faces stay visible; a soft floor anchors the bottom. */
+    .intro-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        linear-gradient(90deg, rgba(14, 30, 51, 0.82) 0%, rgba(14, 30, 51, 0.52) 30%, rgba(14, 30, 51, 0.16) 56%, rgba(14, 30, 51, 0) 80%),
+        linear-gradient(0deg, rgba(14, 30, 51, 0.34) 0%, rgba(14, 30, 51, 0) 36%);
+    }
+
+    .intro-content {
+      position: relative;
+      z-index: 2;
+      align-self: center;
+      max-width: 620px;
+      padding: 0 4.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    .intro-eyebrow {
+      display: inline-block;
+      color: var(--gold);
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 0.95rem;
+      margin-bottom: 1.1rem;
+      padding-bottom: 0.55rem;
+      border-bottom: 2px solid rgba(214, 169, 92, 0.6);
+    }
+
+    .intro.intro--hero h1 {
+      width: auto;
+      text-align: left;
+      color: #fff;
+      margin: 0;
+      line-height: 1.04;
+      text-shadow: 0 2px 24px rgba(0, 0, 0, 0.35);
+    }
+
+    .intro-sub {
+      color: rgba(255, 255, 255, 0.92);
+      font-size: 1.4rem;
+      line-height: 1.5;
+      margin: 1.4rem 0 2.2rem;
+      text-shadow: 0 1px 12px rgba(0, 0, 0, 0.35);
+    }
+
+    .intro-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--gold);
+      color: var(--navy);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+      padding: 0.95rem 1.9rem;
+      border-radius: 999px;
+      box-shadow: 0 10px 26px rgba(14, 30, 51, 0.35);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    }
+
+    .intro-cta span {
+      transition: transform 0.25s ease;
+    }
+
+    .intro-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 32px rgba(14, 30, 51, 0.45);
+      background: #e2b96f;
+    }
+
+    .intro-cta:hover span {
+      transform: translateY(3px);
+    }
+
+    @media (max-width: 900px) {
+      .intro.intro--hero {
+        height: auto;
+        min-height: 78vh;
+        background-position: center 30%;
+      }
+
+      .intro-content {
+        padding: 0 1.75rem;
+        max-width: none;
+      }
+
+      .intro-overlay {
+        background:
+          linear-gradient(0deg, rgba(14, 30, 51, 0.92) 0%, rgba(14, 30, 51, 0.55) 45%, rgba(14, 30, 51, 0.35) 100%);
+      }
+
+      .intro-sub {
+        font-size: 1.2rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .intro.intro--hero::after {
+        animation: none;
+        transform: none;
+      }
+    }
+
+    /* Podcast banner: fill the column width at its natural proportions
+       (override the global cover/height rule that was shrinking it) */
+    .pia-podcast-img {
+      width: 100%;
+    }
+
+    .pia-podcast-img img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    /* ---- PIA pinned scroll-reveal ------------------------------------ */
+    /* The section pins to the viewport; as the page scrolls, the text
+       glides up inside a clipped window (JS sets the height + transform). */
+    .pia-reveal {
+      position: relative;
+    }
+
+    .pia-reveal-sticky {
+      position: sticky;
+      top: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .pia-reveal-sticky .row {
+      width: 100%;
+    }
+
+    /* The clipped reading window */
+    .pia-scroll-text {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pia-viewport {
+      position: relative;
+      height: 420px;
+      overflow: hidden;
+      /* thin fades top & bottom — just enough to hint at more, without washing out lines */
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 4%, #000 96%, transparent 100%);
+      mask-image: linear-gradient(to bottom, transparent 0, #000 4%, #000 96%, transparent 100%);
+      padding-right: 1.75rem;
+    }
+
+    .pia-track {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      will-change: transform;
+    }
+
+    /* Thin gold progress rail on the right edge of the window */
+    .pia-rail {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 4px;
+      height: 100%;
+      border-radius: 4px;
+      background: rgba(0, 0, 0, 0.06);
+      overflow: hidden;
+      z-index: 2;
+    }
+
+    .pia-rail-fill {
+      display: block;
+      width: 100%;
+      height: 0%;
+      background: var(--gold);
+      border-radius: 4px;
+      transition: height 0.12s linear;
+    }
+
+    /* "Scroll to read" cue that fades out once the reader gets going */
+    .pia-cue {
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: opacity 0.4s ease;
+    }
+
+    .pia-cue span {
+      display: inline-block;
+      animation: pia-bounce 1.4s ease-in-out infinite;
+    }
+
+    .pia-cue.is-hidden {
+      opacity: 0;
+    }
+
+    @keyframes pia-bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(4px); }
+    }
+
+    @media (max-width: 900px) {
+      /* On phones: no pinning, show the text in full, no clipping */
+      .pia-reveal-sticky {
+        position: static;
+        min-height: 0;
+      }
+
+      .pia-reveal {
+        height: auto !important;
+      }
+
+      .pia-viewport {
+        height: auto;
+        -webkit-mask-image: none;
+        mask-image: none;
+        padding-right: 0;
+      }
+
+      .pia-track {
+        transform: none !important;
+      }
+
+      .pia-rail,
+      .pia-cue {
+        display: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .pia-cue span {
+        animation: none;
+      }
+    }
   </style>
 </head>
 
@@ -181,11 +469,17 @@
   <!--LOAD HEADER (Header Styles Contained in header.css)-->
   <div id="header-container"></div>
 
-  <section class="intro">
-    <h1>Greatness Lives in Every Child</h1>
+  <section class="intro intro--hero">
+    <div class="intro-overlay"></div>
+    <div class="intro-content">
+      <span class="intro-eyebrow">Parent Investment Alliance</span>
+      <h1>Greatness Lives in Every Child</h1>
+      <p class="intro-sub">And every parent has the power to help it grow.</p>
+      <a class="intro-cta" href="#pia-start">Explore the program <span aria-hidden="true">&#8595;</span></a>
+    </div>
   </section>
 
-  <section class="main-content">
+  <section class="main-content" id="pia-start">
 
     <div class="row">
       <div class="col">
@@ -200,15 +494,25 @@
       </div>
     </div>
 
-    <div class="row">
-      <div class="col">
-        <div class="img"><img src="images/pia-leaders.png" alt="RICH Parent Investment Alliance leadership"></div>
-      </div>
-      <div class="col">
-        <div class="text-area">
-          <p>The <strong>RICH Parent Investment Alliance (PIA)</strong> is a program designed to give you the tools to reinforce your child's positive self-confidence practiced at home for school success. Because here's what 30 years of working with families has taught us: when a parent and a program speak the same language, a child's self-confidence strengthens.</p>
-          <p>Our Parent Investment Alliance program is led by Dr. Evita Belmonte, a New York State parent leadership advocate, educator, and New York City Department of Education former board member on the Panel for Educational Policy. Dr. Belmonte has decades of experience working with Chancellors, Superintendents, Principals, and the United Federation of Teachers as a Parent Teacher Association Chairperson, supporting families' learning experiences for their children.</p>
-          <p>RICH Chairman <a href="https://www.youtube.com/watch?v=J47G9RSTWaY" target="_blank">Thomas Southwood</a> supports The Parent Investment Alliance (PIA) "Because the RICH PIA program focuses on helping parents develop successful home environments that foster their child's confidence in learning."</p>
+    <div class="pia-reveal">
+      <div class="pia-reveal-sticky">
+        <div class="row">
+          <div class="col">
+            <div class="img pia-podcast-img"><img src="images/pia-evita.png" alt="With Evita Belmonte — RICH Parent Advocate"></div>
+          </div>
+          <div class="col">
+            <div class="text-area pia-scroll-text">
+              <div class="pia-viewport">
+                <div class="pia-rail"><span class="pia-rail-fill"></span></div>
+                <div class="pia-track">
+                  <p>The <strong>RICH Parent Investment Alliance (PIA)</strong> is a program designed to give you the tools to reinforce your child's positive self-confidence practiced at home for school success. Because here's what 30 years of working with families has taught us: when a parent and a program speak the same language, a child's self-confidence strengthens.</p>
+                  <p>Our Parent Investment Alliance program is led by Dr. Evita Belmonte, a New York State parent leadership advocate, educator, and New York City Department of Education former board member on the Panel for Educational Policy. Dr. Belmonte has decades of experience working with Chancellors, Superintendents, Principals, and the United Federation of Teachers as a Parent Teacher Association Chairperson, supporting families' learning experiences for their children.</p>
+                  <p>RICH Chairman <a href="https://www.youtube.com/watch?v=J47G9RSTWaY" target="_blank">Thomas Southwood</a> supports The Parent Investment Alliance (PIA) "Because the RICH PIA program focuses on helping parents develop successful home environments that foster their child's confidence in learning."</p>
+                </div>
+              </div>
+              <div class="pia-cue" aria-hidden="true">Scroll to read <span>&#8595;</span></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -531,6 +835,75 @@
       window.addEventListener('scroll', computeTarget, { passive: true });
       window.addEventListener('resize', computeTarget);
       computeTarget();
+    })();
+  </script>
+
+  <script>
+    // Pinned scroll-reveal for the PIA text: pin the section, then glide the
+    // text up inside a clipped window in sync with page scroll (eased).
+    (function () {
+      var reveal = document.querySelector('.pia-reveal');
+      var viewport = document.querySelector('.pia-viewport');
+      var track = document.querySelector('.pia-track');
+      var railFill = document.querySelector('.pia-rail-fill');
+      var cue = document.querySelector('.pia-cue');
+      if (!reveal || !viewport || !track) return;
+
+      var overflow = 0;          // how far the text must travel
+      var current = 0, target = 0, running = false;
+
+      function isDesktop() {
+        return window.matchMedia('(min-width: 901px)').matches;
+      }
+
+      function measure() {
+        if (!isDesktop()) {
+          reveal.style.height = '';
+          track.style.transform = '';
+          overflow = 0;
+          return;
+        }
+        overflow = Math.max(0, track.scrollHeight - viewport.clientHeight);
+        // Extra scroll distance == hidden text height, so it fully reveals
+        // over a comfortable scroll without leaving a big empty gap after.
+        reveal.style.height = (window.innerHeight + overflow * 0.85) + 'px';
+        computeTarget();
+      }
+
+      function computeTarget() {
+        if (!isDesktop() || overflow === 0) { target = 0; }
+        else {
+          var rect = reveal.getBoundingClientRect();
+          var total = reveal.offsetHeight - window.innerHeight;
+          var p = total > 0 ? (-rect.top) / total : 0;
+          target = Math.min(1, Math.max(0, p));
+        }
+        if (!running) { running = true; requestAnimationFrame(raf); }
+      }
+
+      function raf() {
+        current += (target - current) * 0.09; // easing → smooth glide
+        if (isDesktop()) {
+          track.style.transform = 'translateY(' + (-current * overflow) + 'px)';
+        } else {
+          track.style.transform = '';
+        }
+        if (railFill) railFill.style.height = (current * 100).toFixed(1) + '%';
+        if (cue) cue.classList.toggle('is-hidden', current > 0.04);
+        if (Math.abs(target - current) > 0.0005) {
+          requestAnimationFrame(raf);
+        } else {
+          running = false;
+        }
+      }
+
+      window.addEventListener('scroll', computeTarget, { passive: true });
+      window.addEventListener('resize', measure);
+      window.addEventListener('load', measure);
+      // Recalculate once the podcast image has loaded (it sets row height).
+      var img = document.querySelector('.pia-podcast-img img');
+      if (img && !img.complete) img.addEventListener('load', measure);
+      measure();
     })();
   </script>
 
